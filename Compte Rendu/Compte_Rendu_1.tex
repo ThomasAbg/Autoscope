@@ -1,0 +1,135 @@
+%.$ xelatex --shell-escape TP1.tex
+
+%path to figures
+\newcommand{\figures}{../Figures}
+
+\documentclass[
+11pt,
+oneside,
+french,
+singlespacing,
+liststotoc,
+toctotoc,
+headsepline,
+]{MastersDoctoralThesis}
+
+\usepackage{mathpazo}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX, Mapping=tex-text]{TeX Gyre Pagella}
+\setmonofont{FreeMonoBold}
+\usepackage[backend=bibtex, style=authoryear, natbib=true]{biblatex}
+\addbibresource{example.bib}
+\usepackage[autostyle=true]{csquotes}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{minted}
+\usepackage{xcolor}
+
+\geometry{
+	paper=a4paper,
+	inner=2.5cm,
+	outer=2.5cm,
+	bindingoffset=0.5cm,
+	top=1.5cm,
+	bottom=1.5cm,
+	}
+
+\thesistitle{Autoscope\\Cahier des charges}
+\supervisor {}
+\examiner{}
+\degree{\href{http://www.estei.fr/filiere/informatique-systemes-embarques}{MASTER Systèmes Embarqués}}
+\author{Thomas ABGRALL\\Clément AILLOUD\\Thibaud LE DOLEDEC\\\href{https://www.github.com/thomaslepoix}{Thomas LEPOIX}}
+\addresses{}
+\subject{}
+\keywords{}
+\university{\href{http://www.estei.fr}{E.S.T.E.I.}}
+\department{\href{http://www.estei.fr}{École Supérieure des Technologies Électronique, Informatique, et Infographie}}
+\group{\href{http://www.estei.fr/filiere/informatique-systemes-embarques}{Département Systèmes Embarqués}}
+\faculty{\href{http://www.estei.fr}{E.S.T.E.I.}}
+
+\AtBeginDocument{
+	\hypersetup{pdftitle=\ttitle}
+	\hypersetup{pdfauthor=\authorname}
+	\hypersetup{pdfkeywords=\keywordnames}
+	}
+
+\begin{document}
+
+\mainmatter
+\pagestyle{plain}
+\usemintedstyle{monokailight}
+%bash/Ruby/basemake/
+\definecolor{gris}{gray}{0.97}
+\definecolor{gris2}{HTML}{282828}
+\definecolor{ubuntu}{HTML}{300A24}
+
+\newcommand{\code}[1]{\begin{minted}[
+linenos,
+breaklines,
+breakautoindent,
+breakaftersymbolpost,
+bgcolor=gris,
+fontsize=\scriptsize,
+obeytabs,
+tabsize=4,
+showtabs,
+]{#1}}
+
+\newcommand{\codeinline}[2]{\mintinline[fontsize=\footnotesize]{#1}{#2}}
+
+
+%------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+{\href{http://www.estei.fr}{\includegraphics[width=\linewidth]{/home/hernie/Documents/ESTEI/estei.png}}}
+\vspace*{.06\textheight}
+\vspace{1.5cm}\\
+\textsc{\Large Projet de MASTER 2}\\[0.5cm]
+
+\HRule \\[0.4cm]
+{\huge \bfseries \ttitle\par}\vspace{0.4cm}
+\HRule \\[1.5cm]
+
+\large{\emph{Auteurs :}\\
+\authorname}
+
+\vspace{4cm}
+\degreename\\[1cm]
+{\vspace{0.4cm}\scshape\LARGE \univname}\\\deptname\\\groupname\\[1cm]
+
+\vfill
+
+{\large \today}\\[1cm]
+
+\end{center}
+\end{titlepage}
+
+%------------------------------------------------------------------
+
+%\begin{acknowledgements}
+%\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+%\end{acknowledgements}
+
+\tableofcontents
+
+\pagestyle{thesis}
+
+%chapter Cahier des charges
+%chapter Structure 3D
+%chapter Hardware
+%chapter Middleware
+%chapter Software
+%chapter Conclusion
+
+%\part{}
+\include{Chapters/Chapter1}
+%\include{Chapters/Chapter2}
+%\include{Chapters/Chapter3}
+
+\appendix
+
+%\include{Appendices/AppendixA}
+
+\end{document}
