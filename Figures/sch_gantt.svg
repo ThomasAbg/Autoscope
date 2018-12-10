@@ -9,13 +9,13 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   width="1033.1731"
+   width="1010.6138"
    height="666.64801"
-   id="svg481"
+   id="svg487"
    sodipodi:docname="sch_gantt.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
-     id="metadata485">
+     id="metadata491">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -37,19 +37,19 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
      inkscape:window-height="1001"
-     id="namedview483"
+     id="namedview489"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:zoom="0.98452626"
-     inkscape:cx="558.96375"
-     inkscape:cy="315.76459"
+     inkscape:zoom="0.69616519"
+     inkscape:cx="757.5312"
+     inkscape:cy="405.90457"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg481" />
+     inkscape:current-layer="svg487" />
   <defs
      id="defs27">
     <linearGradient
@@ -130,16 +130,16 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1374"
-       x1="551.4"
+       id="linearGradient1355"
+       x1="575.4"
        y1="359.4"
-       x2="551.4"
+       x2="575.4"
        y2="372.6"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ff7f00-1-ff7f00-1-s-0"
-       id="linearGradient1376"
+       id="linearGradient1357"
        x1="368.89708"
        y1="1307.3705"
        x2="368.89708"
@@ -149,7 +149,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ff7f00-1-ff7f00-1-s-0"
-       id="linearGradient1378"
+       id="linearGradient1359"
        x1="469.13557"
        y1="825.62821"
        x2="469.13557"
@@ -159,7 +159,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ff7f00-1-ff7f00-1-s-0"
-       id="linearGradient1380"
+       id="linearGradient1361"
        x1="574.0368"
        y1="662.44596"
        x2="574.0368"
@@ -169,7 +169,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ff7f00-1-ff7f00-1-s-0"
-       id="linearGradient1382"
+       id="linearGradient1363"
        x1="322.88124"
        y1="733.97995"
        x2="322.88124"
@@ -179,7 +179,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ff7f00-1-ff7f00-1-s-0"
-       id="linearGradient1384"
+       id="linearGradient1365"
        x1="515.10175"
        y1="410.29167"
        x2="515.10175"
@@ -189,34 +189,34 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-bf00bf-1-bf00bf-1-s-0"
-       id="linearGradient1386"
-       x1="551.4"
+       id="linearGradient1367"
+       x1="575.4"
        y1="335.4"
-       x2="551.4"
+       x2="575.4"
        y2="348.6"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00bfbf-1-00bfbf-1-s-0"
-       id="linearGradient1388"
-       x1="551.4"
+       id="linearGradient1369"
+       x1="575.4"
        y1="311.4"
-       x2="551.4"
+       x2="575.4"
        y2="324.6"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1390"
-       x1="551.4"
+       id="linearGradient1371"
+       x1="575.4"
        y1="287.4"
-       x2="551.4"
+       x2="575.4"
        y2="300.6"
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1392"
+       id="linearGradient1373"
        x1="659.4"
        y1="827.4"
        x2="659.4"
@@ -225,7 +225,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1394"
+       id="linearGradient1375"
        x1="659.4"
        y1="767.4"
        x2="659.4"
@@ -234,7 +234,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1396"
+       id="linearGradient1377"
        x1="659.4"
        y1="623.4"
        x2="659.4"
@@ -243,7 +243,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1398"
+       id="linearGradient1379"
        x1="659.4"
        y1="455.4"
        x2="659.4"
@@ -252,7 +252,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1400"
+       id="linearGradient1381"
        x1="659.4"
        y1="395.4"
        x2="659.4"
@@ -261,7 +261,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1402"
+       id="linearGradient1383"
        x1="755.4"
        y1="503.4"
        x2="755.4"
@@ -270,7 +270,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00bfbf-1-00bfbf-1-s-0"
-       id="linearGradient1404"
+       id="linearGradient1385"
        x1="767.4"
        y1="311.4"
        x2="767.4"
@@ -279,7 +279,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00bfbf-1-00bfbf-1-s-0"
-       id="linearGradient1406"
+       id="linearGradient1387"
        x1="755.4"
        y1="515.4"
        x2="755.4"
@@ -288,7 +288,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00bfbf-1-00bfbf-1-s-0"
-       id="linearGradient1408"
+       id="linearGradient1389"
        x1="659.4"
        y1="611.4"
        x2="659.4"
@@ -297,7 +297,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00bfbf-1-00bfbf-1-s-0"
-       id="linearGradient1410"
+       id="linearGradient1391"
        x1="659.4"
        y1="755.4"
        x2="659.4"
@@ -306,7 +306,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00bfbf-1-00bfbf-1-s-0"
-       id="linearGradient1412"
+       id="linearGradient1393"
        x1="659.4"
        y1="815.4"
        x2="659.4"
@@ -315,7 +315,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-bf00bf-1-bf00bf-1-s-0"
-       id="linearGradient1414"
+       id="linearGradient1395"
        x1="659.4"
        y1="383.4"
        x2="659.4"
@@ -324,7 +324,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-bf00bf-1-bf00bf-1-s-0"
-       id="linearGradient1416"
+       id="linearGradient1397"
        x1="767.4"
        y1="299.4"
        x2="767.4"
@@ -333,7 +333,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-bf00bf-1-bf00bf-1-s-0"
-       id="linearGradient1418"
+       id="linearGradient1399"
        x1="659.4"
        y1="743.4"
        x2="659.4"
@@ -342,7 +342,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-bf00bf-1-bf00bf-1-s-0"
-       id="linearGradient1420"
+       id="linearGradient1401"
        x1="659.4"
        y1="803.4"
        x2="659.4"
@@ -351,7 +351,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1422"
+       id="linearGradient1403"
        x1="671.4"
        y1="683.4"
        x2="671.4"
@@ -360,7 +360,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1424"
+       id="linearGradient1405"
        x1="659.4"
        y1="731.4"
        x2="659.4"
@@ -369,7 +369,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1426"
+       id="linearGradient1407"
        x1="659.4"
        y1="791.4"
        x2="659.4"
@@ -378,7 +378,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1428"
+       id="linearGradient1409"
        x1="659.4"
        y1="371.4"
        x2="659.4"
@@ -387,7 +387,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1430"
+       id="linearGradient1411"
        x1="671.4"
        y1="191.4"
        x2="671.4"
@@ -396,7 +396,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1432"
+       id="linearGradient1413"
        x1="659.4"
        y1="599.4"
        x2="659.4"
@@ -405,7 +405,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-00ff00-1-00ff00-1-s-0"
-       id="linearGradient1434"
+       id="linearGradient1415"
        x1="755.4"
        y1="527.4"
        x2="755.4"
@@ -414,7 +414,7 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1436"
+       id="linearGradient1417"
        x1="839.4"
        y1="455.4"
        x2="839.4"
@@ -423,16 +423,25 @@
     <linearGradient
        inkscape:collect="always"
        xlink:href="#mx-gradient-ffff00-1-ffff00-1-s-0"
-       id="linearGradient1438"
+       id="linearGradient1419"
        x1="911.4"
        y1="539.4"
        x2="911.4"
        y2="552.6"
        gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#mx-gradient-bf00bf-1-bf00bf-1-s-0"
+       id="linearGradient1421"
+       x1="659.4"
+       y1="443.4"
+       x2="659.4"
+       y2="456.6"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
-     transform="matrix(0.94,0,0,0.94,-377.45551,-134.796)"
-     id="g479">
+     transform="matrix(0.94,0,0,0.94,-400.01551,-134.796)"
+     id="g485">
     <rect
        x="660"
        y="792"
@@ -452,21 +461,21 @@
          id="text31">Regroupement documentation</text>
     </g>
     <circle
-       cx="558"
+       cx="582"
        cy="366"
        pointer-events="none"
        id="ellipse35"
        r="6"
-       style="fill:url(#linearGradient1374);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1355);stroke:#000000;stroke-width:1.20000005" />
     <path
-       d="m 553.71,370.29 8.58,-8.58"
+       d="m 577.71,370.29 8.58,-8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path37"
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
     <path
-       d="m 553.71,361.71 8.58,8.58"
+       d="m 577.71,361.71 8.58,8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path39"
@@ -477,7 +486,7 @@
        id="g43"
        style="font-size:14.39999962px;font-family:Arial, Helvetica;text-anchor:end;fill:#000000">
       <text
-         x="548.59998"
+         x="572.59998"
          y="370.79999"
          id="text41">Thibaud LE DOLEDEC</text>
     </g>
@@ -489,7 +498,7 @@
        transform="rotate(180,738,756)"
        pointer-events="none"
        id="rect45"
-       style="fill:url(#linearGradient1376);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1357);stroke:#000000;stroke-width:1.20000005" />
     <g
        font-size="14.399999999999999px"
        id="g51"
@@ -527,8 +536,8 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 597.44336,557.04492 v 45.11914 h 112.96875 22.39062 0.16993 l 11.11132,-22.56054 -11.11132,-22.5586 h -0.16993 -22.39062 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="m 574.78125,557.04492 v 45.11914 H 687.75 h 22.39062 0.16993 l 11.10937,-22.56054 -11.10937,-22.5586 H 710.14062 687.75 Z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect61"
        inkscape:connector-curvature="0" />
     <g
@@ -546,8 +555,8 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 247.93359,478.08398 11.10938,22.56055 -11.10938,22.55859 h 462.31055 v -45.11914 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="m 225.26953,478.08398 11.11133,22.56055 -11.11133,22.55859 h 462.31055 v -45.11914 z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect69"
        inkscape:connector-curvature="0" />
     <g
@@ -567,7 +576,7 @@
        transform="rotate(180,708,612)"
        pointer-events="none"
        id="rect75"
-       style="fill:url(#linearGradient1378);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1359);stroke:#000000;stroke-width:1.20000005" />
     <g
        font-size="14.399999999999999px"
        id="g81"
@@ -589,7 +598,7 @@
        transform="rotate(180,798,528)"
        pointer-events="none"
        id="rect83"
-       style="fill:url(#linearGradient1380);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1361);stroke:#000000;stroke-width:1.20000005" />
     <g
        font-size="14.399999999999999px"
        id="g91"
@@ -721,7 +730,7 @@
        transform="rotate(180,762,384)"
        pointer-events="none"
        id="rect133"
-       style="fill:url(#linearGradient1382);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1363);stroke:#000000;stroke-width:1.20000005" />
     <g
        font-size="14.399999999999999px"
        id="g139"
@@ -783,7 +792,7 @@
        transform="rotate(180,822,300)"
        pointer-events="none"
        id="rect155"
-       style="fill:url(#linearGradient1384);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1365);stroke:#000000;stroke-width:1.20000005" />
     <g
        font-size="14.399999999999999px"
        id="g161"
@@ -821,8 +830,8 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 529.76367,128.4043 v 45.11914 h 180.64844 22.39062 0.16993 l 11.11132,-22.5586 -11.11132,-22.56054 h -0.16993 -22.39062 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="m 507.10156,128.4043 v 45.11914 H 687.75 h 22.39062 0.16993 l 11.10937,-22.5586 -11.10937,-22.56054 H 710.14062 687.75 Z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect171"
        inkscape:connector-curvature="0" />
     <g
@@ -840,8 +849,8 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 529.76367,72.003906 v 45.119144 h 180.64844 22.39062 0.16993 L 744.08398,94.564453 732.97266,72.003906 h -0.16993 -22.39062 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="M 507.10156,72.003906 V 117.12305 H 687.75 h 22.39062 0.16993 L 721.41992,94.564453 710.31055,72.003906 H 710.14062 687.75 Z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect179"
        inkscape:connector-curvature="0" />
     <g
@@ -859,8 +868,8 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 247.93359,15.603516 11.10938,22.560546 -11.10938,22.560547 h 507.59961 22.39063 0.16797 L 789.20312,38.164062 778.0918,15.603516 h -0.16797 -22.39063 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="m 225.26953,15.603516 11.11133,22.560546 -11.11133,22.560547 h 507.59961 22.39063 0.16992 L 766.54102,38.164062 755.42969,15.603516 h -0.16992 -22.39063 z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect187"
        inkscape:connector-curvature="0" />
     <g
@@ -989,8 +998,8 @@
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 597.44336,263.76367 v 45.1211 h 158.08984 22.39063 0.16797 l 11.11132,-22.56055 -11.11132,-22.56055 h -0.16797 -22.39063 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="m 574.78125,263.76367 v 45.1211 h 158.08789 22.39063 0.16992 l 11.11133,-22.56055 -11.11133,-22.56055 h -0.16992 -22.39063 z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect235"
        inkscape:connector-curvature="0" />
     <g
@@ -1003,21 +1012,21 @@
          id="text237">Intégration</text>
     </g>
     <circle
-       cx="558"
+       cx="582"
        cy="342"
        pointer-events="none"
        id="ellipse253"
        r="6"
-       style="fill:url(#linearGradient1386);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1367);stroke:#000000;stroke-width:1.20000005" />
     <path
-       d="m 553.71,346.29 8.58,-8.58"
+       d="m 577.71,346.29 8.58,-8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path255"
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
     <path
-       d="m 553.71,337.71 8.58,8.58"
+       d="m 577.71,337.71 8.58,8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path257"
@@ -1028,26 +1037,26 @@
        id="g261"
        style="font-size:14.39999962px;font-family:Arial, Helvetica;text-anchor:end;fill:#000000">
       <text
-         x="548.59998"
+         x="572.59998"
          y="346.79999"
          id="text259">Clément AILLOUD</text>
     </g>
     <circle
-       cx="558"
+       cx="582"
        cy="318"
        pointer-events="none"
        id="ellipse263"
        r="6"
-       style="fill:url(#linearGradient1388);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1369);stroke:#000000;stroke-width:1.20000005" />
     <path
-       d="m 553.71,322.29 8.58,-8.58"
+       d="m 577.71,322.29 8.58,-8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path265"
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
     <path
-       d="m 553.71,313.71 8.58,8.58"
+       d="m 577.71,313.71 8.58,8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path267"
@@ -1058,26 +1067,26 @@
        id="g271"
        style="font-size:14.39999962px;font-family:Arial, Helvetica;text-anchor:end;fill:#000000">
       <text
-         x="548.59998"
+         x="572.59998"
          y="322.79999"
          id="text269">Thomas ABGRALL</text>
     </g>
     <circle
-       cx="558"
+       cx="582"
        cy="294"
        pointer-events="none"
        id="ellipse273"
        r="6"
-       style="fill:url(#linearGradient1390);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1371);stroke:#000000;stroke-width:1.20000005" />
     <path
-       d="m 553.71,298.29 8.58,-8.58"
+       d="m 577.71,298.29 8.58,-8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path275"
        inkscape:connector-curvature="0"
        style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
     <path
-       d="m 553.71,289.71 8.58,8.58"
+       d="m 577.71,289.71 8.58,8.58"
        stroke-miterlimit="10"
        pointer-events="none"
        id="path277"
@@ -1088,7 +1097,7 @@
        id="g281"
        style="font-size:14.39999962px;font-family:Arial, Helvetica;text-anchor:end;fill:#000000">
       <text
-         x="548.59998"
+         x="572.59998"
          y="298.79999"
          id="text279">Thomas LEPOIX</text>
     </g>
@@ -1098,7 +1107,7 @@
        pointer-events="none"
        id="ellipse307"
        r="6"
-       style="fill:url(#linearGradient1392);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1373);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,838.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1119,7 +1128,7 @@
        pointer-events="none"
        id="ellipse313"
        r="6"
-       style="fill:url(#linearGradient1394);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1375);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,778.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1140,7 +1149,7 @@
        pointer-events="none"
        id="ellipse319"
        r="6"
-       style="fill:url(#linearGradient1396);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1377);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,634.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1161,7 +1170,7 @@
        pointer-events="none"
        id="ellipse325"
        r="6"
-       style="fill:url(#linearGradient1398);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1379);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,466.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1182,7 +1191,7 @@
        pointer-events="none"
        id="ellipse331"
        r="6"
-       style="fill:url(#linearGradient1400);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1381);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,406.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1203,7 +1212,7 @@
        pointer-events="none"
        id="ellipse337"
        r="6"
-       style="fill:url(#linearGradient1402);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1383);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 757.71,514.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1224,7 +1233,7 @@
        pointer-events="none"
        id="ellipse343"
        r="6"
-       style="fill:url(#linearGradient1404);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1385);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 769.71,322.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1245,7 +1254,7 @@
        pointer-events="none"
        id="ellipse349"
        r="6"
-       style="fill:url(#linearGradient1406);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1387);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 757.71,526.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1266,7 +1275,7 @@
        pointer-events="none"
        id="ellipse355"
        r="6"
-       style="fill:url(#linearGradient1408);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1389);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,622.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1287,7 +1296,7 @@
        pointer-events="none"
        id="ellipse361"
        r="6"
-       style="fill:url(#linearGradient1410);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1391);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,766.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1308,7 +1317,7 @@
        pointer-events="none"
        id="ellipse367"
        r="6"
-       style="fill:url(#linearGradient1412);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1393);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,826.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1329,7 +1338,7 @@
        pointer-events="none"
        id="ellipse373"
        r="6"
-       style="fill:url(#linearGradient1414);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1395);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,394.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1350,7 +1359,7 @@
        pointer-events="none"
        id="ellipse379"
        r="6"
-       style="fill:url(#linearGradient1416);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1397);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 769.71,310.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1371,7 +1380,7 @@
        pointer-events="none"
        id="ellipse385"
        r="6"
-       style="fill:url(#linearGradient1418);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1399);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,754.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1392,7 +1401,7 @@
        pointer-events="none"
        id="ellipse391"
        r="6"
-       style="fill:url(#linearGradient1420);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1401);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,814.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1413,7 +1422,7 @@
        pointer-events="none"
        id="ellipse397"
        r="6"
-       style="fill:url(#linearGradient1422);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1403);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 673.71,694.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1434,7 +1443,7 @@
        pointer-events="none"
        id="ellipse403"
        r="6"
-       style="fill:url(#linearGradient1424);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1405);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,742.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1455,7 +1464,7 @@
        pointer-events="none"
        id="ellipse409"
        r="6"
-       style="fill:url(#linearGradient1426);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1407);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,802.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1476,7 +1485,7 @@
        pointer-events="none"
        id="ellipse415"
        r="6"
-       style="fill:url(#linearGradient1428);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1409);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,382.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1497,7 +1506,7 @@
        pointer-events="none"
        id="ellipse421"
        r="6"
-       style="fill:url(#linearGradient1430);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1411);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 673.71,202.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1518,7 +1527,7 @@
        pointer-events="none"
        id="ellipse427"
        r="6"
-       style="fill:url(#linearGradient1432);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1413);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 661.71,610.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1539,7 +1548,7 @@
        pointer-events="none"
        id="ellipse433"
        r="6"
-       style="fill:url(#linearGradient1434);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1415);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 757.71,538.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1616,7 +1625,7 @@
        pointer-events="none"
        id="ellipse455"
        r="6"
-       style="fill:url(#linearGradient1436);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1417);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 841.71,466.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1637,7 +1646,7 @@
        pointer-events="none"
        id="ellipse461"
        r="6"
-       style="fill:url(#linearGradient1438);stroke:#000000;stroke-width:1.20000005" />
+       style="fill:url(#linearGradient1419);stroke:#000000;stroke-width:1.20000005" />
     <path
        d="m 913.71,550.29 8.58,-8.58"
        stroke-miterlimit="10"
@@ -1654,8 +1663,8 @@
        style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1.12800002"
-       d="m 823.21289,15.603516 11.11133,22.560546 -11.11133,22.560547 h 180.48051 22.3906 0.168 l 11.1113,-22.560547 -11.1113,-22.560546 h -0.168 -22.3906 z"
-       transform="matrix(1.0638298,0,0,1.0638298,396.42187,139.4)"
+       d="m 800.55078,15.603516 11.10938,22.560546 -11.10938,22.560547 h 180.47852 22.3906 0.1699 l 11.1114,-22.560547 -11.1114,-22.560546 h -0.1699 -22.3906 z"
+       transform="matrix(1.0638298,0,0,1.0638298,420.53125,139.4)"
        id="rect467"
        inkscape:connector-curvature="0" />
     <g
@@ -1671,5 +1680,26 @@
          y="193.2"
          id="text471">d'astre</text>
     </g>
+    <circle
+       cx="666"
+       cy="450"
+       pointer-events="none"
+       id="ellipse479"
+       r="6"
+       style="fill:url(#linearGradient1421);stroke:#000000;stroke-width:1.20000005" />
+    <path
+       d="m 661.71,454.29 8.58,-8.58"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path481"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
+    <path
+       d="m 661.71,445.71 8.58,8.58"
+       stroke-miterlimit="10"
+       pointer-events="none"
+       id="path483"
+       inkscape:connector-curvature="0"
+       style="fill:none;stroke:#000000;stroke-width:1.20000005;stroke-miterlimit:10" />
   </g>
 </svg>
