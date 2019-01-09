@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.1.8)  9 JAN 2019 18:17
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2019.1.8)  9 JAN 2019 18:38
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2187,22 +2187,27 @@ File: ./Figures/moteur.jpg Graphic file (type bmp)
 <./Figures/moteur.jpg>
 File: ./Figures/controleur.jpg Graphic file (type bmp)
 <./Figures/controleur.jpg>
- [9])
-Underfull \hbox (badness 10000) in paragraph at lines 93--130
+ [9]
+Underfull \hbox (badness 10000) in paragraph at lines 93--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--130
+Underfull \hbox (badness 10000) in paragraph at lines 93--105
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 93--130
+Underfull \hbox (badness 10000) in paragraph at lines 93--105
 
  []
 
-[10]
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--105
+
+ []
+
+[10]) [11]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 137.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 137.
  (./Compte_Rendu_2.aux (./Chapters/Chapter1.aux)
@@ -2226,4 +2231,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  59i,19n,77p,10387b,4136s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Compte_Rendu_2.pdf (11 pages).
+Output written on Compte_Rendu_2.pdf (12 pages).
