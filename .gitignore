@@ -1,0 +1,7 @@
+*.aux
+*.bib
+*.log
+*.out
+*.xml
+*.toc
+_minted*/
