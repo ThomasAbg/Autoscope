@@ -11,4 +11,5 @@
 \contentsline {section}{\numberline {2.1}Placement des moteurs}{7}{section.11}
 \contentsline {section}{\numberline {2.2}Choix des moteurs}{9}{section.16}
 \contentsline {section}{\numberline {2.3}Contrôle des moteurs}{9}{section.18}
-\contentsline {section}{\numberline {2.4}}{10}{section.20}
+\contentsline {section}{\numberline {2.4}Présentation du code}{10}{section.20}
+\contentsline {section}{\numberline {2.5}En soutien}{11}{section.21}
