@@ -1,0 +1,263 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="850"
+     height="338">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-ff7f00-1-ff7f00-1-s-0">
+            <stop offset="0%" style="stop-color:#ff7f00"/>
+            <stop offset="100%" style="stop-color:#ff7f00"/>
+        </linearGradient>
+    </defs>
+    <g transform=" scale(0.89) translate(-219.2,-731.2)">
+        <rect x="1008" y="736" width="96" height="80" rx="5.37" ry="5.37"
+              fill="none" stroke="#000000" stroke-width="1.6"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="1056" y="782.4">
+                GPS
+            </text>
+        </g>
+        <rect x="1008" y="832" width="96" height="80" rx="5.37" ry="5.37"
+              fill="none" stroke="#000000" stroke-width="1.6"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="1056" y="878.4">
+                IMU
+            </text>
+        </g>
+        <ellipse cx="1048" cy="1064" rx="40" ry="40" fill="none"
+                 stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="1048" y="1070.4">
+                M
+            </text>
+        </g>
+        <rect x="560" y="736" width="192" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="656" y="758.4">
+                Driver Autoscope
+            </text>
+        </g>
+        <rect x="784" y="736" width="192" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="880" y="758.4">
+                Driver GPS
+            </text>
+        </g>
+        <rect x="784" y="832" width="192" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="880" y="854.4">
+                Driver IMU
+            </text>
+        </g>
+        <rect x="784" y="928" width="192" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="880" y="950.4">
+                Driver motors
+            </text>
+        </g>
+        <rect x="784" y="960" width="192" height="144" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="880" y="1027.2">
+                -rotate(motor, nstep)
+            </text>
+            <text x="880" y="1049.6">
+                -stop(motor)
+            </text>
+        </g>
+        <rect x="784" y="864" width="192" height="48" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="880" y="894.4">
+                -getCoord()
+            </text>
+        </g>
+        <rect x="784" y="768" width="192" height="48" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="880" y="798.4">
+                -getCoord()
+            </text>
+        </g>
+        <rect x="560" y="768" width="192" height="336" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="656" y="931.2">
+                -getPosition(axis)
+            </text>
+            <text x="656" y="953.6">
+                -goTo(axis, position)
+            </text>
+        </g>
+        <rect x="368" y="768" width="160" height="336" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="448" y="908.8">
+                -switchView()
+            </text>
+            <text x="448" y="931.2">
+                -takePhoto()
+            </text>
+            <text x="448" y="953.6">
+                -placeStellarium()
+            </text>
+            <text x="448" y="976">
+                -placeTelescope()
+            </text>
+        </g>
+        <rect x="368" y="736" width="160" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="448" y="758.4">
+                User interface
+            </text>
+        </g>
+        <rect x="224" y="864" width="112" height="48" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <rect x="224" y="832" width="112" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="280" y="854.4">
+                Stellarium
+            </text>
+        </g>
+        <rect x="224" y="768" width="112" height="48" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <rect x="224" y="736" width="112" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="280" y="758.4">
+                Video
+            </text>
+        </g>
+        <rect x="224" y="960" width="112" height="48" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <rect x="224" y="928" width="112" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="280" y="950.4">
+                Siril
+            </text>
+        </g>
+        <rect x="224" y="1056" width="112" height="48" fill="none"
+              stroke="#000000" stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="280" y="1075.2">
+                -poweroff()
+            </text>
+            <text x="280" y="1097.6">
+                -shell()
+            </text>
+        </g>
+        <rect x="224" y="1024" width="112" height="32"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.6" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="middle" font-size="19.200000000000003px">
+            <text x="280" y="1046.4">
+                System
+            </text>
+        </g>
+        <rect x="1008" y="928" width="96" height="80" rx="5.37" ry="5.37"
+              fill="none" stroke="#000000" stroke-width="1.6"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="19.200000000000003px">
+            <text x="1056" y="963.2">
+                Position
+            </text>
+            <text x="1056" y="985.6">
+                sensor
+            </text>
+        </g>
+        <path d="M 336 784 L 344 784 Q 352 784 360 784 L 368 784" fill="none"
+              stroke="#000000" stroke-width="3.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 336 880 L 344 880 Q 352 880 360 880 L 368 880" fill="none"
+              stroke="#000000" stroke-width="3.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 336 976 L 344 976 Q 352 976 360 976 L 368 976" fill="none"
+              stroke="#000000" stroke-width="3.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <path d="M 336 1072 L 344 1072 Q 352 1072 360 1072 L 368 1072"
+              fill="none" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 538.78 936 L 549.22 936" fill="none" stroke="#000000"
+              stroke-width="3.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 531.58 936 L 541.18 931.2 L 538.78 936 L 541.18 940.8 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 556.42 936 L 546.82 940.8 L 549.22 936 L 546.82 931.2 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 773.22 1024 L 770.61 1024 Q 768 1024 760 1024 L 752 1024"
+              fill="none" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 780.42 1024 L 770.82 1028.8 L 773.22 1024 L 770.82 1019.2 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 784 880 L 776 880 Q 768 880 765.39 880 L 762.78 880"
+              fill="none" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 755.58 880 L 765.18 875.2 L 762.78 880 L 765.18 884.8 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 784 784 L 776 784 Q 768 784 765.39 784 L 762.78 784"
+              fill="none" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 755.58 784 L 765.18 779.2 L 762.78 784 L 765.18 788.8 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1008 776 L 986.78 776" fill="none" stroke="#000000"
+              stroke-width="3.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 979.58 776 L 989.18 771.2 L 986.78 776 L 989.18 780.8 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1008 872 L 986.78 872" fill="none" stroke="#000000"
+              stroke-width="3.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 979.58 872 L 989.18 867.2 L 986.78 872 L 989.18 876.8 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1008 968 L 986.78 968" fill="none" stroke="#000000"
+              stroke-width="3.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 979.58 968 L 989.18 963.2 L 986.78 968 L 989.18 972.8 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 997.22 1064 L 976 1064" fill="none" stroke="#000000"
+              stroke-width="3.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1004.42 1064 L 994.82 1068.8 L 997.22 1064 L 994.82 1059.2 Z"
+              fill="#000000" stroke="#000000" stroke-width="3.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+</svg>

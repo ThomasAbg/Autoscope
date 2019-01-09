@@ -1,0 +1,24 @@
+\chapter{Hardware}
+\label{chapter2}
+
+\section{Choix des principaux composants}
+
+Les principaux composants électroniques ont étés choisis en premier lieu sur les critères du prix et de la rapidité de mise en œuvre.
+
+\vspace{1cm}
+
+\begin{itemize}[label=$\bullet$]
+	\item Le GPS : Le module adafruit-ultimate-gps (MTK3339)
+	\item L'IMU : Le module Sarkfun SEN-13762 (MPU9250)
+	\item Le convertisseur $12V/5V$ : Le Composant intégré Recom R-78B5.0-2.0 capable de fournir un courant de $2A$.
+
+\section{Procédure de calibration}
+
+Une procédure de calibration du télescope sera sans doute à prévoir à son allumage. Celle-ci ayant pour but de déterminer la direction du nord et la direction verticale.
+
+\vspace{1cm}
+
+À supposer que le télescope soit posé sur une surface proche de l'horizontale, la procédure consisterait~:
+\begin{itemize}[label=$\bullet$]
+	\item Pour l'azimut, à effectuer une rotation complète pour déterminer la direction dans laquelle le champ magnétique est le plus fort, le nord.
+	\item Pour l'élévation, à balayer la plage de mouvement des croissants de la structure en observant les données de l'accéléromètre. La position dans laquelle l'accélération de la 

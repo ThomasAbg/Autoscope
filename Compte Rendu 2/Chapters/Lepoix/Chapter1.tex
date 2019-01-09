@@ -1,0 +1,94 @@
+\chapter{Architecture}
+\label{chapter1}
+
+\section{Architecture système}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{\figures/sch_functionnal.pdf}
+    \decoRule
+    \caption[
+    Schéma fonctionnel du télescope]{
+    Schéma fonctionnel du télescope}
+    \label{fig:Schéma fonctionnel du télescope}
+    \end{figure}
+
+\vspace{1cm}
+
+Le télescope sera composé d'une carte Raspberry Pi à laquelle sera connecté une carte de même format accueillant le module GPS, le module IMU (centrale inertielle), les contrôleurs des moteurs ainsi que l'alimentation du système. Les modules GPS et IMU seront probablement déportés afin de les éloigner des moteurs et de leurs perturbations électromagnétiques.
+
+La caméra et l'éventuel écran tactile seront directement connectés à la Raspberry Pi.
+
+Trois moteurs permettront de mouvoir le télescope~:
+\begin{itemize}[label=$\bullet$]
+	\item Un pour l'azimut.
+	\item Un pour l'élévation.
+	\item Un pour le zoom.
+	\end{itemize}
+
+\vspace{1cm}
+
+Pour interagir avec le télescope, l'utilisateur aura le choix d'utiliser l'écran tactile embarqué ou bien un ordinateur connecté au télescope via le réseau. Cette solution étant la voie d'accès préférentielle aux contrôles télescope.
+
+\section{Architecture logicielle}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{\figures/sch_software.pdf}
+    \decoRule
+    \caption[
+    Architecture logicielle du télescope]{
+    Architecture logicielle du télescope}
+    \label{fig:Architecture logicielle du télescope}
+    \end{figure}
+
+\vspace{1cm}
+
+Le fonctionnement du télescope reposera sur plusieurs briques logicielles.
+\begin{itemize}[label=$\bullet$]
+	\item Au plus bas niveau les drivers élémentaires permettant de recueillir les données que fournissent l'IMU et le GPS, ainsi que d'actionner les moteurs, ceux-ci étant asservis par des capteurs de positions extrêmes.
+	\item À l'étage suivant un driver de tout le télescope permettant de connaître les coordonnées précises du télescope (position géographique, orientation spatiale) et d'ordonner au télescope d'adopter une orientation particulière.
+	\item À l'étage supérieur l'interface utilisateur permettant de prendre des clichés du ciel, d'orienter le télescope selon Stellarium, de placer Stellarium selon l'orientation du télescope, mais avant tout de basculer entre les différents modes du télescope~:
+	\begin{itemize}
+		\item Observation du ciel via la caméra.
+		\item Exploration virtuelle du ciel avec Stellarium (local ou distant).
+		\item Amélioration d'images avec Siril.
+		\item Interaction avec le système d'exploitation du télescope.
+		\end{itemize}
+	\end{itemize}
+
+\section{Architecture matérielle}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{\figures/sch_hardware2.pdf}
+    \decoRule
+    \caption[
+    Schéma structurel de premier niveau du télescope]{
+    Schéma structurel de premier niveau du télescope}
+    \label{fig:Schéma structurel de premier niveau du télescope}
+    \end{figure}
+
+\vspace{1cm}
+
+La première question de l'étude structurelle du télescope est celle de l'alimentation.
+
+Le télescope sera raccordé au secteur par un module externe $220VAC / 12VDC$. Ensuite les moteurs seront alimentés en $12V$ via leurs contrôleurs respectifs et la Raspberry Pi sera alimentée en 5V. Un convertisseur $12V / 5V$ est donc a ajouter.
+
+Tous les autres éléments seront alimentés en $3,3V$ par la Raspberry Pi. Il est toutefois important de s'assurer que la consommation maximale en courant de ces élément ne dépasse pas ce que peut fournir la Raspberry Pi, à savoir $500mA$.
+\begin{itemize}[label=$\bullet$]
+	\item Contrôleurs des moteurs ($\times 3$)~: $8mA$
+	\item GPS~: $25mA$
+	\item IMU~: $3,7mA$
+	\item Capteurs de position des moteurs ($\times 4$)~: $33\mu A$
+	\end{itemize}
+
+\vspace{1cm}
+
+La consommation en courant totale des périphériques de la Raspberry Pi est largement inférieure à $500mA$, le montage est donc réalisable sans risque de dysfonctionnement ou de dommages.
+
+\vspace{1cm}
+
+La question des connectiques sera également déterminante dans l'élaboration de la carte pluggable sur la Raspberry Pi
+
+
