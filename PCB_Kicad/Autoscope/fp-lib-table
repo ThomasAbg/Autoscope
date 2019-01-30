@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name Autoscope)(type KiCad)(uri ${KIPRJMOD}/Autoscope.pretty)(options "")(descr ""))
+)

@@ -198,7 +198,7 @@
   )
 
   (module Autoscope:R-78B-2.0 (layer F.Cu) (tedit 5C50CE29) (tstamp 5C8201B9)
-    (at 136.5 87.5)
+    (at 136 89.5)
     (path /5C4FB180)
     (fp_text reference U1 (at 0 3.81) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
@@ -337,7 +337,7 @@
   )
 
   (module Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6AB87A)
-    (at 154.5 68.5)
+    (at 154.5 64)
     (descr "Through hole angled pin header, 1x05, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x05 2.54mm single row")
     (path /5C50166F)
@@ -447,8 +447,8 @@
     )
   )
 
-  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C98C64C)
-    (at 145.5 60.5 90)
+  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6ABB9C)
+    (at 138 60.5 90)
     (descr "Through hole angled pin header, 1x02, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x02 2.54mm single row")
     (path /5C4F73AD)
@@ -516,8 +516,8 @@
     )
   )
 
-  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C98C778)
-    (at 133 60.5 90)
+  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6ABBCF)
+    (at 125.5 60.5 90)
     (descr "Through hole angled pin header, 1x02, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x02 2.54mm single row")
     (path /5C540BD7)
@@ -585,8 +585,8 @@
     )
   )
 
-  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C98C8A4)
-    (at 139.46 60.5 90)
+  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6ABC02)
+    (at 131.96 60.5 90)
     (descr "Through hole angled pin header, 1x02, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x02 2.54mm single row")
     (path /5C544E03)
@@ -654,8 +654,8 @@
     )
   )
 
-  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C98C80E)
-    (at 126.5 60.5 90)
+  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6ABC35)
+    (at 119 60.5 90)
     (descr "Through hole angled pin header, 1x02, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x02 2.54mm single row")
     (path /5C549539)
@@ -723,8 +723,8 @@
     )
   )
 
-  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C98C6E2)
-    (at 151.5 60.5 90)
+  (module Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6ABC68)
+    (at 144 60.5 90)
     (descr "Through hole angled pin header, 1x02, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x02 2.54mm single row")
     (path /5C6038CA)
@@ -792,8 +792,8 @@
     )
   )
 
-  (module Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C98BEEF)
-    (at 154.5 85.5)
+  (module Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal (layer F.Cu) (tedit 59FED5CB) (tstamp 5C6ABFBD)
+    (at 154.5 84)
     (descr "Through hole angled pin header, 1x04, 2.54mm pitch, 6mm pin length, single row")
     (tags "Through hole angled pin header THT 1x04 2.54mm single row")
     (path /5C4FC8F6)
@@ -889,12 +889,12 @@
     )
   )
 
-  (module "Autoscope:ESTEI Logo" (layer F.Cu) (tedit 0) (tstamp 5C98C933)
-    (at 119.5 63 270)
-    (fp_text reference G*** (at 0 0 270) (layer F.SilkS) hide
+  (module "Autoscope:ESTEI Logo" (layer F.Cu) (tedit 0) (tstamp 5C769BBA)
+    (at 129.5 68.5)
+    (fp_text reference G*** (at 0 0) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
-    (fp_text value LOGO (at 0.75 0 270) (layer F.SilkS) hide
+    (fp_text value LOGO (at 0.75 0) (layer F.SilkS) hide
       (effects (font (size 1.524 1.524) (thickness 0.3)))
     )
     (fp_poly (pts (xy 7.603974 -1.603995) (xy 7.758652 -1.547986) (xy 7.766462 -1.542761) (xy 7.864168 -1.438939)
@@ -1369,7 +1369,7 @@
     )
   )
 
-  (gr_line (start 165 50) (end 80 50) (layer Edge.Cuts) (width 0.2) (tstamp 5C98C424))
+  (gr_line (start 165 50) (end 80 50) (layer Edge.Cuts) (width 0.2))
   (gr_line (start 165 106) (end 165 50) (layer Edge.Cuts) (width 0.2))
   (gr_line (start 80 106) (end 165 106) (layer Edge.Cuts) (width 0.2))
   (gr_line (start 80 50) (end 80 106) (layer Edge.Cuts) (width 0.2))
