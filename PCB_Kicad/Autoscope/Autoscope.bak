@@ -975,21 +975,21 @@ Wire Wire Line
 	4000 4050 4800 4050
 Wire Wire Line
 	5300 3950 6100 3950
-Text Label 6100 4150 2    50   ~ 0
+Text Label 4000 4450 0    50   ~ 0
 Motor2_DIR
-Text Label 4000 4250 0    50   ~ 0
+Text Label 6100 4450 2    50   ~ 0
 Motor2_STEP
 Wire Wire Line
 	6100 4150 5300 4150
 Wire Wire Line
 	5300 4050 6100 4050
-Text Label 6100 4250 2    50   ~ 0
-Motor2_MS3
-Text Label 6100 4450 2    50   ~ 0
-Motor2_MS1
 Text Label 4000 4350 0    50   ~ 0
+Motor2_MS3
+Text Label 4000 4250 0    50   ~ 0
+Motor2_MS1
+Text Label 6100 4250 2    50   ~ 0
 Motor2_MS2
-Text Label 4000 4450 0    50   ~ 0
+Text Label 6100 4150 2    50   ~ 0
 Motor2_EN
 Wire Wire Line
 	4000 4250 4800 4250
