@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/hernie/Documents/ESTEI/M2/Projet/Autoscope/Hardware/PCB_Kicad/Autoscope/Autoscope.sch)
-    (date "dim. 10 févr. 2019 23:57:36 CET")
+    (date "mar. 12 févr. 2019 19:00:27 CET")
     (tool "Eeschema 5.0.2-bee76a0~70~ubuntu18.04.1")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -100,7 +100,7 @@
       (tstamp 5C50166F))
     (comp (ref U1)
       (value R-78B5.0-2.0)
-      (footprint Autoscope:R-78B-2.0)
+      (footprint Converter_DCDC:Converter_DCDC_RECOM_R-78B-2.0_THT)
       (libsource (lib Autoscope) (part R-78B5.0-2.0) (description ""))
       (sheetpath (names /) (tstamps /))
       (tstamp 5C4FB180))

@@ -1,4 +1,4 @@
-(module A4988 (layer F.Cu) (tedit 5C518AB8)
+(module A4988 (layer F.Cu) (tedit 5C6361A4)
   (descr "Through hole straight pin header, 1x08, 2.54mm pitch, single row")
   (tags "Through hole pin header THT 1x08 2.54mm single row")
   (fp_text reference REF** (at 0 -1.27) (layer F.SilkS)
@@ -53,9 +53,29 @@
   (pad 13 thru_hole oval (at 6.35 -1.285 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask))
   (pad 9 thru_hole circle (at 6.35 8.875 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask))
   (pad 12 thru_hole oval (at 6.35 1.255 180) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask))
-  (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Vertical.wrl
-    (at (xyz 0 0 0))
+  (model ${KISYS3DMOD}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x08_P2.54mm_Vertical.wrl
+    (offset (xyz 6.35 8.875 0))
     (scale (xyz 1 1 1))
     (rotate (xyz 0 0 0))
+  )
+  (model ${KISYS3DMOD}/Connector_PinSocket_2.54mm.3dshapes/PinSocket_1x08_P2.54mm_Vertical.wrl
+    (offset (xyz -6.35 8.875 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+  (model ${KIPRJMOD}/Autoscope.pretty/packages3d/a4988-stepper-motor-driver-carrier.step
+    (offset (xyz 7.62 10.145 9.6))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 180))
+  )
+  (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Vertical.wrl
+    (offset (xyz 6.35 8.875 9.6))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 180 0))
+  )
+  (model ${KISYS3DMOD}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x08_P2.54mm_Vertical.wrl
+    (offset (xyz -6.35 8.875 9.6))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 180 0))
   )
 )

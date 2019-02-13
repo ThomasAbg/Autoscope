@@ -1,4 +1,4 @@
-(module Fuse_Holders_and_Fuses:Fuseholder5x20_horiz_SemiClosed_Casing10x25mm (layer F.Cu) (tedit 5C522DA3)
+(module Fuseholder5x20_horiz_SemiClosed_Casing10x25mm (layer F.Cu) (tedit 5C6349CA)
   (descr "Fuseholder, 5x20, Semi closed, horizontal, Casing 10x25mm,")
   (tags "Fuseholder, 5x20, Semi closed, horizontal, Casing 10x25mm, Sicherungshalter, halbgeschlossen,")
   (fp_text reference REF** (at 0 -1.25) (layer F.SilkS)
@@ -28,4 +28,9 @@
   (fp_line (start -5.99948 -2.49936) (end -5.99948 -5.00126) (layer F.SilkS) (width 0.15))
   (pad 1 thru_hole oval (at -11.00074 0 270) (size 3 4.5) (drill 2) (layers *.Cu *.Mask F.SilkS))
   (pad 2 thru_hole oval (at 11.00074 0 270) (size 3 4.5) (drill 2) (layers *.Cu *.Mask F.SilkS))
+  (model ${KIPRJMOD}/Autoscope.pretty/packages3d/FX0321.stp
+    (at (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 90 90 0))
+  )
 )
