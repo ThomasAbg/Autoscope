@@ -16,7 +16,7 @@ Little description
 ### Collaborators
 
 * Thomas Lepoix `<thomas.lepoix@gmail.com>`
-* Thomas Abgrall `<>`
+* Thomas Abgrall `<01thomas.abgrall@gmail.com>`
 * Clément Ailloud `<clem.ailloud@gmail.com>`
 
 
