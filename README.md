@@ -24,13 +24,14 @@ git clone https://github.com/thibaudledo/Autoscope -b hardware Hardware
 
 <br>
 
-## meta-autoscope
+## Yocto layer : meta-autoscope
 
-Here is the yocto-layer to build the telescope OS.
+Here is the yocto layer to build the telescope OS.
 
 - https://github.com/thomaslepoix/meta-autoscope
 
 <br>
+
 
 ## Maintainers
 
