@@ -24,7 +24,7 @@ git clone https://github.com/thibaudledo/Autoscope -b hardware Hardware
 
 <br>
 
-## Yocto layer : meta-autoscope
+## Yocto layer
 
 Here is the yocto layer to build the telescope OS.
 
@@ -32,8 +32,7 @@ Here is the yocto layer to build the telescope OS.
 
 <br>
 
-
-## Maintainers
+## Maintainers
 
 - Thibaud Le Doledec `<thibaudledo@gmail.com>`
 
