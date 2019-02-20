@@ -45,7 +45,6 @@ DD if=Chemin_image_source of=chemin_cible
 nom driver officiel a4988
 
 */
-
 #include <linux/kernel.h> /* Needed for KERN_INFO */
 #include <linux/interrupt.h>
 #include <linux/module.h>
@@ -54,6 +53,7 @@ nom driver officiel a4988
 #include <linux/gpio.h>
 #include <linux/fs.h>
 #include "header.h"
+
 
 // 	Contrôle moteur rotation
 #define Step_MRotation 16
@@ -86,6 +86,10 @@ nom driver officiel a4988
 #define ConfigPasZoom2 3333
 #define ConfigPasZoom3 3333
 
+MODULE_LICENSE("GPL");	// licence général public
+MODULE_AUTHOR("Thomas Abgrall");
+MODULE_DESCRIPTION("Module Driver moteurs"); 
+MODULE_VERSION("Version 1.00"); 
 //----------------------------------------------------------------------------------------------------------------//
 
 //------------------------------------------------Prototype fonctions---------------------------------------------//
@@ -515,7 +519,7 @@ void __exit my_exit (void)	// destructeur
 
 module_init(my_init);	// definition de l'initialiser du timer
 module_exit(my_exit);	// definition du destructeur du timer
-MODULE_LICENSE("GPL");	// licence général public
+
 //---------------------------------------------------------------------------------------------------------------//
 
 // ajouter la fonction de qualibration avec interrupteur
