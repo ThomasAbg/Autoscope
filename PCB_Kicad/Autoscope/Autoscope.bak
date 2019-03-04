@@ -251,15 +251,6 @@ F 3 "" H 4450 2950 50  0001 C CNN
 	1    4450 2950
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4450 2950 4700 2950
-Wire Wire Line
-	4700 2950 4700 3750
-Wire Wire Line
-	4700 3750 4800 3750
-Connection ~ 4700 2950
-Wire Wire Line
-	4700 2950 4800 2950
 $Comp
 L Connector_Generic:Conn_01x02 J1
 U 1 1 5C4F73AD
@@ -1534,4 +1525,7 @@ Text Notes 11150 600  2    50   ~ 10
 Motors controllers
 Text Notes 2750 600  2    50   ~ 10
 Position sensors
+Wire Wire Line
+	4450 2950 4800 2950
+NoConn ~ 4800 3750
 $EndSCHEMATC
