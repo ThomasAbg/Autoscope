@@ -1,0 +1,20 @@
+\chapter{Architecture}
+
+\section{Organisation des interfaces logicielles du télescope}
+
+Il s'agit ici de définir les différents canaux de communication entre le télescope et un ordinateur client (équipé de Stellarium), ainsi que le rôle de chaque.
+
+\begin{itemize}[label=$\bullet$]
+	\item Accès d'administration~: Protocole SSH (port 22), réservé à l'utilisateur \codeinline{text}{admin}
+	\item Transfert de photos~: Protocole FTP (ports 20 et 21), réservé à l'utilisateur \codeinline{text}{autoscope}
+	\item Transfert des directives de Stellarium~: Port arbitraire (actuellement 4444), à étudier.
+	\item Transfert du flux vidéo~: À étudier
+	\end{itemize}
+
+\vspace{1cm}
+
+Définir ces différents canaux de communication et les associer à des utilisateurs particuliers permet de renforcer la sécurité du système en le partitionnant davantage. De plus cela permettra ensuite de mettre en place un pare-feu robuste.
+
+\vspace{1cm}
+
+Il sera judicieux d'utiliser pour les directives de Stellarium et éventuellement le flux vidéo des ports de la plage $49152 - 65535$ car ceux-ci sont dédiés à des usages de ce type, qui ne sont pas voués à être standardisés. Cela diminuera le risque d'entrer un jour en conflit de port avec un autre protocole réseau.
