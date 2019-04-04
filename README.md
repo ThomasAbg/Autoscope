@@ -12,6 +12,6 @@
 
 ![autoscope_shield_sch](https://raw.githubusercontent.com/thibaudledo/Autoscope/hardware/PCB_Kicad/sch.png)
 
-## Components
+## Main components
 
 ...
