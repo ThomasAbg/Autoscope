@@ -1,6 +1,8 @@
 # Autoscope 3D structure (Blender)
 
-...
+## Preview
+
+![autoscope_3d_preview](https://raw.githubusercontent.com/thibaudledo/Autoscope/hardware/3D_Blender/3D.png)
 
 # Autoscope Raspberry-Pi shield (KiCad)
 
