@@ -21,5 +21,11 @@ Forked from a dead project.
 
 ## Main components
 
-...
+Camera : [Raspi-cam v2](https://www.raspberrypi.org/products/camera-module-v2/)
+Board : [Raspberry-Pi 3 B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+GPS : [MTK3339](https://www.adafruit.com/product/746)
+IMU : [MPU9250](https://www.sparkfun.com/products/13762)
+Motor controller : [a4988](https://www.pololu.com/product/1182)
+Motor azimut/elevation : [17HM15-0904S](https://www.gotronic.fr/art-moteur-17hm15-0904s-23049.htm)
+Motor zoom : [S20STH30-0604A](https://www.gotronic.fr/art-moteur-s20sth30-0604a-23045.htm)
 
