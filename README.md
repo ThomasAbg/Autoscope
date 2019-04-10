@@ -21,9 +21,9 @@ Forked from a dead project.
 
 ## Main components
 
-Camera : [Raspi-cam v2](https://www.raspberrypi.org/products/camera-module-v2/)
-
 Board : [Raspberry-Pi 3 B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/)
+
+Camera : [Raspi-cam v2](https://www.raspberrypi.org/products/camera-module-v2/)
 
 GPS : [MTK3339](https://www.adafruit.com/product/746)
 
