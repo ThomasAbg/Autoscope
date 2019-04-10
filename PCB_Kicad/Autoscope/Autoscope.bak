@@ -6,7 +6,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Autoscope"
-Date ""
+Date "2019-03-05"
 Rev ""
 Comp ""
 Comment1 ""
@@ -308,10 +308,10 @@ F 3 "~" H 1450 1100 50  0001 C CNN
 	1    1450 1100
 	1    0    0    -1  
 $EndComp
-Text Label 700  1300 0    50   ~ 0
-Position_sensor_1
+Text Label 650  1300 0    50   ~ 0
+Position_sensor_A1
 Wire Wire Line
-	700  1300 1450 1300
+	650  1300 1450 1300
 Wire Wire Line
 	1450 1250 1450 1300
 Connection ~ 1450 1300
@@ -331,7 +331,7 @@ F 3 "" H 1450 950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 4300 3150 0    50   ~ 0
-GPS_Rx
+GPS_EN
 Wire Wire Line
 	5950 3150 5300 3150
 Text Label 5950 3150 2    50   ~ 0
@@ -347,7 +347,7 @@ IMU_SCL
 Wire Wire Line
 	4300 3050 4800 3050
 Text Label 5950 3250 2    50   ~ 0
-GPS_EN
+GPS_Rx
 $Comp
 L Connector_Generic:Conn_01x04 J7
 U 1 1 5C4FC8F6
@@ -476,21 +476,21 @@ Wire Wire Line
 	8400 3600 8450 3600
 Connection ~ 8400 3500
 Text Label 7850 3100 0    50   ~ 0
-Motor2_EN
+MotorZ_EN
 Wire Wire Line
 	7850 3100 8450 3100
 Text Label 7850 3200 0    50   ~ 0
-Motor2_MS1
+MotorZ_MS1
 Wire Wire Line
 	7850 3200 8450 3200
 Text Label 7850 3300 0    50   ~ 0
-Motor2_MS2
+MotorZ_MS2
 Text Label 7850 3400 0    50   ~ 0
-Motor2_MS3
+MotorZ_MS3
 Text Label 7850 3700 0    50   ~ 0
-Motor2_STEP
+MotorZ_STEP
 Text Label 7850 3800 0    50   ~ 0
-Motor2_DIR
+MotorZ_DIR
 Wire Wire Line
 	7850 3800 8450 3800
 Wire Wire Line
@@ -531,21 +531,21 @@ Wire Wire Line
 	8400 5500 8450 5500
 Connection ~ 8400 5400
 Text Label 7850 5000 0    50   ~ 0
-Motor3_EN
+MotorA_EN
 Wire Wire Line
 	7850 5000 8450 5000
 Text Label 7850 5100 0    50   ~ 0
-Motor3_MS1
+MotorA_MS1
 Wire Wire Line
 	7850 5100 8450 5100
 Text Label 7850 5200 0    50   ~ 0
-Motor3_MS2
+MotorA_MS2
 Text Label 7850 5300 0    50   ~ 0
-Motor3_MS3
+MotorA_MS3
 Text Label 7850 5600 0    50   ~ 0
-Motor3_STEP
+MotorA_STEP
 Text Label 7850 5700 0    50   ~ 0
-Motor3_DIR
+MotorA_DIR
 Wire Wire Line
 	7850 5700 8450 5700
 Wire Wire Line
@@ -672,21 +672,21 @@ Wire Wire Line
 	8400 1650 8450 1650
 Connection ~ 8400 1550
 Text Label 7850 1150 0    50   ~ 0
-Motor1_EN
+MotorE_EN
 Wire Wire Line
 	7850 1150 8450 1150
 Text Label 7850 1250 0    50   ~ 0
-Motor1_MS1
+MotorE_MS1
 Wire Wire Line
 	7850 1250 8450 1250
 Text Label 7850 1350 0    50   ~ 0
-Motor1_MS2
+MotorE_MS2
 Text Label 7850 1450 0    50   ~ 0
-Motor1_MS3
+MotorE_MS3
 Text Label 7850 1750 0    50   ~ 0
-Motor1_STEP
+MotorE_STEP
 Text Label 7850 1850 0    50   ~ 0
-Motor1_DIR
+MotorE_DIR
 Wire Wire Line
 	8450 1750 7850 1750
 Wire Wire Line
@@ -750,10 +750,10 @@ F 3 "~" H 1450 2500 50  0001 C CNN
 	1    1450 2500
 	1    0    0    -1  
 $EndComp
-Text Label 700  2700 0    50   ~ 0
-Position_sensor_2
+Text Label 650  2700 0    50   ~ 0
+Position_sensor_E2
 Wire Wire Line
-	700  2700 1450 2700
+	650  2700 1450 2700
 Wire Wire Line
 	1450 2650 1450 2700
 Connection ~ 1450 2700
@@ -829,10 +829,10 @@ F 3 "~" H 1450 3900 50  0001 C CNN
 	1    1450 3900
 	1    0    0    -1  
 $EndComp
-Text Label 700  4100 0    50   ~ 0
-Position_sensor_3
+Text Label 650  4100 0    50   ~ 0
+Position_sensor_E1
 Wire Wire Line
-	700  4100 1450 4100
+	650  4100 1450 4100
 Wire Wire Line
 	1450 4050 1450 4100
 Connection ~ 1450 4100
@@ -908,10 +908,10 @@ F 3 "~" H 1450 5300 50  0001 C CNN
 	1    1450 5300
 	1    0    0    -1  
 $EndComp
-Text Label 700  5500 0    50   ~ 0
-Position_sensor_4
+Text Label 650  5500 0    50   ~ 0
+Position_sensor_Z2
 Wire Wire Line
-	700  5500 1450 5500
+	650  5500 1450 5500
 Wire Wire Line
 	1450 5450 1450 5500
 Connection ~ 1450 5500
@@ -930,90 +930,90 @@ F 3 "" H 1450 5150 50  0001 C CNN
 	1    1450 5150
 	1    0    0    -1  
 $EndComp
-Text Label 6100 3350 2    50   ~ 0
-Position_sensor_2
-Text Label 4000 3350 0    50   ~ 0
-Position_sensor_1
-Text Label 4000 3450 0    50   ~ 0
-Position_sensor_3
-Text Label 4000 3550 0    50   ~ 0
-Position_sensor_4
+Text Label 6150 3350 2    50   ~ 0
+Position_sensor_E2
+Text Label 3950 3350 0    50   ~ 0
+Position_sensor_A1
+Text Label 3950 3450 0    50   ~ 0
+Position_sensor_E1
+Text Label 3950 3550 0    50   ~ 0
+Position_sensor_Z2
 Wire Wire Line
-	4800 3350 4000 3350
+	4800 3350 3950 3350
 Wire Wire Line
-	4000 3450 4800 3450
+	3950 3450 4800 3450
 Wire Wire Line
-	4800 3550 4000 3550
-Text Label 4000 3950 0    50   ~ 0
-Motor1_DIR
-Text Label 4000 3850 0    50   ~ 0
-Motor1_STEP
+	4800 3550 3950 3550
+Text Label 3950 3950 0    50   ~ 0
+MotorE_DIR
+Text Label 3950 3850 0    50   ~ 0
+MotorE_STEP
 Wire Wire Line
-	6100 3650 5300 3650
-Text Label 4000 3750 0    50   ~ 0
-Motor1_MS3
-Text Label 6100 3950 2    50   ~ 0
-Motor1_MS2
-Text Label 6100 3850 2    50   ~ 0
-Motor1_MS1
-Text Label 6100 3650 2    50   ~ 0
-Motor1_EN
+	6150 3650 5300 3650
+Text Label 3950 3750 0    50   ~ 0
+MotorE_MS3
+Text Label 6150 3950 2    50   ~ 0
+MotorE_MS2
+Text Label 6150 3850 2    50   ~ 0
+MotorE_MS1
+Text Label 6150 3650 2    50   ~ 0
+MotorE_EN
 Wire Wire Line
-	4000 3750 4800 3750
+	3950 3750 4800 3750
 Wire Wire Line
-	4800 3850 4000 3850
+	4800 3850 3950 3850
 Wire Wire Line
-	4000 3950 4800 3950
+	3950 3950 4800 3950
 Wire Wire Line
-	5300 3850 6100 3850
-Text Label 4000 4350 0    50   ~ 0
-Motor2_DIR
-Text Label 6100 4350 2    50   ~ 0
-Motor2_STEP
+	5300 3850 6150 3850
+Text Label 3950 4350 0    50   ~ 0
+MotorZ_DIR
+Text Label 6150 4350 2    50   ~ 0
+MotorZ_STEP
 Wire Wire Line
-	6100 4050 5300 4050
+	6150 4050 5300 4050
 Wire Wire Line
-	5300 3950 6100 3950
-Text Label 4000 4250 0    50   ~ 0
-Motor2_MS3
-Text Label 4000 4150 0    50   ~ 0
-Motor2_MS1
-Text Label 6100 4150 2    50   ~ 0
-Motor2_MS2
-Text Label 6100 4050 2    50   ~ 0
-Motor2_EN
+	5300 3950 6150 3950
+Text Label 3950 4250 0    50   ~ 0
+MotorZ_MS3
+Text Label 3950 4150 0    50   ~ 0
+MotorZ_MS1
+Text Label 6150 4150 2    50   ~ 0
+MotorZ_MS2
+Text Label 6150 4050 2    50   ~ 0
+MotorZ_EN
 Wire Wire Line
-	4000 4150 4800 4150
+	3950 4150 4800 4150
 Wire Wire Line
-	4800 4250 4000 4250
+	4800 4250 3950 4250
 Wire Wire Line
-	4000 4350 4800 4350
+	3950 4350 4800 4350
 Wire Wire Line
-	5300 4150 6100 4150
-Text Label 6100 4750 2    50   ~ 0
-Motor3_DIR
-Text Label 6100 4650 2    50   ~ 0
-Motor3_STEP
-Text Label 6100 4550 2    50   ~ 0
-Motor3_MS3
-Text Label 4000 4450 0    50   ~ 0
-Motor3_MS2
-Text Label 4000 4550 0    50   ~ 0
-Motor3_MS1
-Text Label 4000 4650 0    50   ~ 0
-Motor3_EN
+	5300 4150 6150 4150
+Text Label 6150 4750 2    50   ~ 0
+MotorA_DIR
+Text Label 6150 4650 2    50   ~ 0
+MotorA_STEP
+Text Label 6150 4550 2    50   ~ 0
+MotorA_MS3
+Text Label 3950 4450 0    50   ~ 0
+MotorA_MS2
+Text Label 3950 4550 0    50   ~ 0
+MotorA_MS1
+Text Label 3950 4650 0    50   ~ 0
+MotorA_EN
 Wire Wire Line
-	6100 4350 5300 4350
+	6150 4350 5300 4350
 Wire Wire Line
-	4800 4450 4000 4450
+	4800 4450 3950 4450
 Wire Wire Line
-	4000 4550 4800 4550
+	3950 4550 4800 4550
 Wire Wire Line
-	4800 4650 4000 4650
+	4800 4650 3950 4650
 Wire Wire Line
-	5300 4650 6100 4650
+	5300 4650 6150 4650
 Wire Wire Line
-	6100 4550 5300 4550
+	6150 4550 5300 4550
 $Comp
 L Connector_Generic:Conn_01x02 J5
 U 1 1 5C6038CA
@@ -1071,10 +1071,10 @@ F 3 "~" H 1450 6700 50  0001 C CNN
 	1    1450 6700
 	1    0    0    -1  
 $EndComp
-Text Label 700  6900 0    50   ~ 0
-Position_sensor_5
+Text Label 650  6900 0    50   ~ 0
+Position_sensor_Z1
 Wire Wire Line
-	700  6900 1450 6900
+	650  6900 1450 6900
 Wire Wire Line
 	1450 6850 1450 6900
 Connection ~ 1450 6900
@@ -1094,11 +1094,11 @@ F 3 "" H 1450 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6100 4750 5300 4750
-Text Label 6100 3550 2    50   ~ 0
-Position_sensor_5
+	6150 4750 5300 4750
+Text Label 6150 3550 2    50   ~ 0
+Position_sensor_Z1
 Wire Wire Line
-	5300 3550 6100 3550
+	5300 3550 6150 3550
 $Comp
 L power:GND #PWR028
 U 1 1 5C69EB96
@@ -1148,11 +1148,11 @@ GPS_Tx
 Wire Wire Line
 	5900 5950 6250 5950
 Text Label 5900 6150 0    50   ~ 0
-GPS_Rx
+GPS_EN
 Wire Wire Line
 	5900 6050 6250 6050
 Text Label 5900 5950 0    50   ~ 0
-GPS_EN
+GPS_Rx
 Wire Wire Line
 	5900 6150 6250 6150
 Wire Wire Line
@@ -1163,34 +1163,34 @@ Wire Wire Line
 	6250 6350 5700 6350
 Connection ~ 5700 6350
 Text Label 9850 1350 2    50   ~ 0
-Motor1_2B
+MotorE_2B
 Wire Wire Line
 	9350 1350 9850 1350
 Text Label 9850 1450 2    50   ~ 0
-Motor1_2A
+MotorE_2A
 Wire Wire Line
 	9350 1450 9850 1450
 Text Label 9850 1550 2    50   ~ 0
-Motor1_1A
+MotorE_1A
 Wire Wire Line
 	9350 1550 9850 1550
 Wire Wire Line
 	9350 1650 9850 1650
 Text Label 9850 1650 2    50   ~ 0
-Motor1_1B
+MotorE_1B
 Connection ~ 10300 1750
 Text Label 7950 2300 0    50   ~ 0
-Motor1_2B
+MotorE_2B
 Text Label 7950 2400 0    50   ~ 0
-Motor1_1B
+MotorE_1B
 Wire Wire Line
 	7950 2400 8400 2400
 Text Label 9350 2400 2    50   ~ 0
-Motor1_1A
+MotorE_1A
 Wire Wire Line
 	9350 2400 8900 2400
 Text Label 9350 2300 2    50   ~ 0
-Motor1_2A
+MotorE_2A
 Wire Wire Line
 	9350 2300 8900 2300
 Wire Wire Line
@@ -1289,21 +1289,21 @@ F 3 "" H 10050 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 9850 3300 2    50   ~ 0
-Motor2_2B
+MotorZ_2B
 Wire Wire Line
 	9350 3300 9850 3300
 Text Label 9850 3400 2    50   ~ 0
-Motor2_2A
+MotorZ_2A
 Wire Wire Line
 	9350 3400 9850 3400
 Text Label 9850 3500 2    50   ~ 0
-Motor2_1A
+MotorZ_1A
 Wire Wire Line
 	9350 3500 9850 3500
 Wire Wire Line
 	9350 3600 9850 3600
 Text Label 9850 3600 2    50   ~ 0
-Motor2_1B
+MotorZ_1B
 Connection ~ 10300 3700
 Wire Wire Line
 	9350 3100 10050 3100
@@ -1397,21 +1397,21 @@ F 3 "" H 10050 5300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 9850 5200 2    50   ~ 0
-Motor3_2B
+MotorA_2B
 Wire Wire Line
 	9350 5200 9850 5200
 Text Label 9850 5300 2    50   ~ 0
-Motor3_2A
+MotorA_2A
 Wire Wire Line
 	9350 5300 9850 5300
 Text Label 9850 5400 2    50   ~ 0
-Motor3_1A
+MotorA_1A
 Wire Wire Line
 	9350 5400 9850 5400
 Wire Wire Line
 	9350 5500 9850 5500
 Text Label 9850 5500 2    50   ~ 0
-Motor3_1B
+MotorA_1B
 Connection ~ 10300 5600
 Wire Wire Line
 	9350 5000 10050 5000
@@ -1419,33 +1419,33 @@ Connection ~ 10050 5000
 Wire Wire Line
 	9350 5600 10300 5600
 Text Label 7950 4250 0    50   ~ 0
-Motor2_2B
+MotorZ_2B
 Text Label 7950 4350 0    50   ~ 0
-Motor2_1B
+MotorZ_1B
 Wire Wire Line
 	7950 4350 8400 4350
 Text Label 9350 4350 2    50   ~ 0
-Motor2_1A
+MotorZ_1A
 Wire Wire Line
 	9350 4350 8900 4350
 Text Label 9350 4250 2    50   ~ 0
-Motor2_2A
+MotorZ_2A
 Wire Wire Line
 	9350 4250 8900 4250
 Wire Wire Line
 	7950 4250 8400 4250
 Text Label 7950 6100 0    50   ~ 0
-Motor3_2B
+MotorA_2B
 Text Label 7950 6200 0    50   ~ 0
-Motor3_1B
+MotorA_1B
 Wire Wire Line
 	7950 6200 8400 6200
 Text Label 9350 6200 2    50   ~ 0
-Motor3_1A
+MotorA_1A
 Wire Wire Line
 	9350 6200 8900 6200
 Text Label 9350 6100 2    50   ~ 0
-Motor3_2A
+MotorA_2A
 Wire Wire Line
 	9350 6100 8900 6100
 Wire Wire Line
@@ -1500,7 +1500,7 @@ F 3 "~" H 8600 2300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5300 3350 6100 3350
+	5300 3350 6150 3350
 Wire Wire Line
 	4300 3150 4800 3150
 Wire Notes Line width 12
