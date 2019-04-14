@@ -22,7 +22,7 @@ xelatex --shell-escape main.tex
 ### Include code
 
 Include a source code block :
-```
+```latex
 \code{c}
 void main(void){
     /*C code example*/
@@ -31,19 +31,19 @@ void main(void){
 ```
 
 Include code in line :
-```
+```latex
 \codeinline{text}{/*formatted text*/}
 ```
 
 ### Include figures
 
 Set path to figures in `main.tex` :
-```
+```latex
 \newcommand{\figures}{path/to/figures}
 ```
 
 Include a figure :
-```
+```latex
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\linewidth]{\figures/image.png}
@@ -66,7 +66,7 @@ Include a figure :
 - `\left[` & `\right]` : Scaled braces
 
 Example :
-```
+```latex
 \begin{align*}
 p(r,\theta,\varphi)&=G(\theta,\varphi)\cdot\left(\frac{P_{in}}{4\pi\cdot r^{2}}\right)&&(W/m^{2})\\
 &=D(\theta,\varphi)\cdot\frac{P_{out}}{4\pi\cdot r^{2}}
@@ -78,7 +78,7 @@ p(r,\theta,\varphi)&=G(\theta,\varphi)\cdot\left(\frac{P_{in}}{4\pi\cdot r^{2}}\
 ### Include lists
 
 Use `[label=$\bullet$]` for first level :
-```
+```latex
 \begin{itemize}[label=$\bullet$]
 	\item <item1>
 	\item <item2>
@@ -87,4 +87,4 @@ Use `[label=$\bullet$]` for first level :
 		\item <item3.2>
 		\end{itemize}
 	\end{itemize}
-``
+```
