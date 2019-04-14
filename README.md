@@ -16,7 +16,7 @@ The Stellarium plugin to control the telescope :
 
 ## Branch & release organization
 
-- [branch : master](https://github.com/thibaudledo/Autoscope/tree/master) : Readme
+- [branch : master](https://github.com/thibaudledo/Autoscope/tree/master) : Readme & main software
 - [release : alpha](https://github.com/thibaudledo/Autoscope/releases) : Out of the box packages (Stellarium, OS)
 - [branch : hardware](https://github.com/thibaudledo/Autoscope/tree/hardware) : 3D blender files & PCB kicad files
 - [branch : doc](https://github.com/thibaudledo/Autoscope/tree/doc) : Documentation, datasheets, etc.
