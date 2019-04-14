@@ -1,0 +1,795 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="985"
+     height="558">
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-999999-1-999999-1-s-0">
+            <stop offset="0%" style="stop-color:#999999"/>
+            <stop offset="100%" style="stop-color:#999999"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-ff7f00-1-ff7f00-1-s-0">
+            <stop offset="0%" style="stop-color:#ff7f00"/>
+            <stop offset="100%" style="stop-color:#ff7f00"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-00ff00-1-00ff00-1-s-0">
+            <stop offset="0%" style="stop-color:#00ff00"/>
+            <stop offset="100%" style="stop-color:#00ff00"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-bf00bf-1-bf00bf-1-s-0">
+            <stop offset="0%" style="stop-color:#bf00bf"/>
+            <stop offset="100%" style="stop-color:#bf00bf"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-00bfbf-1-00bfbf-1-s-0">
+            <stop offset="0%" style="stop-color:#00bfbf"/>
+            <stop offset="100%" style="stop-color:#00bfbf"/>
+        </linearGradient>
+        <linearGradient x1="0%" y1="0%" x2="0%" y2="100%"
+                        id="mx-gradient-ffff00-1-ffff00-1-s-0">
+            <stop offset="0%" style="stop-color:#ffff00"/>
+            <stop offset="100%" style="stop-color:#ffff00"/>
+        </linearGradient>
+    </defs>
+    <g transform=" scale(0.93) translate(-120.53125,-307.4)">
+        <rect x="360" y="780" width="156" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,438,804)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="438" y="800.4">
+                Cahier des charges
+            </text>
+            <text x="438" y="817.2">
+                spécifications
+            </text>
+        </g>
+        <path d="M 372 768 L 336 768 L 336 900 L 372 900" fill="none"
+              stroke="#000000" stroke-width="1.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="end" font-size="16.8px">
+            <text x="332.6" y="829.8">
+                Documentation
+            </text>
+            <text x="332.6" y="850.2">
+                Gestion de projet
+            </text>
+        </g>
+        <path d="M 372 312 L 336 312 L 336 504 L 372 504" fill="none"
+              stroke="#000000" stroke-width="1.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="end" font-size="16.8px">
+            <text x="332.6" y="414">
+                Software
+            </text>
+        </g>
+        <path d="M 372 516 L 336 516 L 336 588 L 372 588" fill="none"
+              stroke="#000000" stroke-width="1.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="end" font-size="16.8px">
+            <text x="332.6" y="558">
+                OS
+            </text>
+        </g>
+        <path d="M 372 600 L 336 600 L 336 672 L 372 672" fill="none"
+              stroke="#000000" stroke-width="1.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="end" font-size="16.8px">
+            <text x="332.6" y="642">
+                Hardware
+            </text>
+        </g>
+        <path d="M 372 684 L 336 684 L 336 756 L 372 756" fill="none"
+              stroke="#000000" stroke-width="1.2" stroke-miterlimit="10"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" font-weight="bold"
+           text-anchor="end" font-size="16.8px">
+            <text x="332.6" y="715.8">
+                Design
+            </text>
+            <text x="332.6" y="736.2">
+                Structure 3D
+            </text>
+        </g>
+        <rect x="360" y="696" width="264" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,492,720)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="492" y="724.8">
+                Impression 3D
+            </text>
+        </g>
+        <rect x="624" y="696" width="108" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,678,720)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="678" y="724.8">
+                Montage
+            </text>
+        </g>
+        <rect x="732" y="696" width="216" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,840,720)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="840" y="716.4">
+                Étude&amp; modifications
+            </text>
+            <text x="840" y="733.2">
+                structure
+            </text>
+        </g>
+        <rect x="360" y="612" width="156" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,438,636)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="438" y="632.4">
+                Architecture
+            </text>
+            <text x="438" y="649.2">
+                système
+            </text>
+        </g>
+        <rect x="516" y="612" width="180" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,606,636)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="606" y="632.4">
+                Choix composants
+            </text>
+            <text x="606" y="649.2">
+                bon de commande
+            </text>
+        </g>
+        <rect x="696" y="612" width="96" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,744,636)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="744" y="640.8">
+                Schéma
+            </text>
+        </g>
+        <rect x="792" y="612" width="120" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,852,636)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="852" y="640.8">
+                Routage
+            </text>
+        </g>
+        <rect x="912" y="612" width="96" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,960,636)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="960" y="640.8">
+                Fabrication
+            </text>
+        </g>
+        <rect x="360" y="528" width="120" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,420,552)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="420" y="556.8">
+                OS basique
+            </text>
+        </g>
+        <rect x="480" y="528" width="96" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,528,552)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="528" y="548.4">
+                Support
+            </text>
+            <text x="528" y="565.2">
+                caméra
+            </text>
+        </g>
+        <rect x="672" y="528" width="144" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,744,552)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="744" y="548.4">
+                Intégration
+            </text>
+            <text x="744" y="565.2">
+                drivers
+            </text>
+        </g>
+        <rect x="816" y="528" width="156" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,894,552)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="894" y="548.4">
+                Gestion
+            </text>
+            <text x="894" y="565.2">
+                flux vidéo
+            </text>
+        </g>
+        <rect x="972" y="528" width="156" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,1050,552)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="1050" y="548.4">
+                Intégration logicielle
+            </text>
+            <text x="1050" y="565.2">
+                initialisation
+            </text>
+        </g>
+        <rect x="360" y="384" width="192" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,456,408)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="456" y="404.4">
+                Plugin Stellarium
+            </text>
+            <text x="456" y="421.2">
+                UI
+            </text>
+        </g>
+        <rect x="552" y="384" width="156" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,630,408)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="630" y="404.4">
+                Portage
+            </text>
+            <text x="630" y="421.2">
+                Stellarium ?
+            </text>
+        </g>
+        <rect x="708" y="384" width="156" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,786,408)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="786" y="412.8">
+                Étude Siril
+            </text>
+        </g>
+        <rect x="360" y="444" width="120" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,420,468)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="420" y="464.4">
+                Driver
+            </text>
+            <text x="420" y="481.2">
+                moteurs
+            </text>
+        </g>
+        <rect x="480" y="444" width="120" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,540,468)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="540" y="464.4">
+                Driver
+            </text>
+            <text x="540" y="481.2">
+                IMU
+            </text>
+        </g>
+        <rect x="600" y="444" width="120" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,660,468)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="660" y="464.4">
+                Driver
+            </text>
+            <text x="660" y="481.2">
+                GPS
+            </text>
+        </g>
+        <rect x="720" y="444" width="120" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,780,468)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="780" y="464.4">
+                Logiciel
+            </text>
+            <text x="780" y="481.2">
+                Autoscope
+            </text>
+        </g>
+        <rect x="360" y="324" width="192" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,456,348)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="456" y="344.4">
+                Architecture
+            </text>
+            <text x="456" y="361.2">
+                logicielle
+            </text>
+        </g>
+        <rect x="552" y="780" width="144" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,624,804)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="624" y="800.4">
+                Documentation
+            </text>
+            <text x="624" y="817.2">
+                technique
+            </text>
+        </g>
+        <rect x="732" y="780" width="144" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,804,804)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="804" y="800.4">
+                Manuel
+            </text>
+            <text x="804" y="817.2">
+                utilisateur
+            </text>
+        </g>
+        <path d="M 852.18 780 L 876.18 780 L 888 804 L 876.18 828 L 852.18 828 L 840 804 Z"
+              fill="none" stroke="#000000" stroke-width="1.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <rect x="360" y="840" width="420" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,570,864)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="570" y="868.8">
+                Regroupement documentation
+            </text>
+        </g>
+        <rect x="948" y="696" width="132" height="48" fill="none"
+              stroke="#000000" stroke-width="1.2"
+              transform="rotate(180,1014,720)" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="1014" y="716.4">
+                Intégration
+            </text>
+            <text x="1014" y="733.2">
+                hardware
+            </text>
+        </g>
+        <ellipse cx="282" cy="522" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 277.71 526.29 L 286.29 517.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 277.71 517.71 L 286.29 526.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="end"
+           font-size="14.399999999999999px">
+            <text x="272.6" y="526.8">
+                Thibaud LE DOLEDEC
+            </text>
+        </g>
+        <ellipse cx="282" cy="498" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 277.71 502.29 L 286.29 493.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 277.71 493.71 L 286.29 502.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="end"
+           font-size="14.399999999999999px">
+            <text x="272.6" y="502.8">
+                Clément AILLOUD
+            </text>
+        </g>
+        <ellipse cx="282" cy="474" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 277.71 478.29 L 286.29 469.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 277.71 469.71 L 286.29 478.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="end"
+           font-size="14.399999999999999px">
+            <text x="272.6" y="478.8">
+                Thomas ABGRALL
+            </text>
+        </g>
+        <ellipse cx="282" cy="450" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 277.71 454.29 L 286.29 445.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 277.71 445.71 L 286.29 454.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="end"
+           font-size="14.399999999999999px">
+            <text x="272.6" y="454.8">
+                Thomas LEPOIX
+            </text>
+        </g>
+        <ellipse cx="198" cy="618" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 193.71 622.29 L 202.29 613.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 193.71 613.71 L 202.29 622.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="198" cy="594" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 193.71 598.29 L 202.29 589.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 193.71 589.71 L 202.29 598.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 860.08 468 Q 894 468 894 519.92" fill="none" stroke="#000000"
+              stroke-width="2.4" stroke-miterlimit="10"
+              stroke-dasharray="7.199999999999999 7.199999999999999"
+              pointer-events="none"/>
+        <path d="M 854.68 468 L 861.88 464.4 L 860.08 468 L 861.88 471.6 Z"
+              fill="#000000" stroke="#000000" stroke-width="2.4"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 894 525.32 L 890.4 518.12 L 894 519.92 L 897.6 518.12 Z"
+              fill="#000000" stroke="#000000" stroke-width="2.4"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="198" cy="570" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 193.71 574.29 L 202.29 565.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 193.71 565.71 L 202.29 574.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="366" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 370.29 L 370.29 361.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 361.71 L 370.29 370.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="570" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 574.29 L 370.29 565.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 565.71 L 370.29 574.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="486" cy="570" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 481.71 574.29 L 490.29 565.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 481.71 565.71 L 490.29 574.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="654" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 658.29 L 370.29 649.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 649.71 L 370.29 658.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="522" cy="654" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 517.71 658.29 L 526.29 649.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 517.71 649.71 L 526.29 658.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="702" cy="654" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 697.71 658.29 L 706.29 649.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 697.71 649.71 L 706.29 658.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="798" cy="654" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 793.71 658.29 L 802.29 649.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 793.71 649.71 L 802.29 658.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="918" cy="654" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 913.71 658.29 L 922.29 649.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 913.71 649.71 L 922.29 658.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="882" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 886.29 L 370.29 877.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 877.71 L 370.29 886.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="822" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 826.29 L 370.29 817.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 817.71 L 370.29 826.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="486" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 490.29 L 370.29 481.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 481.71 L 370.29 490.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="810" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 814.29 L 370.29 805.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 805.71 L 370.29 814.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="870" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 874.29 L 370.29 865.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 865.71 L 370.29 874.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="630" cy="738" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 625.71 742.29 L 634.29 733.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 625.71 733.71 L 634.29 742.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="474" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 478.29 L 370.29 469.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 469.71 L 370.29 478.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="486" cy="474" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 481.71 478.29 L 490.29 469.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 481.71 469.71 L 490.29 478.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="558" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 562.29 L 370.29 553.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 553.71 L 370.29 562.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="858" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 862.29 L 370.29 853.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 853.71 L 370.29 862.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="798" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 802.29 L 370.29 793.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 793.71 L 370.29 802.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="630" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 634.29 L 370.29 625.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 625.71 L 370.29 634.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="426" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 430.29 L 370.29 421.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 421.71 L 370.29 430.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="618" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 622.29 L 370.29 613.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 613.71 L 370.29 622.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="378" cy="738" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 373.71 742.29 L 382.29 733.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 373.71 733.71 L 382.29 742.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="630" cy="726" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 625.71 730.29 L 634.29 721.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 625.71 721.71 L 634.29 730.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="786" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 790.29 L 370.29 781.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 781.71 L 370.29 790.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="846" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 850.29 L 370.29 841.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 841.71 L 370.29 850.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="642" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 646.29 L 370.29 637.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 637.71 L 370.29 646.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 528.18 324 L 552.18 324 L 564 348 L 552.18 372 L 528.18 372 L 516 348 Z"
+              fill="none" stroke="#000000" stroke-width="1.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="354" rx="6" ry="6"
+                 fill="url(#mx-gradient-00bfbf-1-00bfbf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 358.29 L 370.29 349.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 349.71 L 370.29 358.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="342" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 346.29 L 370.29 337.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 337.71 L 370.29 346.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="366" cy="330" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 361.71 334.29 L 370.29 325.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 361.71 325.71 L 370.29 334.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1104.18 528 L 1128.18 528 L 1140 552 L 1128.18 576 L 1104.18 576 L 1092 552 Z"
+              fill="none" stroke="#000000" stroke-width="1.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 840.18 384 L 864.18 384 L 876 408 L 864.18 432 L 840.18 432 L 828 408 Z"
+              fill="none" stroke="#000000" stroke-width="1.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 336.18 696 L 360.18 696 L 372 720 L 360.18 744 L 336.18 744 L 324 720 Z"
+              fill="none" stroke="#000000" stroke-width="1.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <rect x="1008" y="612" width="96" height="48"
+              fill="url(#mx-gradient-ff7f00-1-ff7f00-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,1056,636)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="1056" y="640.8">
+                Validation
+            </text>
+        </g>
+        <ellipse cx="1014" cy="654" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 1009.71 658.29 L 1018.29 649.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1009.71 649.71 L 1018.29 658.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="486" cy="486" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 481.71 490.29 L 490.29 481.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 481.71 481.71 L 490.29 490.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <rect x="576" y="528" width="96" height="48"
+              fill="url(#mx-gradient-999999-1-999999-1-s-0)" stroke="#000000"
+              stroke-width="1.2" transform="rotate(180,624,552)"
+              pointer-events="none"/>
+        <g fill="#000" font-family="Arial,Helvetica" text-anchor="middle"
+           font-size="14.399999999999999px">
+            <text x="624" y="540">
+                Support
+            </text>
+            <text x="624" y="556.8">
+                I2C
+            </text>
+            <text x="624" y="573.6">
+                UART
+            </text>
+        </g>
+        <ellipse cx="582" cy="570" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 577.71 574.29 L 586.29 565.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 577.71 565.71 L 586.29 574.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 560.08 408 Q 780 408 780 435.92" fill="none" stroke="#000000"
+              stroke-width="2.4" stroke-miterlimit="10"
+              stroke-dasharray="7.199999999999999 7.199999999999999"
+              pointer-events="none"/>
+        <path d="M 554.68 408 L 561.88 404.4 L 560.08 408 L 561.88 411.6 Z"
+              fill="#000000" stroke="#000000" stroke-width="2.4"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 780 441.32 L 776.4 434.12 L 780 435.92 L 783.6 434.12 Z"
+              fill="#000000" stroke="#000000" stroke-width="2.4"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 744 528 Q 744 510 762 510 Q 780 510 780 500.08" fill="none"
+              stroke="#000000" stroke-width="2.4" stroke-miterlimit="10"
+              stroke-dasharray="7.199999999999999 7.199999999999999"
+              pointer-events="none"/>
+        <path d="M 780 494.68 L 783.6 501.88 L 780 500.08 L 776.4 501.88 Z"
+              fill="#000000" stroke="#000000" stroke-width="2.4"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 816.18 444 L 840.18 444 L 852 468 L 840.18 492 L 816.18 492 L 804 468 Z"
+              fill="none" stroke="#000000" stroke-width="1.2"
+              stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 1008 696 Q 1008 468 852 468" fill="none" stroke="#000000"
+              stroke-width="2.4" stroke-miterlimit="10"
+              stroke-dasharray="2.4 9.6" pointer-events="none"/>
+        <ellipse cx="678" cy="570" rx="6" ry="6"
+                 fill="url(#mx-gradient-ffff00-1-ffff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 673.71 574.29 L 682.29 565.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 673.71 565.71 L 682.29 574.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="582" cy="558" rx="6" ry="6"
+                 fill="url(#mx-gradient-bf00bf-1-bf00bf-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 577.71 562.29 L 586.29 553.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 577.71 553.71 L 586.29 562.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <ellipse cx="198" cy="642" rx="6" ry="6"
+                 fill="url(#mx-gradient-00ff00-1-00ff00-1-s-0)" stroke="#000000"
+                 stroke-width="1.2" pointer-events="none"/>
+        <path d="M 193.71 646.29 L 202.29 637.71" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 193.71 637.71 L 202.29 646.29" fill="none" stroke="#000000"
+              stroke-width="1.2" stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+</svg>
