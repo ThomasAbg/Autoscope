@@ -14,16 +14,17 @@ The Stellarium plugin to control the telescope :
 
 <br>
 
-## Branch organization
+## Branch & release organization
 
-- master : Readme & alpha release
-- hardware : 3D blender files & PCB kicad files
-- doc : Documentation, datasheets, etc.
-- latex : Latex documents
-- hello_mod : Exemple, helloworld kernel module
-- mpu_9250\_mod : IMU driver
-- a4988_mod : Motors & position sensors driver
-- mtk3339_mod : GPS driver
+- [branch : master](https://github.com/thibaudledo/Autoscope/tree/master) : Readme
+- [release : alpha](https://github.com/thibaudledo/Autoscope/releases) : Out of the box packages (Stellarium, OS)
+- [branch : hardware](https://github.com/thibaudledo/Autoscope/tree/hardware) : 3D blender files & PCB kicad files
+- [branch : doc](https://github.com/thibaudledo/Autoscope/tree/doc) : Documentation, datasheets, etc.
+- [branch : latex](https://github.com/thibaudledo/Autoscope/tree/latex) : Latex documents
+- [branch : hello_mod](https://github.com/thibaudledo/Autoscope/tree/hello_mod) : Exemple, helloworld kernel module
+- [branch : mpu_9250_mod](https://github.com/thibaudledo/Autoscope/tree/mpu_9250_mod) : IMU driver
+- [branch : a4988_mod](https://github.com/thibaudledo/Autoscope/tree/a4988_mod) : Motors & position sensors driver
+- [branch : mtk3339_mod](https://github.com/thibaudledo/Autoscope/tree/mtk3339_mod) : GPS driver
 
 <br>
 
