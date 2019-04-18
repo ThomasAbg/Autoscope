@@ -1,12 +1,14 @@
-obj-m += gestion_moteurV4_zoom.o
+obj-m := a4988.o
 
-KDIR_OLD = "/home/thomas/Documents/M1/Projet_telescope/linux-rpi-4.14.y"
-KDIR = "/lib/modules/$(uname -r)/build"
-
+SRC := $(shell pwd)
 
 all:
-		make -C $(KDIR_OLD) M=$(PWD) modules
+	$(MAKE) -C $(KERNEL_SRC) M=$(SRC)
 
+modules_install:
+	$(MAKE) -C $(KERNEL_SRC) M=$(SRC) modules_install
 
 clean:
-		make -C $(KDIR_OLD) M=$(PWD) clean
+	rm -f *.o *~ core .depend .*.cmd *.ko *.mod.c
+	rm -f Module.markers Module.symvers modules.order
+	rm -rf .tmp_versions Modules.symvers
