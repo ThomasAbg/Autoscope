@@ -36,7 +36,7 @@
  * WHO_AM_I is an 8-bit device ID. The default value of the register is 0x71.
  */
 
-#define WHO_AM_I									(0x73)
+#define WHO_AM_I									(0x75)
 
 /*!
  * Gyroscope X-axis self-test register
