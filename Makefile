@@ -1,4 +1,4 @@
-obj-m := mpu_i2c_driver.o
+obj-m := mpu_i2c_driver.o mpu_spi_driver.o
 
 SRC := $(shell pwd)
 
