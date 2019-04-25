@@ -546,13 +546,17 @@ S = "${WORKDIR}/git"
 RPROVIDES_${PN} += "kernel-module-hello"
 \end{minted}
 
-\codeinline{text}{meta-autoscope/recipes-autoscope/images/autoscope-console-image.bb}~:
+\codeinline{text}{meta-autiscope/recipes-autoscope/images/autoscope-console-image.bb}~:
 \code{bash}
+HELLOWORLD = " \
+    hello-mod \
+" 
+
 IMAGE_INSTALL += " \
     ${CAMERA} \
     ${HOTSPOT} \
     ${FTP} \
-    hello-mod \
+    ${HELLOWORLD} \
 "
 \end{minted}
 
@@ -566,6 +570,246 @@ root@autoscope ~ #
         [  xx.xxxxxx] Hello World!
     rmmod hello
         [  xx.xxxxxx] Goodbye Cruel World!
+\end{minted}
+
+\section{Programme helloworld}
+
+Ce programme a pour but de préparer le terrain pour le programme principal du télescope ainsi que pour d'éventuels programmes de test.
+
+\codeinline{text}{meta-autoscope/recipes-test/helloworld/files/helloworld.c}~:
+\code{c}
+#include <stdio.h>
+#include <unistd.h>
+
+int main(void) {
+    while(1) {
+        printf("helloworld : TEST MESSAGE\n");
+        usleep(2000000);
+        }
+    return(0);
+    }
+\end{minted}
+
+\vspace{1cm}
+
+En l'absence de \codeinline{text}{Makefile}, c'est à la recette de comporter les instructions de compilation du programme.
+
+\codeinline{text}{meta-autoscope/recipes-test/helloworld/helloworld.bb}~:
+\code{bash}
+SUMMARY = "Helloworld program test"
+SECTION = "base"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.GPLv2;md5=751419260aa954499f7abaabaa882bbe"
+
+SRC_URI = " \
+    file://helloworld.c \
+    "
+
+do_compile () {
+    ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/helloworld.c -o ${WORKDIR}/helloworld
+}
+
+do_install () {
+    install -d ${D}${bindir}
+    install -m 0755 ${WORKDIR}/helloworld ${D}${bindir}/
+}
+\end{minted}
+
+\codeinline{text}{meta-autiscope/recipes-autoscope/images/autoscope-console-image.bb}~:
+\code{bash}
+HELLOWORLD = " \
+    hello-mod \
+    helloworld \
+" 
+
+IMAGE_INSTALL += " \
+    ${CAMERA} \
+    ${HOTSPOT} \
+    ${FTP} \
+    ${HELLOWORLD} \
+"
+\end{minted}
+
+\vspace{1cm}
+
+À l'issue de la compilation on observe la présence du programme dans le dossier \codeinline{text}{/usr/bin} du \codeinline{text}{rootfs}~:
+
+\code{text}
+~/yocto/build/tmp/work/raspberrypi3-poky-linux-gnueabi/autoscope-console-image/1.0-r0/ rootfs $
+    find . | grep helloworld
+        ./usr/bin/helloworld
+\end{minted}
+
+Et à l'usage~:
+
+\code{text}
+root@autoscope ~ #
+    helloworld
+        helloworld : TEST MESSAGE
+        helloworld : TEST MESSAGE
+        helloworld : TEST MESSAGE
+    ^C
+\end{minted}
+
+\section{Daemonisation du programme helloworld}
+
+Pour faire d'un programme un daemon, c'est-à-dire un programme se lançant au démarrage de la machine et fonctionnant en tache de fond (comme le serveur FTP par exemple), il faut avoir recours au système d'initialisation de l'OS, ici il s'agit de SysVinit.
+
+\vspace{1cm}
+
+On écrit d'abord un script d'initialisation qui sera installé dans le dossier \codeinline{text}{/etc/init.d/} doté un bandeau d'entête où figurent notamment les runlevels dans lesquels le daemon doit être invoqué et ceux dans lesquels il doit être tué. Généralement un daemon peut être invoqué dans les runlevels $2$, $3$, $4$, $5$ et peut être tué dans les runlevels $0$, $1$, $6$. Généralement le runlevel $5$ est celui de fonctionnement normal de la machine, $0$ celui de l'arrêt et $6$ celui du redémarrage.
+
+\codeinline{text}{meta-autoscope/recipes-test/helloworld/files/helloworld.sh}~:
+\code{bash}
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:             helloworld
+# Required-Start:
+# Required-Stop:
+# Default-Start:        5
+# Default-Stop:         0 1 6
+# Short-Description:    Helloworld test
+### END INIT INFO
+
+NAME="helloworld"
+DESC="Test program"
+DAEMON="/usr/bin/${NAME}"
+
+case "$1" in
+    start)
+        echo -n "Starting ${DESC}: ${NAME}... "
+#       start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3 #-C don't work with busybox
+        ${DAEMON} > /dev/tty3 &
+        echo "done"
+        ;;
+    stop)
+        echo -n "Stopping ${DESC}: ${NAME}... "
+        start-stop-daemon -K -q -x ${DAEMON}
+        echo "done"
+        ;;
+    restart)
+        $0 stop
+        $0 start
+        ;;
+    status)
+        start-stop-daemon -T -q -x ${DAEMON}
+        case "$?" in
+            0)
+                echo "Program ${NAME} is running (`pidof ${NAME}`)."
+                ;;
+            1)
+                echo "Programm ${NAME} is not running and the pid file exists."
+                ;;
+            3)
+                echo "Programm ${NAME} is not running."
+                ;;
+            4)
+                echo "Unable to determine ${NAME} status."
+                ;;
+            esac
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+        ;;
+    esac
+exit 0
+\end{minted}
+
+Les messages produits par le daemon sont redirigés vers la console \codeinline{text}{/dev/tty3} accessible par la combinaison de touches \codeinline{text}{[CTRL]}, \codeinline{text}{[ALT]}, \codeinline{text}{[F3]}.
+
+\vspace{1cm}
+
+La recette yocto est légèrement différente.
+
+\codeinline{text}{meta-autoscope/recipes-test/helloworld/helloworld-daemon.bb}~:
+\code{bash}
+SUMMARY = "Helloworld daemon test"
+SECTION = "base"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/COPYING.GPLv2;md5=751419260aa954499f7abaabaa882bbe"
+
+SRC_URI = " \
+    file://helloworld.sh \
+    file://helloworld.c \
+    "
+inherit update-rc.d
+
+do_compile () {
+    ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/helloworld.c -o ${WORKDIR}/helloworld
+}
+
+do_install () {
+    install -d ${D}${sysconfdir}/init.d
+    cat ${WORKDIR}/helloworld.sh | \
+      sed -e 's,/etc,${sysconfdir},g' \
+          -e 's,/usr/sbin,${sbindir},g' \
+          -e 's,/var,${localstatedir},g' \
+          -e 's,/usr/bin,${bindir},g' \
+          -e 's,/usr,${prefix},g' > ${D}${sysconfdir}/init.d/helloworld
+    chmod a+x ${D}${sysconfdir}/init.d/helloworld
+
+    install -d ${D}${bindir}
+    install -m 0755 ${WORKDIR}/helloworld ${D}${bindir}/
+}
+
+INITSCRIPT_NAME = "helloworld"
+INITSCRIPT_PARAMS = "start 99 5 . stop 00 0 1 6 ."
+\end{minted}
+
+\codeinline{text}{meta-autiscope/recipes-autoscope/images/autoscope-console-image.bb}~:
+\code{bash}
+HELLOWORLD = " \
+    hello-mod \
+    helloworld-daemon \
+" 
+
+IMAGE_INSTALL += " \
+    ${CAMERA} \
+    ${HOTSPOT} \
+    ${FTP} \
+    ${HELLOWORLD} \
+"
+\end{minted}
+
+\vspace{1cm}
+
+On observe ensuite dans le \codeinline{text}{rootfs} la présence du script d'initialisation ainsi que la présence d'un lien symbolique vers celui-ci dans les dossiers des runlevels 0, 1, 5, 6 avec des préfixes~:
+\begin{itemize}[label=$\bullet$]
+	\item \codeinline{text}{S} ou \codeinline{text}{K} indiquant si le daemon est invoqué (Start) ou tué (Kill).
+	\item \codeinline{text}{00} à \codeinline{text}{99} indiquant le numéro de priorité de l'appel, \codeinline{text}{00} étant le plus prioritaire.
+	\end{itemize}
+
+\code{text}
+~/yocto/build/tmp/work/raspberrypi3-poky-linux-gnueabi/autoscope-console-image/1.0-r0/ rootfs $
+    find . | grep helloworld
+        ./usr/bin/helloworld
+        ./etc/init.d/helloworld
+        ./etc/rc0.d/K00helloworld
+        ./etc/rc1.d/K00helloworld
+        ./etc/rc5.d/S99helloworld
+        ./etc/rc6.d/K00helloworld
+\end{minted}
+
+\vspace{1cm}
+
+Et à l'usage~:
+
+\code{text}
+root@autoscope ~ #
+    /etc/init.d/helloworld status
+        Program helloworld is running (347).
+
+    # [CTRL] [ALT] [F3]
+        helloworld : TEST MESSAGE
+        helloworld : TEST MESSAGE
+        helloworld : TEST MESSAGE
+
+    # [CTRL] [ALT] [F1]
+    /etc/init.d/helloworld stop
+        Stopping Test program: helloworld... done
+    /etc/init.d/helloworld status
+        Program helloworld is not running.
 \end{minted}
 
 \section{Support de la liaison UART}
@@ -582,7 +826,7 @@ C'est-à-dire la ligne suivante à la recette
 ENABLE_UART = "1"
 \end{minted}
 
-Remarque~: Ce genre de variables de configurations propre aux Raspberry-Pi est généralement utilisé via les fichiers \codeinline{text}{local.conf} ou \codeinline{text}{distro.conf}. La raison en est que certaines, comme \codeinline{text}{ENABLE_UART} justement, ont un effet dans plusieurs recettes. Celle-ci, par le biais de la recette \mintinline[fontsize=\footnotesize]{text}{linux-raspberrypi_%.bb} ajoute également \codeinline{text}{console=serial0,115200} au fichier \codeinline{text}{cmdline.txt}. Ce fichier contient les argument qu'U-Boot passe à Linux lorsqu'il l'appelle. Dans notre cas cette ligne n'est pas souhaitable, on peut donc placer la variable dans une surcharge de la recette \mintinline[fontsize=\footnotesize]{text}{rpi-config_%.bb}
+Remarque~: Ce genre de variables de configurations propre aux Raspberry-Pi est généralement utilisé via les fichiers \codeinline{text}{local.conf} ou \codeinline{text}{distro.conf}. La raison en est que certaines, comme \codeinline{text}{ENABLE_UART} justement, ont un effet dans plusieurs recettes. Celle-ci, par le biais de la recette \mintinline[fontsize=\footnotesize]{text}{linux-raspberrypi_%.bb} ajoute également \codeinline{text}{console=serial0,115200} au fichier \codeinline{text}{cmdline.txt}. Ce fichier contient les arguments qu'U-Boot passe à Linux lorsqu'il l'appelle. Dans notre cas cette ligne n'est pas souhaitable, on peut donc placer la variable dans une surcharge de la recette \mintinline[fontsize=\footnotesize]{text}{rpi-config_%.bb}
 
 \vspace{1cm}
 
@@ -610,7 +854,7 @@ root@autoscope ~ #
 
 On retrouve les trois caractères ASCII envoyés par la commande \codeinline{text}{echo}. Ceux-ci réapparaissant également à l'écran, démontrant le fonctionnement de la liaison en lecture et en écriture.
 
-\section{Support du bus I2C} %TODO Communication avec IMU
+\section{Support du bus I2C et communication avec l'IMU}
 
 Pour activer le support du bus I2C, il faut ajouter les lignes suivantes au fichier \codeinline{text}{config.txt}
 \code{bash}
@@ -635,7 +879,7 @@ IMAGE_INSTALL += " \
     ${CAMERA} \
     ${HOTSPOT} \
     ${FTP} \
-    hello-mod \
+    ${HELLOWORLD} \
     i2c-tools \
 "
 \end{minted}
@@ -659,7 +903,7 @@ KERNEL_MODULE_AUTOLOAD_append = "i2c_dev"
 
 \vspace{1cm}
 
-On peut alors observer les périphériques présents sur le bus~:
+On connecte la centrale inertielle au bus I2C et l'on peut observer les périphériques présents sur le bus~:
 
 \code{text}
 root@autoscope ~ #
@@ -671,21 +915,21 @@ root@autoscope ~ #
         30: __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
         40: __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
         50: __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
-        60: __ __ __ __ __ __ __ __ __ __ __ __ __ __ __ __
+        60: __ __ __ __ __ __ __ __ 68 __ __ __ __ __ __ __
         70: __ __ __ __ __ __ __ __
 \end{minted}
 
-Aucune adresse n'est attribuée, aucun périphérique n'est présent. On peut tout de même tenter une écriture d'une donnée quelconque à une adresse quelconque et observer la trame émise.
+Une seule adresse est attribuée, il s'agit de la centrale inertielle. Il est dit dans sa documentation que le registre \codeinline{text}{WHO_AM_I} à l'adresse \codeinline{text}{0x75} contient invariablement la valeur \codeinline{text}{0x71}. On peut alors essayer de lire ce registre.
 
 \code{text}
 root@autoscope ~ #
-    i2cset -y 1 0x5a 0x00
-        Error : Write failed
+    i2cget -y 1 0x68 0x75
+        0x71
 \end{minted}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{\figures/osc_i2c.png}
+    \includegraphics[width=1\linewidth]{\figures/osc_i2c2.png}
     \decoRule
     \caption[
     Trame I2C relevée à l'analyseur logique]{
@@ -695,8 +939,6 @@ root@autoscope ~ #
 
 \vspace{1cm}
 
-La trame d'écriture à l'adresse \codeinline{text}{0x5A} est émise mais n'est acquittée par aucun périphérique, ce qui est normal. La seconde trame, la donnée à écrire \codeinline{text}{0x00} n'est donc pas émise.
-
-%TODO meilleurs tests i2c
+La communication entre la centrale inertielle et la Raspberry-Pi fonctionne.
 
 

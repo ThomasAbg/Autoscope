@@ -326,16 +326,48 @@ Il est possible d'exporter le modèle 3D des deux cartes emboîtées et ainsi de
     \label{fig:Modélisation 3D du télescope grossièrement équipé de ses cartes électroniques}
     \end{figure}
 
-\section{Fabrication}%TODO
+\section{Fabrication}
 
-%photo
-%schéma connexions cablage (remarque erreur GPS)
+La fabrication de la carte ne présente pas de subtilité particulière. Il est toutefois conseillé d'être méthodique quant à l'ordre de soudure des composants pour ne pas être gêné par certains en en soudant d'autres.
+
+Aussi il est conseillé de placer les contrôleurs moteur sur leurs connecteurs support (U2, U3 et U4) pour souder lesdits support à la carte. Cela pour que les connecteurs supports restent parallèles et qu'emboîter le contrôleur ne pose pas de problème.
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=0.32\linewidth]{\figures/photo_hardware1.png}
+	\includegraphics[width=0.32\linewidth]{\figures/photo_hardware3.png}
+	\includegraphics[width=0.32\linewidth]{\figures/photo_hardware2.png}
+    \decoRule
+    \caption[
+    Photos de la carte seule et pluggée sur la Raspberry-Pi]{
+    Photos de la carte seule et pluggée sur la Raspberry-Pi}
+    \label{fig:Photos de la carte seule et pluggée sur la Raspberry-Pi}
+	\end{figure}
+
+\vspace{1cm}
+
+Quant au raccordement des différents périphériques, celui-ci devra être fait une fois la structure du télescope montée, ou du moins une fois le modèle 3D de la structure dans sa version définitive.
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=0.9\linewidth]{\figures/sch_connection.pdf}
+    \decoRule
+    \caption[
+    Schéma de raccordement des périphériques de la carte]{
+    Schéma de raccordement des périphériques de la carte}
+    \label{fig:Schéma de raccordement des périphériques de la carte}
+	\end{figure}
+
+
+\vspace{1cm}
+
+Note~: On remarque un routage maladroit puisque la nappe jusqu'au GPS doit être croisée.
 
 \section{Validation}
 
 \subsection{Tests de continuité et de fuite de courant}
 
-Ces test, bien qu'élémentaires, permettent de valider la fonctionnement de la quasi-intégralité de la carte. Une relecture attentive du schéma de la carte, en particulier du cablage des connecteurs est impérative.
+Ces test, bien qu'élémentaires, permettent de valider la fonctionnement de la quasi-intégralité de la carte. Une relecture attentive du schéma de la carte, en particulier du câblage des connecteurs est impérative.
 
 \vspace{1cm}
 
@@ -343,7 +375,7 @@ Il s'agit de vérifier pour chaque broche du connecteur $40$ broches que le cour
 
 \subsection{Test de l'environnement des interrupteurs de butée}
 
-Pour valider le fonctionnement des boutons, on alimente la carte et on mesure la tension de sortie à l'état enfoncé et relaché de chaque bouton~:
+Pour valider le fonctionnement des boutons, on alimente la carte et on mesure la tension de sortie à l'état enfoncé et relâché de chaque bouton~:
 
 \begin{figure}[H]
     \centering
@@ -401,7 +433,7 @@ Pour une tension d'entrée $V_{in}=12,10V$, l'on a une tension de sortie $V_{1}=
 
 \vspace{1cm}
 
-Ensuite, pour tester le sytème de protection aux surtensions, on ajoute une résistance pour limiter le courant et on augmente la tension d'alimentation. Pour rappel, cette protection est davantage destinée au ventilateur alimenté en $12V$ qu'au convertisseur DC/DC pouvant tolérer des entrées jusqu'à $32V$.
+Ensuite, pour tester le système de protection aux surtensions, on ajoute une résistance pour limiter le courant et on augmente la tension d'alimentation. Pour rappel, cette protection est davantage destinée au ventilateur alimenté en $12V$ qu'au convertisseur DC/DC pouvant tolérer des entrées jusqu'à $32V$.
 
 \begin{figure}[H]
     \centering
