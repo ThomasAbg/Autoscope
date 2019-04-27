@@ -19,7 +19,7 @@ Forked from a dead project.
 
 ![autoscope_shield_sch](https://raw.githubusercontent.com/thibaudledo/Autoscope/hardware/PCB_Kicad/sch.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![autoscope_connection_sch](https://raw.githubusercontent.com/thibaudledo/Autoscope/latex/Compte%20Rendu%206/Figures/M2-connection.svg?sanitize=true)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![autoscope_connection_sch](https://raw.githubusercontent.com/thibaudledo/Autoscope/latex/Compte%20Rendu%206/Figures/M2-connection.svg?sanitize=true)
 
 ## Main components
 
