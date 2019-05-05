@@ -1,6 +1,6 @@
 \chapter{Hardware}
 
-%TODO choix composants?
+%TODO choix composants (IMU, GPS)? position carte?
 
 \section{Architecture}
 
@@ -158,7 +158,7 @@ Il faudra de plus utiliser un connecteur particulièrement haut ($16,13mm$) pour
     \end{figure}
 
 \newpage
-\section{Bon de commande}
+\section{Bon de commande} %TODO prix TVS
 
 Figurent sur le bon de commande tous les éléments faisant partie du télescope, on observe ainsi le prix de chaque partie~:
 \begin{itemize}[label=$\bullet$]
@@ -326,7 +326,7 @@ Il est possible d'exporter le modèle 3D des deux cartes emboîtées et ainsi de
     \label{fig:Modélisation 3D du télescope grossièrement équipé de ses cartes électroniques}
     \end{figure}
 
-\section{Fabrication}
+\section{Fabrication et connectique}
 
 La fabrication de la carte ne présente pas de subtilité particulière. Il est toutefois conseillé d'être méthodique quant à l'ordre de soudure des composants pour ne pas être gêné par certains en en soudant d'autres.
 
@@ -361,7 +361,11 @@ Quant au raccordement des différents périphériques, celui-ci devra être fait
 
 \vspace{1cm}
 
-Note~: On remarque un routage maladroit puisque la nappe jusqu'au GPS doit être croisée.
+Remarque~: Compte tenu de la proximité du connecteur de l'interrupteur \codeinline{text}{On/Off} et du connecteur d'alimentation $+12V$ du ventilateur, il est impératif d'être vigilent à ne pas brancher l'interrupteur à la mauvaise place sous peine de faire fondre le fusible ou pire, d'endommager la carte.
+
+\vspace{1cm}
+
+Remarque~: On remarque un routage maladroit puisque la nappe jusqu'au GPS doit être croisée.
 
 \section{Validation}
 
@@ -413,7 +417,7 @@ Pour valider le fonctionnement des boutons, on alimente la carte et on mesure la
 
 Les niveaux électriques haut et bas sont largement inclus dans les plages de tolérances CMOS, les boutons sont fonctionnels.
 
-\subsection{Test de l'alimentation} %TODO validation connecteur alim
+\subsection{Test de l'alimentation} %TODO test TVS
 
 Pour tester l'alimentation, on vérifie d'abord le fonctionnement du convertisseur DC/DC $12V/5V$ par le montage suivant~:
 
@@ -433,7 +437,7 @@ Pour une tension d'entrée $V_{in}=12,10V$, l'on a une tension de sortie $V_{1}=
 
 \vspace{1cm}
 
-Ensuite, pour tester le système de protection aux surtensions, on ajoute une résistance pour limiter le courant et on augmente la tension d'alimentation. Pour rappel, cette protection est davantage destinée au ventilateur alimenté en $12V$ qu'au convertisseur DC/DC pouvant tolérer des entrées jusqu'à $32V$.
+Ensuite, pour tester le système de protection aux surtensions, on ajoute une résistance pour limiter le courant et on augmente la tension d'alimentation. Cette protection est destinée aux condensateurs de découplage de l'alimentation de puissance dont la tension de claquage est de $16V$. Le convertisseur DC/DC et les contrôleurs moteur pouvant tolérer respectivement $32V$ et $35V$ et les moteurs étant généralement moins sensibles aux surtensions.
 
 \begin{figure}[H]
     \centering
@@ -447,5 +451,9 @@ Ensuite, pour tester le système de protection aux surtensions, on ajoute une r�
 
 \vspace{1cm}
 
-Pour une tension d'entrée $V_{in}=23,3V$, l'on a des tensions $V{1}=17,51V$ et $V_{2}=5,03V$. La diode adaptée à une tension de $14V$ a une tension de coupure comprise entre $15,6V$ et $17,2V$. La protection fonctionne comme elle le devrait. Celle-ci étant relativement large pour permettre une certaine souplesse quant au convertisseur AD/DC et au ventilateur utilisés.
+Pour une tension d'entrée $V_{in}=23,3V$, l'on a des tensions $V{1}=V$ et $V_{2}=5,03V$. La diode adaptée à une tension de $12V$ a une tension de coupure comprise entre $13,3V$ et $14,7V$ pour un courant de $1mA$. La protection fonctionne comme elle le devrait, la tension n'excédant pas $16V$. 
+
+\vspace{1cm}
+
+Concernant le connecteur d'alimentation, la solution semble bonne puisque la carte est capable de pivoter aisément autour du câble d'alimentation sans que celui-ci ne se décroche.
 

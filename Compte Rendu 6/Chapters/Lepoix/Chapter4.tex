@@ -1,0 +1,147 @@
+\chapter{Stellarium}
+
+Ce chapitre n'a pas vocation à expliquer comment fonctionne le plugin de Stellarium développé par Thibaud LE DOLEDEC mais la procédure à suivre pour pouvoir utiliser ce plugin.
+
+\vspace{1cm}
+
+Ajouter un plugin à ce logiciel nécessite de modifier son code source et donc de recompiler l'intégralité du logiciel.
+
+\section{Installation depuis les sources}
+
+Installation des dépendances (sur une distribution de type Debian/Ubuntu)~:
+
+\code{text}
+~ $
+    sudo apt-get install build-essential cmake zlib1g-dev libgl1-mesa-dev gcc g++
+    sudo apt-get install graphviz doxygen gettext git
+\end{minted}
+
+\vspace{1cm}
+
+Installation des dépendances Qt~:
+
+\code{text}
+~ $
+    mkdir DEV/
+    cd DEV/
+    wget http://download.qt.io/archive/qt/5.5/5.5.0/qt-opensource-linux-x64-5.5.0-2.run
+    chmod +x qt-opensource-linux-x64-5.5.0-2.run
+    ./qt-opensource-linux-x64-5.5.0-2.run
+    #enter a shitty email address (e.g. qt.qt@yopmail.com)
+    #install in /opt/Qt5.5.0/
+
+    git clone https://github.com/qt/qtftp
+    cd qtftp/
+    /opt/Qt5.5.0/5.5/gcc_64/bin/syncqt.pl -version 5.5.0
+    /opt/Qt5.5.0/5.5/gcc_64/bin/qmake
+    make
+    sudo make install
+\end{minted}
+
+\vspace{1cm}
+
+Téléchargement des sources de Stellarium et du plugin Autoscope~:
+
+\code{text}
+~/DEV $
+    wget https://github.com/Stellarium/stellarium/releases/download/v0.19.0/ stellarium-0.19.0.tar.gz
+    tar -xzf stellarium-0.19.0.tar.gz
+    cd stellarium-0.19.0/plugins/
+    git clone https://github.com/thibaudledo/Autoscope-Stellarium-plugin.git plugins/Autoscope
+\end{minted}
+
+\vspace{1cm}
+
+Activation du plugin. Cela peut être fait en modifiant manuellement les sources de Stellarium ou en appliquant un patch de la modification fourni avec les sources du plugin~:
+
+\code{text}
+~/DEV/Stellarium-0.19.0 $
+    git init
+    git add CMakeLists.txt src/core/StelApp.cpp
+    git apply plugins/Autoscope/0001-enable-autoscope-plugin.patch
+
+    ### OR APPEND MANUALLY ###
+    line 369 : CMakeLists.txt
+        ADD_PLUGIN(Autoscope 1)
+    line 94 : src/core/StelApp.cpp
+        #ifdef USE_STATIC_PLUGIN_AUTOSCOPE
+        Q_IMPORT_PLUGIN(AutoscopeStelPluginInterface)
+        #endif
+\end{minted}
+
+\vspace{1cm}
+
+Export de l'emplacement de Qt~:
+
+\code{text}
+    export QTDIR=/opt/Qt5.5.0/5.5/gcc_64
+    export PATH=/opt/Qt5.5.0/5.5/gcc_64/bin:${PATH}
+    export LD_LIBRARY_PATH=${QTPATH}/lib:${LD_LIBRARY_PATH}
+\end{minted}
+
+\vspace{1cm}
+
+Compilation de Stellarium~:
+
+\code{text}
+~/DEV/Stellarium-0.19.0 $
+    mkdir -p builds/unix/
+    cd builds/unix/
+    cmake -DCMAKE_BUILD_MODE=Release -DCMAKE_INSTALL_PREFIX=/opt/stellarium ../../
+    make -j4
+\end{minted}
+
+\vspace{1cm}
+
+Installation de Stellarium~:
+
+\code{text}
+~/DEV/Stellarium-0.19.0/builds/unix $
+    sudo make install
+\end{minted}
+
+\section{Création d'un paquet binaire}
+
+Après la compilation il est possible d'installer le logiciel mais il est aussi possible de créer des paquets permettant de le distribuer. L'on peut créer~:
+\begin{itemize}[label=$\bullet$]
+	\item Un paquet contenant le code source de Stellarium et du plugin, prêt à être compilé.
+	\item Un paquet contenant le logiciel compilé, à installer manuellement.
+	\item Un paquet \codeinline{text}{.deb} contenant le logiciel compilé et destiné au logiciel de gestion de paquets des distributions GNU/Linux de la famille Debian.
+	\item Un paquet \codeinline{text}{.rmp} contenant le logiciel compilé et destiné au logiciel de gestion de paquets des distributions GNU/Linux de la famille Red Hat.
+	\end{itemize}
+
+\code{text}
+~/DEV/Stellarium-0.19.0/builds/unix $
+    make package_source
+    make package
+    cpack -G DEB
+    cpack -G RPM
+\end{minted}
+
+\section{Installation manuelle d'un paquet binaire}
+
+L'on choisit d'installer le logiciel dans le dossier \codeinline{text}{/opt} plutôt que \codeinline{text}{/usr/local} dans le but de l'isoler un peu et de permettre un développement moins risqué ainsi que la cohabitation d'une version Autoscope de Stellarium installée manuellement et d'une version classique installée depuis le gestionnaire de paquets.
+
+Dans le dossier \codeinline{text}{/opt}, chaque logiciel installé dispose d'un dossier lui étant propre, tandis que dans \codeinline{text}{/usr} et \codeinline{text}{/usr/local}, l'arborescence est partagée à tous les logiciels (les binaires avec les binaires, les sources avec les sources, les icônes avec les icônes, etc.). Le dossier \codeinline{text}{/opt} n'est généralement pas utilisé par les gestionnaires de paquets.
+
+\vspace{1cm}
+
+Un paquet binaire est disponible sur le dépôt du projet, à l'adresse suivante~:
+
+\url{https://github.com/thibaudledo/Autoscope/releases/tag/alpha}
+
+\code{text}
+/opt #
+    wget https://github.com/thibaudledo/Autoscope/releases/download/alpha/ Stellarium-0.19.0-Linux.tar.gz
+    tar -xzf Stellarium-0.19.0-Linux.tar.gz
+\end{minted}
+
+\section{Lancement de Stellarium}
+
+La commande suivante peut être utilisée pour créer un raccourcis dans un dock, un tableau de bord ou un menu~:
+
+\code{text}
+~ $
+    /opt/Stellarium-0.19.0-Linux/bin/stellarium
+\end{minted}
+

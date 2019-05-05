@@ -2,7 +2,7 @@
 
 %TODO explication OS autoscope, yocto, linux raspi
 
-\section{Support de la caméra}
+\section{Support de la caméra} %TODO python
 
 Pour gérer les différentes configurations matérielles de façon plus "userfriendly", la Raspberry-Pi dispose d'un fichier de configuration \codeinline{text}{config.txt} que le $bootloader$ interprétera pour sélectionner les $overlays$ correspondants et composer le $devicetree$ qui convient à l'architecture matérielle utilisée. Celui-ci étant ensuite passé au $kernel$ lors du démarrage.
 
@@ -572,6 +572,34 @@ root@autoscope ~ #
         [  xx.xxxxxx] Goodbye Cruel World!
 \end{minted}
 
+\vspace{1cm}
+
+Pour travailler localement, ce qui est utile en phase de développement, il suffit de cloner le dépôt du driver~:
+
+\code{text}
+~/yocto/sources/meta-autoscope/recipes-test/hello-mod $
+    git clone https://github.com/thibaudledo/Autoscope -b hello_mod files/
+\end{minted}
+
+Et de créer une seconde recette où \codeinline{text}{SRC_URI} pointe vers les fichiers présents dans le dossier \codeinline{text}{files/}.
+
+%TODO hello-mod_local? yocto choose version
+\codeinline{text}{meta-autoscope/recipes-test/hello-mod/hello-mod-local.bb}~:
+\code{bash}
+SRC_URI = " \
+    file://Makefile \
+    file://COPYING \
+    file://hello.c \
+"
+\end{minted}
+
+\codeinline{text}{meta-autiscope/recipes-autoscope/images/autoscope-console-image.bb}~:
+\code{bash}
+HELLOWORLD = " \
+    hello-mod-local \
+"
+\end{minted}
+
 \section{Programme helloworld}
 
 Ce programme a pour but de préparer le terrain pour le programme principal du télescope ainsi que pour d'éventuels programmes de test.
@@ -812,7 +840,7 @@ root@autoscope ~ #
         Program helloworld is not running.
 \end{minted}
 
-\section{Support de la liaison UART}
+\section{Support de la liaison UART et communication avec le GPS}
 
 Pour activer le support de la liaison UART, il faut ajouter la ligne suivante au fichier \codeinline{text}{config.txt}
 \code{bash}
@@ -830,29 +858,79 @@ Remarque~: Ce genre de variables de configurations propre aux Raspberry-Pi est g
 
 \vspace{1cm}
 
-On observe que désormais le fichier \codeinline{text}{/dev/ttyS0} existe, avant cela seul \codeinline{text}{/dev/ttyAMA0} existait, autre ligne UART utilisée par le module Bluetooth de la Raspberry-pi.
+%On observe que désormais le fichier \codeinline{text}{/dev/ttyS0} existe, avant cela seul \codeinline{text}{/dev/ttyAMA0} existait, autre ligne UART utilisée par le module Bluetooth de la Raspberry-pi.
+De plus sur la Raspberry-Pi 3, il existe une UART classique attribuée par défaut au module Bluetooth de la carte et une "miniUART" qui peut poser problème à l'utilisation puisqu'elle n'a pas d'horloge interne et dépend de l'horloge du processeur qui varie selon sa charge. Quelques essais ont confirmés que cette UART posait problème.
 
-Si l'on boucle la ligne \codeinline{text}{Tx} sur \codeinline{text}{Rx} et que l'on observe à l'analyseur logique, voici la trame observée pour une écriture quelconque sur la ligne.
+Il existe une overlay du device tree permettant d'intervertir les deux UARTs\\\codeinline{text}{pi3-disable-bt-overlay.dts} et de relier l'UART classique aux pins \codeinline{text}{8} et \codeinline{text}{10} du connecteur. L'on active l'overlay ainsi~:
+
+\mintinline[fontsize=\footnotesize]{text}{meta-autoscope/recipes-bsp/bootfiles/rpi-config_%.bbappend}
+\code{bash}
+RPI_EXTRA_CONFIG = "\n\
+dtparam=act_led_trigger=off\n\
+disable_camera_led=1\n\
+dtoverlay=pi3-disable-bt\n\
+"
+\end{minted}
+
+Remarque~: Cette overlay ne semble pas fonctionner avec U-boot comme bootloader. Aucune solution n'a encore été trouvée pour les faire fonctionner ensemble.
+
+\vspace{1cm}
+
+%Si l'on boucle la ligne \codeinline{text}{Tx} sur \codeinline{text}{Rx} et que l'on observe à l'analyseur logique, voici la trame observée pour une écriture quelconque sur la ligne.
+
+%\code{text}
+%root@autoscope ~ #
+%    echo "5A" | microcom /dev/ttyS0 -s 9600
+%        5A
+%\end{minted}
+
+%\begin{figure}[H]
+%    \centering
+%    \includegraphics[width=1\linewidth]{\figures/osc_uart.png}
+%    \decoRule
+%    \caption[
+%    Trame UART relevée à l'analyseur logique]{
+%    Trame UART relevée à l'analyseur logique}
+%    \label{fig:Trame UART relevée à l'analyseur logique}
+%    \end{figure}
+
+%\vspace{1cm}
+
+%On retrouve les trois caractères ASCII envoyés par la commande \codeinline{text}{echo}. Ceux-ci réapparaissant également à l'écran, démontrant le fonctionnement de la liaison en lecture et en écriture.
+
+Si l'on connecte le GPS à la carte, on peut lui envoyer une trame l'interrogeant sur les informations de son firmware \codeinline{text}{605 PMTK_Q_RELEASE}.
 
 \code{text}
 root@autoscope ~ #
-    echo "5A" | microcom /dev/ttyS0 -s 9600
-        5A
+    echo -ne "\$PMTK605*31\r\n" | microcom /dev/ttyAMA0 -s 9600
+        $PMTK705,AXN_2.31_3339_13101700,5632,PA6H,1.0*6B
+        $GPGGA,000700.800,,,,,0,00,,,M,,M,,*77
+        $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+        $GPRMC,000700.800,V,,,,,0.00,0.00,060180,,,N*4D
+        $GPVTG,0.00,T,,M,0.00,N,0.00,K,N*32
+        $GPGGA,000701.800,,,,,0,00,,,M,,M,,*76
+        $GPGSA,A,1,,,,,,,,,,,,,,,*1E
+        $GPGSV,1,1,00*79
+        $GPRMC,000701.800,V,,,,,0.00,0.00,060180,,,N*4C
+        $GPVTG,0.00,T,,M,0.00,N,0.00,K,N*32
+    ^C
 \end{minted}
+
+L'on observe la trame de réponse \codeinline{text}{705 PMTK_DT_RELEASE} indiquant le nom et la version du firmware \codeinline{text}{AXN_2.31_3339_13101700} accompagnés d'autres informations constructeurs.
+L'on observe ensuite une suite de quelques trames NMEA envoyée périodiquement toutes les secondes.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{\figures/osc_uart.png}
+    \includegraphics[width=1\linewidth]{\figures/osc_uart5.png}
+%    \includegraphics[width=1\linewidth]{\figures/osc_uart2.png}
+    \includegraphics[width=1\linewidth]{\figures/osc_uart3.png}
+    \includegraphics[width=1\linewidth]{\figures/osc_uart4.png}
     \decoRule
     \caption[
     Trame UART relevée à l'analyseur logique]{
     Trame UART relevée à l'analyseur logique}
-    \label{fig:Trame UART relevée à l'analyseur logique}
+    \label{fig:Trames UART relevées à l'analyseur logique}
     \end{figure}
-
-\vspace{1cm}
-
-On retrouve les trois caractères ASCII envoyés par la commande \codeinline{text}{echo}. Ceux-ci réapparaissant également à l'écran, démontrant le fonctionnement de la liaison en lecture et en écriture.
 
 \section{Support du bus I2C et communication avec l'IMU}
 
