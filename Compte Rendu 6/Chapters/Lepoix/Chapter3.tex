@@ -702,17 +702,20 @@ On écrit d'abord un script d'initialisation qui sera installé dans le dossier 
 NAME="helloworld"
 DESC="Test program"
 DAEMON="/usr/bin/${NAME}"
+PIDFILE="/var/run/${NAME}.pid"
 
 case "$1" in
     start)
         echo -n "Starting ${DESC}: ${NAME}... "
 #       start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3 #-C don't work with busybox
         ${DAEMON} > /dev/tty3 &
+		echo $! > ${PIDFILE}
         echo "done"
         ;;
     stop)
         echo -n "Stopping ${DESC}: ${NAME}... "
         start-stop-daemon -K -q -x ${DAEMON}
+		rm -f ${PIDFILE}
         echo "done"
         ;;
     restart)
