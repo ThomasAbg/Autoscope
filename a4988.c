@@ -75,35 +75,35 @@ MODULE_DESCRIPTION("Module Driver moteurs");
 MODULE_VERSION("Version 1.00"); 
 
 // 	Contrôle moteur rotation
-#define Step_MRotation 333
-#define Dir_MRotation 333
-#define Enable_MRotation 333
+#define Step_MRotation 2
+#define Dir_MRotation 3
+#define Enable_MRotation 4
 // 	Contrôle moteur inclinaison
-#define Step_MTilt 333
-#define Dir_MTilt 333
-#define Enable_MTilt 333
+#define Step_MTilt 17
+#define Dir_MTilt 27
+#define Enable_MTilt 22
 // Contrôle moteur zoom
-#define Step_MZoom 333
-#define Dir_MZoom 333
-#define Enable_MZoom 333
+#define Step_MZoom 10
+#define Dir_MZoom 9
+#define Enable_MZoom 11
 // Capteur de fin de course
-#define azimuth 333
-#define rising1 333
-#define rising2 333
-#define zoom1 333
-#define zoom2 333
+#define azimuth 5
+#define rising1 6
+#define rising2 13
+#define zoom1 19
+#define zoom2 26
 // Configuration mode pas rotation
-#define ConfigPasRot1 333 
-#define ConfigPasRot2 333
-#define ConfigPasRot3 333
+#define ConfigPasRot1 14 
+#define ConfigPasRot2 15
+#define ConfigPasRot3 18
 // Configuration mode pas inclaison
-#define ConfigPasIncl1 333
-#define ConfigPasIncl2 333
-#define ConfigPasIncl3 333
+#define ConfigPasIncl1 23
+#define ConfigPasIncl2 24
+#define ConfigPasIncl3 25
 // Configuration mode pas room
-#define ConfigPasZoom1 333
-#define ConfigPasZoom2 333
-#define ConfigPasZoom3 333
+#define ConfigPasZoom1 12
+#define ConfigPasZoom2 16
+#define ConfigPasZoom3 20
 
 #include <linux/ioctl.h>
 
