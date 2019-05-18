@@ -7,12 +7,12 @@
 #include <sys/stat.h>
 //#include <sys/types.h>
 
-char* gps_fifo="/tmp/gps_fifo";
-char flag_sending=0;
+unsigned char* gps_fifo="/tmp/gps_fifo";
+unsigned char flag_sending=0;
 
 void send_gps_datas(int sig) {
 	int fd;
-	char* message="Hi";
+	unsigned char* message="Hi";
 
 	printf("SIGUSR1 received\n");
 	flag_sending=1;

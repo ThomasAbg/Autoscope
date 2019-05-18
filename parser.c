@@ -1,32 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <regex.h>
-#include <stdint.h>
-
-typedef struct _data_t {
-	unsigned char latitude[242];
-	unsigned char longitude[242];
-	unsigned char altitude[242];
-	unsigned char firmware[242];
-//	unsigned char date[242];
-//	unsigned char time[242];
-} data_t;
-
-enum regex {		/* regex (?:) dont work with regex.h */
-	CHECK,			/* NMEA sentence & checksum */
-	PMTK001,		/* ACK of PMTK commands */
-	PMTK705,		/* firmware datas */
-	GPRMC,			/* GPS minimum datas */
-	GPGLL,			/* GPS latitude & longitude */
-	GPGGA,			/* fix & minimum datas & satellites status */
-	NREGEX			/* number of regex, keep it last */
-	};
+#include "parser.h"
 
 regex_t r[NREGEX];
 regmatch_t* match=NULL;
+data_t data={"0", "0", "0", "0"};
 
-unsigned char check(unsigned char* str) {
+unsigned char flag_writing=0;
+unsigned char flag_request=0;
+
+
+static unsigned char check(unsigned char* str) {
 	unsigned char sum=0;
 	for(str;*str;str++) {
 		sum^=*str;
@@ -49,14 +31,7 @@ void init_parser(void) {
 		exit(EXIT_FAILURE); /* g1 latitude g2 longitude g3 fix g4 altitude */
 	}
 
-void init_gps(void) {
-	do {
-		/* GGA every one fix & GLL, RMC, VTG, GSA, GSV never */
-		tx("$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29\r\n");
-	} while(rx() == 314);
-	}
-
-uint16_t parse_msg(char found[256], data_t* data) {
+static uint16_t parse_msg(char found[MAX_RX]) {
 	unsigned char command[4]={};
 	unsigned char status=0;
 	unsigned char mode=0;
@@ -74,6 +49,7 @@ uint16_t parse_msg(char found[256], data_t* data) {
 		if(regexec(&r[i], found, r[i].re_nsub+1, match, 0) == 0) {
 			switch(i) {
 			case PMTK001 :
+				flag_writing=1;
 				/* ACK */
 				ack=found[match[2].rm_so]	;
 				/* command */
@@ -81,21 +57,26 @@ uint16_t parse_msg(char found[256], data_t* data) {
 				end=match[1].rm_eo;
 				size=end-start;
 				strncpy(command, &found[start], size);
-				if(ack == 3) {
+				if(ack == '3') {
+					flag_writing=0;
 					return(atoi(command));
 				} else {
+					flag_writing=0;
 					break;
-					}				
+					}
 			case PMTK705 :
+				flag_writing=1;
 				/* firmware */
 				start=match[1].rm_so;
 				end=match[1].rm_eo;
 				size=end-start;
-				strncpy(data->firmware, &found[start], size);
-				data->firmware[size]='\0';
-				printf("data->firmware : %s\n", data->firmware);
+				strncpy(data.firmware, &found[start], size);
+				data.firmware[size]='\0';
+				printf("data.firmware : %s\n", data.firmware);
+				flag_writing=0;
 				break;
 			case GPRMC :
+				flag_writing=1;
 				/* datas validity */
 				status=found[match[1].rm_so];
 				mode=found[match[4].rm_so];
@@ -103,10 +84,12 @@ uint16_t parse_msg(char found[256], data_t* data) {
 				|| mode == 'E'
 				|| mode == 'N'
 				|| mode == 'S') {
-					data->latitude[0]=0;
-					data->longitude[0]=0;
-					printf("data->latitude : %s\n", data->latitude);
-					printf("data->longitude : %s\n", data->longitude);
+					data.latitude[0]='0';
+					data.latitude[1]='\0';
+					data.longitude[0]='0';
+					data.longitude[1]='\0';
+					printf("data.latitude : %s\n", data.latitude);
+					printf("data.longitude : %s\n", data.longitude);
 				} else if(status == 'A'
 						&& (mode == 'A'
 						|| mode == 'D')) {
@@ -114,19 +97,21 @@ uint16_t parse_msg(char found[256], data_t* data) {
 					start=match[2].rm_so;
 					end=match[2].rm_eo;
 					size=end-start;
-					strncpy(data->latitude, &found[start], size);
-					data->latitude[size]='\0';
-					printf("data->latitude : %s\n", data->latitude);
+					strncpy(data.latitude, &found[start], size);
+					data.latitude[size]='\0';
+					printf("data.latitude : %s\n", data.latitude);
 					/* longitude */
 					start=match[3].rm_so;
 					end=match[3].rm_eo;
 					size=end-start;
-					strncpy(data->longitude, &found[start], size);
-					data->longitude[size]='\0';
-					printf("data->longitude : %s\n", data->longitude);
+					strncpy(data.longitude, &found[start], size);
+					data.longitude[size]='\0';
+					printf("data.longitude : %s\n", data.longitude);
 					}
+				flag_writing=0;
 				break;
 			case GPGLL :
+				flag_writing=1;
 				/* datas validity */
 				status=found[match[3].rm_so];
 				mode=found[match[4].rm_so];
@@ -134,10 +119,12 @@ uint16_t parse_msg(char found[256], data_t* data) {
 				|| mode == 'E'
 				|| mode == 'N'
 				|| mode == 'S') {
-					data->latitude[0]=0;
-					data->longitude[0]=0;
-					printf("data->latitude : %s\n", data->latitude);
-					printf("data->longitude : %s\n", data->longitude);
+					data.latitude[0]='0';
+					data.latitude[1]='\0';
+					data.longitude[0]='0';
+					data.longitude[1]='\0';
+					printf("data.latitude : %s\n", data.latitude);
+					printf("data.longitude : %s\n", data.longitude);
 				} else if(status == 'A'
 						&& (mode == 'A'
 						|| mode == 'D')) {
@@ -145,31 +132,36 @@ uint16_t parse_msg(char found[256], data_t* data) {
 					start=match[1].rm_so;
 					end=match[1].rm_eo;
 					size=end-start;
-					strncpy(data->latitude, &found[start], size);
-					data->latitude[size]='\0';
-					printf("data->latitude : %s\n", data->latitude);
+					strncpy(data.latitude, &found[start], size);
+					data.latitude[size]='\0';
+					printf("data.latitude : %s\n", data.latitude);
 					/* longitude */
 					start=match[2].rm_so;
 					end=match[2].rm_eo;
 					size=end-start;
-					strncpy(data->longitude, &found[start], size);
-					data->longitude[size]='\0';
-					printf("data->longitude : %s\n", data->longitude);
+					strncpy(data.longitude, &found[start], size);
+					data.longitude[size]='\0';
+					printf("data.longitude : %s\n", data.longitude);
 					}
+				flag_writing=0;
 				break;
 			case GPGGA :
+				flag_writing=1;
 				/* datas validity */
 				fix=found[match[3].rm_so];
 				if(fix == '0'
 				|| fix == '6'
 				|| fix == '7'
 				|| fix == '8') {
-					data->latitude[0]=0;
-					data->longitude[0]=0;
-					data->altitude[0]=0;
-					printf("data->latitude : %s\n", data->latitude);
-					printf("data->longitude : %s\n", data->longitude);
-					printf("data->altitude : %s\n", data->altitude);
+					data.latitude[0]='0';
+					data.latitude[1]='\0';
+					data.longitude[0]='0';
+					data.longitude[1]='\0';
+					data.altitude[0]='0';
+					data.altitude[1]='\0';
+					printf("data.latitude : %s\n", data.latitude);
+					printf("data.longitude : %s\n", data.longitude);
+					printf("data.altitude : %s\n", data.altitude);
 				} else if(fix == '1'
 						|| fix == '2'
 						|| fix == '3'
@@ -179,24 +171,25 @@ uint16_t parse_msg(char found[256], data_t* data) {
 					start=match[1].rm_so;
 					end=match[1].rm_eo;
 					size=end-start;
-					strncpy(data->latitude, &found[start], size);
-					data->latitude[size]='\0';
-					printf("data->latitude : %s\n", data->latitude);
+					strncpy(data.latitude, &found[start], size);
+					data.latitude[size]='\0';
+					printf("data.latitude : %s\n", data.latitude);
 					/* longitude */
 					start=match[2].rm_so;
 					end=match[2].rm_eo;
 					size=end-start;
-					strncpy(data->longitude, &found[start], size);
-					data->longitude[size]='\0';
-					printf("data->longitude : %s\n", data->longitude);
+					strncpy(data.longitude, &found[start], size);
+					data.longitude[size]='\0';
+					printf("data.longitude : %s\n", data.longitude);
 					/* altitude */
 					start=match[4].rm_so;
 					end=match[4].rm_eo;
 					size=end-start;
-					strncpy(data->altitude, &found[start], size);
-					data->altitude[size]='\0';
-					printf("data->altitude : %s\n", data->altitude);
+					strncpy(data.altitude, &found[start], size);
+					data.altitude[size]='\0';
+					printf("data.altitude : %s\n", data.altitude);
 					}
+				flag_writing=0;
 				break;
 			default :
 				continue;
@@ -206,7 +199,7 @@ uint16_t parse_msg(char found[256], data_t* data) {
 	return(0);
 	}
 
-uint16_t parse(char rx_buffer[256], data_t* data) {
+uint16_t parse(char rx_buffer[MAX_RX]) {
 	printf("StringI : %s\n", rx_buffer);
 	if(match) {
 		free(match);
@@ -236,7 +229,7 @@ uint16_t parse(char rx_buffer[256], data_t* data) {
 		printf("check : %x\n", check(found));
 		if(check(found) == (char)strtoul(checksum, NULL, 16)) {
 			printf("CHECKSUM OK\n");
-			return(parse_msg(found, data));
+			return(parse_msg(found));
 		} else {
 			printf("CKECKSUM KO\n");
 			/* don't parse currupted data */
@@ -255,27 +248,26 @@ void quit_parser(void) {
 		free(match);
 		match=NULL;
 		}
-	exit(EXIT_SUCCESS);
 	}
 
-void main(void) {
-	/* rx_buffer[256] 255 bytes + \0 */
+/*void main(void) {
+	/* rx_buffer[256] 255 bytes + \0 * /
 	unsigned char* rx_buffer="$PMTK705,AXN_2.31_3339_13101700,5632,PA6H,1.0*6B\r\n";
-	data_t data={};
+//	data_t data={};
 
 	init_parser();
 	printf("ok\n");
 
-	parse(rx_buffer, &data);
+	parse(rx_buffer);
 	rx_buffer="$GPRMC,000700.800,V,,,,,0.00,0.00,060180,,,N*4D\r\n";
-	parse(rx_buffer, &data);
+	parse(rx_buffer);
 	rx_buffer="$GPRMC,123519,A,4807.038,N,01131.000,E,022.4,084.4,230394,003.1,W,A*07\r\n";
-	parse(rx_buffer, &data);
+	parse(rx_buffer);
 	rx_buffer="$GPGLL,4916.45,N,12311.12,W,225444,A,A*5C\r\n";
-	parse(rx_buffer, &data);
+	parse(rx_buffer);
 
 	rx_buffer="$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29\r\n";
-	parse(rx_buffer, &data);
+	parse(rx_buffer);
 
 	quit_parser();
-	}
+	}*/

@@ -11,7 +11,7 @@
 
 void get_gps_pid(pid_t* gps_pid) {
 	FILE* f_gps_pid;
-	char buf[6]={}; //pid up to 5 digits + \0 | limits.h LINE_MAX
+	unsigned char buf[6]={}; //pid up to 5 digits + \0 | limits.h LINE_MAX
 	if(!(f_gps_pid=fopen(GPS_PID_FILE, "r"))) {
 		printf("ERROR: Can't open GPS daemon PID file\n");
 		exit(EXIT_FAILURE);
@@ -25,8 +25,8 @@ void get_gps_pid(pid_t* gps_pid) {
 
 void read_gps_data(pid_t* gps_pid){
 	int fd;
-	char* gps_fifo = GPS_FIFO_FILE;
-	char buf[MAX_BUF];
+	unsigned char* gps_fifo = GPS_FIFO_FILE;
+	unsigned char buf[MAX_BUF];
 
 	/*request to send data*/
 	kill(*gps_pid, SIGUSR1);
