@@ -102,7 +102,7 @@ MODULE_VERSION("Version 1.00");
 #define ConfigPasIncl3 19
 // Configuration mode pas room
 #define ConfigPasZoom1 7
-#define ConfigPasZoom2 7
+#define ConfigPasZoom2 9
 #define ConfigPasZoom3 29
 
 #include <linux/ioctl.h>
