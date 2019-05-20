@@ -85,7 +85,7 @@ MODULE_VERSION("Version 1.00");
 // Contrôle moteur zoom
 #define Step_MZoom 12
 #define Dir_MZoom 6
-#define Enable_MZoom 7
+#define Enable_MZoom 9
 // Capteur de fin de course
 #define azimuth 9
 #define rising1 18
