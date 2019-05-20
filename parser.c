@@ -16,6 +16,10 @@ static unsigned char check(unsigned char* str) {
 	return(sum);
 	}
 
+
+/* to work on regex you can use these websites */
+/* https://regex101.com/ */
+/* http://www.rexegg.com/regex-quickstart.html */
 void init_parser(void) {
 	if(regcomp(&r[CHECK], "^\\$(.+?)\\*([0-9A-F]{2})\r\n$", REG_EXTENDED))
 		exit(EXIT_FAILURE); /* g1 NMEA sentence g2 checksum */
