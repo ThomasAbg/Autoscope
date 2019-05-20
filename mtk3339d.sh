@@ -16,7 +16,7 @@ PIDFILE="/var/run/${NAME}.pid"
 case "$1" in
 	start)
 		echo -n "Starting ${DESC}: ${NAME}... "
-#		start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3
+#		start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3 #-C dont work with busybox
 		${DAEMON} > /dev/tty3 &
 		echo $! > ${PIDFILE}
 		echo "done"
@@ -32,21 +32,28 @@ case "$1" in
 		$0 start
 		;;
 	status)
-		start-stop-daemon -T -q -x ${DAEMON}
-		case "$?" in
-			0)
-				echo "Program ${NAME} is running (`pidof ${NAME}`)."
-				;;
-			1)
-				echo "Programm ${NAME} is not running and the pid file exists."
-				;;
-			3)
-				echo "Programm ${NAME} is not running."
-				;;
-			4)
-				echo "Unable to determine ${NAME} status."
-				;;
-			esac
+#		start-stop-daemon -T -q -x ${DAEMON} #-T dont work with busybox
+#		case "$?" in
+#			0)
+#				echo "Program ${NAME} is running (`pidof ${NAME}`)."
+#				;;
+#			1)
+#				echo "Programm ${NAME} is not running and the pid file exists."
+#				;;
+#			3)
+#				echo "Programm ${NAME} is not running."
+#				;;
+#			4)
+#				echo "Unable to determine ${NAME} status."
+#				;;
+#			esac
+		if [ "`pidof ${DAEMON}`" ]
+		then
+			echo "Program ${NAME} is running (`pidof ${DAEMON}`)."
+		else
+			echo -n "Program ${NAME} is not running"
+			ls ${PIDFILE} &> /dev/null && echo -n " and the pidfile exists" ; echo "."
+			fi
 		;;
 	*)
 		echo "Usage: $0 {start|stop|restart|status}"
