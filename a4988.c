@@ -77,7 +77,7 @@ MODULE_VERSION("Version 1.00");
 // 	Contrôle moteur rotation
 #define Step_MRotation 20
 #define Dir_MRotation 21
-#define Enable_MRotation 
+#define Enable_MRotation 26
 // 	Contrôle moteur inclinaison
 #define Step_MTilt 9
 #define Dir_MTilt 11
