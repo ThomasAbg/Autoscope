@@ -87,7 +87,7 @@ MODULE_VERSION("Version 1.00");
 #define Dir_MZoom 6
 #define Enable_MZoom 7
 // Capteur de fin de course
-#define azimuth 17
+#define azimuth 9
 #define rising1 18
 #define rising2 27
 #define zoom1 23
