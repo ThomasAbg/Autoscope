@@ -505,13 +505,13 @@ int __init my_init (void)	// initilaisation des timers
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_request(TableauPinOutput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si il y a une erreur dans gpio_request
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOOut); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut Tabpin n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		}
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_direction_output(TableauPinOutput[i],1)) != 0) { 
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si si il y a une erreur dans gpio_direction_output
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOOut); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut Tabpin n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		} 
 	} 
@@ -520,89 +520,89 @@ int __init my_init (void)	// initilaisation des timers
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_request(TableauPinInput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinInput[i]);  // libère la PIN
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOIn);
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn Tabpin n°%d = %d\n",i ,erreurGPIOIn);
 			return erreurGPIOIn;
 		}
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_direction_input(TableauPinInput[i])) != 0) {
 			gpio_free(TableauPinInput[i]);
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn pin n°%d = %d\n",i ,erreurGPIOIn); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn Tabpin n°%d = %d\n",i ,erreurGPIOIn); 
 			return erreurGPIOIn;
 		}
 	} 
-    // création de l'interruption bouton de rotation
-    if ((erreurInterruption1 = request_irq(gpio_to_irq(azimuth), limit_switch_Azimuth, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {  	
-            gpio_free(azimuth);
-            printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption1 = %d\n",erreurInterruption1);
-            return erreurInterruption1;
-    }
+	// création de l'interruption bouton de rotation
+	if ((erreurInterruption1 = request_irq(gpio_to_irq(azimuth), limit_switch_Azimuth, IRQF_SHARED 
+	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {  	
+	    gpio_free(azimuth);
+	    printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption1 = %d\n",erreurInterruption1);
+	    return erreurInterruption1;
+	}
 	// création de l'interruption pour le capteur fin de course inclinaison 1
-    if ((erreurInterruption2 = request_irq(gpio_to_irq(rising1), limit_switch_Rising1, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
-            gpio_free(rising1);
-            printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption2 = %d\n",erreurInterruption2);
-            return erreurInterruption2;
-    }
-    // création de l'interruption pour le capteur fin de course inclinaison 2
-    if ((erreurInterruption3 = request_irq(gpio_to_irq(rising2), limit_switch_Rising2, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
-            gpio_free(rising2);
-            printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption3 = %d\n",erreurInterruption3);
-            return erreurInterruption3;
-    }
-    // création de l'interruption pour le capteur fin de course zoom1
-    if ((erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
-            gpio_free(zoom1);
-            printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption4 = %d\n",erreurInterruption4);
-            return erreurInterruption4;
-    }
-    // création de l'interruption pour le capteur fin de course zoom2
-    if ((erreurInterruption5 = request_irq(gpio_to_irq(zoom2), limit_switch_Zoom2, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
-            gpio_free(zoom2);
-            printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption5 = %d\n",erreurInterruption5);
-            return erreurInterruption5;
-    }
-        /*Allocating Major number*/
-    if((alloc_chrdev_region(&dev, 0, 1, "etx_Dev")) <0){
-            printk(KERN_INFO "Cannot allocate major number\n");
-            return -1;
-    }
-    printk(KERN_INFO "Major = %d Minor = %d \n",MAJOR(dev), MINOR(dev));
+	if ((erreurInterruption2 = request_irq(gpio_to_irq(rising1), limit_switch_Rising1, IRQF_SHARED 
+	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
+	    gpio_free(rising1);
+	    printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption2 = %d\n",erreurInterruption2);
+	    return erreurInterruption2;
+	}
+	// création de l'interruption pour le capteur fin de course inclinaison 2
+	if ((erreurInterruption3 = request_irq(gpio_to_irq(rising2), limit_switch_Rising2, IRQF_SHARED 
+	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
+	    gpio_free(rising2);
+	    printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption3 = %d\n",erreurInterruption3);
+	    return erreurInterruption3;
+	}
+	// création de l'interruption pour le capteur fin de course zoom1
+	if ((erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED 
+	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
+	    gpio_free(zoom1);
+	    printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption4 = %d\n",erreurInterruption4);
+	    return erreurInterruption4;
+	}
+	// création de l'interruption pour le capteur fin de course zoom2
+	if ((erreurInterruption5 = request_irq(gpio_to_irq(zoom2), limit_switch_Zoom2, IRQF_SHARED 
+	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
+	    gpio_free(zoom2);
+	    printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption5 = %d\n",erreurInterruption5);
+	    return erreurInterruption5;
+	}
+	/*Allocating Major number*/
+	if((alloc_chrdev_region(&dev, 0, 1, "etx_Dev")) <0){
+	    printk(KERN_INFO "Cannot allocate major number\n");
+	    return -1;
+	}
+	printk(KERN_INFO "Major = %d Minor = %d \n",MAJOR(dev), MINOR(dev));
 
 	Etat.Moteur.Rotation = 0;
 	Etat.Moteur.Tilt = 0;
 	Etat.Moteur.Zoom = 0;
-	
-    /*Creating cdev structure*/
-    cdev_init(&etx_cdev,&fops);
 
-    /*Adding character device to the system*/
-    if((cdev_add(&etx_cdev,dev,1)) < 0){
-        printk(KERN_INFO "Cannot add the device to the system\n");
-        goto r_class;
-    }
+	/*Creating cdev structure*/
+	cdev_init(&etx_cdev,&fops);
 
-    /*Creating struct class*/
-    if((dev_class = class_create(THIS_MODULE,"etx_class")) == NULL){
-        printk(KERN_INFO "Cannot create the struct class\n");
-        goto r_class;
-    }
+	/*Adding character device to the system*/
+	if((cdev_add(&etx_cdev,dev,1)) < 0){
+		printk(KERN_INFO "Cannot add the device to the system\n");
+		goto r_class;
+	}
 
-    /*Creating device*/
-    if((device_create(dev_class,NULL,dev,NULL,"etx_device")) == NULL){
-        printk(KERN_INFO "Cannot create the Device 1\n");
-        goto r_device;
-    }
-    printk(KERN_INFO "Device Driver Insert...Done!!!\n");
+	/*Creating struct class*/
+	if((dev_class = class_create(THIS_MODULE,"etx_class")) == NULL){
+		printk(KERN_INFO "Cannot create the struct class\n");
+		goto r_class;
+	}
+
+	/*Creating device*/
+	if((device_create(dev_class,NULL,dev,NULL,"etx_device")) == NULL){
+		printk(KERN_INFO "Cannot create the Device 1\n");
+		goto r_device;
+	}
+	printk(KERN_INFO "Device Driver Insert...Done!!!\n");
 	return 0;
 
 	r_device:
-    	class_destroy(dev_class);
+    		class_destroy(dev_class);
 	r_class:
-    	unregister_chrdev_region(dev,1);
+    		unregister_chrdev_region(dev,1);
     	return -1;
 }
 //---------------------------------------------------------------------------------------------------------------//
@@ -624,16 +624,16 @@ void __exit my_exit (void)	// destructeur
 	}
 	free_irq(gpio_to_irq(azimuth), THIS_MODULE->name);	// désactive interruption azimute
 	free_irq(gpio_to_irq(rising1), THIS_MODULE->name);	// désactive interruption inclinaison
-    gpio_free(azimuth);	// libération pin interrupter azimute
-    gpio_free(rising1);	// libération pin interrupter inclinaison
+	gpio_free(azimuth);	// libération pin interrupter azimute
+	gpio_free(rising1);	// libération pin interrupter inclinaison
 	gpio_free(rising2);	// libération pin interrupter inclinaison 2
 	gpio_free(zoom1);	// libération pin interrupter zoom 
 	gpio_free(zoom2);	// libération pin interrupter zoom 2
-    device_destroy(dev_class,dev);
-    class_destroy(dev_class);
-    cdev_del(&etx_cdev);
-    unregister_chrdev_region(dev, 1);
-    printk(KERN_INFO "Device Driver Remove...Done!!!\n");
+	device_destroy(dev_class,dev);
+	class_destroy(dev_class);
+	cdev_del(&etx_cdev);
+	unregister_chrdev_region(dev, 1);
+	printk(KERN_INFO "Device Driver Remove...Done!!!\n");
 }
 //---------------------------------------------------------------------------------------------------------------//
 //------------------------------------------Fonctions lancer au démarrage du driver------------------------------//
