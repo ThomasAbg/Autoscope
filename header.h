@@ -17,7 +17,7 @@
 #include <linux/gpio.h>
 #include <linux/fs.h>
 
-#define PINNUMBER(port, pinNumber)	(((port) - 1) * 32 + (pinNumber))
+//#define PINNUMBER(port, pinNumber)	(((port) - 1) * 32 + (pinNumber))
 
 typedef struct{
 	unsigned int pin_step;		// pin number for step
