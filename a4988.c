@@ -79,7 +79,7 @@ MODULE_VERSION("Version 1.00");
 #define Dir_MRotation 21
 #define Enable_MRotation 26
 // 	Contrôle moteur inclinaison
-#define Step_MTilt 11
+#define Step_MTilt 40
 #define Dir_MTilt 11
 #define Enable_MTilt 24
 // Contrôle moteur zoom
@@ -505,13 +505,13 @@ int __init my_init (void)	// initilaisation des timers
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_request(TableauPinOutput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si il y a une erreur dans gpio_request
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOOut); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut liberation pinTableau n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		}
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_direction_output(TableauPinOutput[i],1)) != 0) { 
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si si il y a une erreur dans gpio_direction_output
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOOut); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut direction pinTableau n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		} 
 	} 
@@ -520,13 +520,13 @@ int __init my_init (void)	// initilaisation des timers
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_request(TableauPinInput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinInput[i]);  // libère la PIN
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOIn);
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn liberation pinTableau n°%d = %d\n",i ,erreurGPIOIn);
 			return erreurGPIOIn;
 		}
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_direction_input(TableauPinInput[i])) != 0) {
 			gpio_free(TableauPinInput[i]);
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn pin n°%d = %d\n",i ,erreurGPIOIn); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn direction pinTableau n°%d = %d\n",i ,erreurGPIOIn); 
 			return erreurGPIOIn;
 		}
 	} 
@@ -553,7 +553,7 @@ int __init my_init (void)	// initilaisation des timers
     }
     // création de l'interruption pour le capteur fin de course zoom1
     if ((erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
+    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) 
             gpio_free(zoom1);
             printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption4 = %d\n",erreurInterruption4);
             return erreurInterruption4;
