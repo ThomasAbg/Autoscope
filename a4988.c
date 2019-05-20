@@ -77,23 +77,23 @@ MODULE_VERSION("Version 1.00");
 // 	Contrôle moteur rotation
 #define Step_MRotation 20
 #define Dir_MRotation 21
-#define Enable_MRotation 26
+#define Enable_MRotation 
 // 	Contrôle moteur inclinaison
-#define Step_MTilt 13
+#define Step_MTilt 9
 #define Dir_MTilt 11
 #define Enable_MTilt 24
 // Contrôle moteur zoom
 #define Step_MZoom 12
 #define Dir_MZoom 6
-#define Enable_MZoom 11
+#define Enable_MZoom 7
 // Capteur de fin de course
-#define azimuth 11
-#define rising1 18
-#define rising2 27
+#define azimuth 17
+#define rising1 27
+#define rising2 18
 #define zoom1 23
 #define zoom2 22
 // Configuration mode pas rotation
-#define ConfigPasRot1 19 
+#define ConfigPasRot1 19
 #define ConfigPasRot2 13
 #define ConfigPasRot3 16
 // Configuration mode pas inclaison
@@ -101,8 +101,8 @@ MODULE_VERSION("Version 1.00");
 #define ConfigPasIncl2 8
 #define ConfigPasIncl3 10
 // Configuration mode pas room
-#define ConfigPasZoom1 11
-#define ConfigPasZoom2 5
+#define ConfigPasZoom1 0
+#define ConfigPasZoom2 1
 #define ConfigPasZoom3 5
 
 #include <linux/ioctl.h>
@@ -150,7 +150,7 @@ union {		// machine état
 	struct {
 		unsigned char Rotation :1;		// état du moteur de rotation 1 = en rotation 0 = à l'arret
 		unsigned char Tilt :1;			// état du moteur de d'inclinaison 1 = en rotation 0 = à l'arret
-		unsigned char Zoom :1;			// éttat du moteur de zoom 1 = en rotation 0 = à l'arret
+		unsigned char Zoom :1;			// état du moteur de zoom 1 = en rotation 0 = à l'arret
 		unsigned char ErreurTimer :1;	// état si il y a une erreur timer = 1 sinon = 0
 		unsigned char ErreurGPIO :1;	// état si il y a une erreur d'écriture/lecture avec les I/O = 1 sinon = 0
 		unsigned char unused :4;  		// complete le reste du char avec 4 bits libre
@@ -505,13 +505,13 @@ int __init my_init (void)	// initilaisation des timers
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_request(TableauPinOutput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si il y a une erreur dans gpio_request
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut liberation pinTableau n°%d = %d\n",i ,erreurGPIOOut); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		}
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_direction_output(TableauPinOutput[i],1)) != 0) { 
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si si il y a une erreur dans gpio_direction_output
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut direction pinTableau n°%d = %d\n",i ,erreurGPIOOut); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		} 
 	} 
@@ -520,13 +520,13 @@ int __init my_init (void)	// initilaisation des timers
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_request(TableauPinInput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinInput[i]);  // libère la PIN
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn liberation pinTableau n°%d = %d\n",i ,erreurGPIOIn);
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut pin n°%d = %d\n",i ,erreurGPIOIn);
 			return erreurGPIOIn;
 		}
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_direction_input(TableauPinInput[i])) != 0) {
 			gpio_free(TableauPinInput[i]);
-			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn direction pinTableau n°%d = %d\n",i ,erreurGPIOIn); 
+			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn pin n°%d = %d\n",i ,erreurGPIOIn); 
 			return erreurGPIOIn;
 		}
 	} 
@@ -553,7 +553,7 @@ int __init my_init (void)	// initilaisation des timers
     }
     // création de l'interruption pour le capteur fin de course zoom1
     if ((erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) 
+    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
             gpio_free(zoom1);
             printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption4 = %d\n",erreurInterruption4);
             return erreurInterruption4;
@@ -642,5 +642,3 @@ module_init(my_init);	// definition de l'initialiser du timer
 module_exit(my_exit);	// definition du destructeur du timer
 
 //---------------------------------------------------------------------------------------------------------------//
-
-
