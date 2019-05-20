@@ -79,7 +79,7 @@ MODULE_VERSION("Version 1.00");
 #define Dir_MRotation 21
 #define Enable_MRotation 26
 // 	Contrôle moteur inclinaison
-#define Step_MTilt 40
+#define Step_MTilt 13
 #define Dir_MTilt 11
 #define Enable_MTilt 24
 // Contrôle moteur zoom
