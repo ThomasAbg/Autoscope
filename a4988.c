@@ -592,7 +592,7 @@ int __init my_init (void)	// initilaisation des timers
 	}
 
 	/*Creating device*/
-	if((device_create(dev_class,NULL,dev,NULL,"etx_device")) == NULL){
+	if((device_create(dev_class,NULL,dev,NULL,"device_a4988")) == NULL){
 		printk(KERN_INFO "Cannot create the Device 1\n");
 		goto r_device;
 	}
