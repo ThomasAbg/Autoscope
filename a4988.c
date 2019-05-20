@@ -79,15 +79,15 @@ MODULE_VERSION("Version 1.00");
 #define Dir_MRotation 21
 #define Enable_MRotation 26
 // 	Contrôle moteur inclinaison
-#define Step_MTilt 9
-#define Dir_MTilt 9
+#define Step_MTilt 11
+#define Dir_MTilt 11
 #define Enable_MTilt 24
 // Contrôle moteur zoom
 #define Step_MZoom 12
 #define Dir_MZoom 6
-#define Enable_MZoom 9
+#define Enable_MZoom 11
 // Capteur de fin de course
-#define azimuth 9
+#define azimuth 11
 #define rising1 18
 #define rising2 27
 #define zoom1 23
