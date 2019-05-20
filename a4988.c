@@ -101,7 +101,7 @@ MODULE_VERSION("Version 1.00");
 #define ConfigPasIncl2 8
 #define ConfigPasIncl3 10
 // Configuration mode pas room
-#define ConfigPasZoom1 4
+#define ConfigPasZoom1 11
 #define ConfigPasZoom2 5
 #define ConfigPasZoom3 5
 
