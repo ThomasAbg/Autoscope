@@ -440,6 +440,7 @@ void stopall()	// Cette fonction permet d'arreter immediatement tous les moteurs
 	printk(KERN_INFO "DRIVERMOTOR: Stop all\n");
 	stopOne(MoteurRotation);	// arret du moteur rotation
 	stopOne(MoteurTilt);		// arret du moteur inclinaison
+	stopOne(MoteurZoom);		// arret du moteur zoom
 }
 //---------------------------------------------------------------------------------------------------------------//
 
