@@ -1,8 +1,31 @@
 \chapter{Système d'exploitation}
 
-%TODO explication OS autoscope, yocto, linux raspi
+\section{Introduction}
 
-\section{Support de la caméra} %TODO python
+L'avantage d'utiliser une carte Raspberry-Pi pour automatiser le télescope est la possibilité de disposer d'un système d'exploitation, en particulier d'une distribution GNU/Linux.
+
+\vspace{1cm}
+
+Yocto est un outil qui permet de créer ses propres distributions. Son utilisation permet d'obtenir un système d'exploitation adapté à l'application à laquelle il se destine sans éléments superflus consommant inutilement de la mémoire, de la puissance de calcul ou du temps de réaction. Il facilite de plus la reproductibilité du système.
+
+Yocto est un outils complexe dont il est difficile d'avoir une vue d'ensemble. Ce chapitre n'en expliquera pas le fonctionnement, en revanche pour permettre de comprendre et de se réapproprier le travail effectué, tous les éléments de code permettant de mettre en place des fonctionnalités seront détaillés.
+
+Pour plus d'informations, le fonctionnement global de Yocto est décrit dans un précédent rapport de projet~: \url{https://github.com/thomaslepoix/ESTEI/blob/master/M1_Projet_Telecommande_Raspberry-Pi/Hardware_Middleware.pdf}
+
+\vspace{1cm}
+
+Le travail sur le système d'exploitation de la Raspberry-Pi du télescope s'articule autour des points suivants~:
+\begin{itemize}[label=$\bullet$]
+	\item Mettre en place une configuration réseau permettant un accès simple au télescope depuis un ordinateur, via Wifi notamment.
+	\item Configurer le noyau Linux de sorte que toutes les briques logicielles soient capables de fonctionner. Cela passe notamment par une configuration du device tree.
+	\item Intégrer les différentes briques logicielles et assurer la coordination de leurs fonctionnements en un tout cohérent. Les interactions de ces briques logicielles sont un enjeu majeur.
+	\item L'évaluation pré-développement de certaines solutions, comme par exemple des possibilités qu'offrent les logiciels Raspberry-Pi de gestion vidéo et photo (\codeinline{text}{raspistill}, \codeinline{text}{raspivid}, etc.).
+	\end{itemize}
+
+%TODO
+%interfaces ssh, ftp
+
+\section{Support de la caméra}
 
 Pour gérer les différentes configurations matérielles de façon plus "userfriendly", la Raspberry-Pi dispose d'un fichier de configuration \codeinline{text}{config.txt} que le $bootloader$ interprétera pour sélectionner les $overlays$ correspondants et composer le $devicetree$ qui convient à l'architecture matérielle utilisée. Celui-ci étant ensuite passé au $kernel$ lors du démarrage.
 
@@ -50,7 +73,7 @@ root@autoscope ~ #
     raspivid -t 0
 \end{minted}
 
-\section{Étude du transfert du flux vidéo sur le réseau} %TODO python hélice
+\section{Étude du transfert du flux vidéo sur le réseau}
 
 Pour l'instant seul un test a été réalisé. Il s'agit d'afficher sur un ordinateur distant le flux vidéo filmé par la Raspberry-Pi. On utilise pour cela \codeinline{text}{netcat}.
 
@@ -66,13 +89,23 @@ root@autoscope ~ #
 
 La procédure fonctionne, le lecteur \codeinline{text}{mplayer} s'ouvre et lit la vidéo, toutefois malgré le taux de rafraîchissement très faible ($10fps$), une latence particulièrement longue existe, de l'ordre de 2 à 10 secondes.
 
-D'autres solutions plus performantes existent sûrement, en particulier des solutions de plus bas niveau intégrables à un programme C ou C++.
+\vspace{1cm}
+
+Confronté à une problématique similaire sur un projet différent, un autre étudiant a réussi à transférer le flux vidéo à un périphérique quelconque sans latence en utilisant la librairie Python \codeinline{text}{picamera} et le programme disponible ici~:
+
+\url{http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming}
+
+\vspace{1cm}
+
+Celui-ci semble être similaire mais dénué de l'interface web. Il est une piste intéressante à explorer et probablement la solution la plus simple pour mettre en œuvre le système. L'existence d'une librairie similaire ou d'une solution alternative en C/C++ serait tout de même préférable car elle affranchirait du besoin d'inclure dans le système d'exploitation toutes les librairies Python nécessaires à ce programme.
+
+\url{https://picamera.readthedocs.io/en/latest/recipes2.html#rapid-capture-and-streaming}
 
 \section{Splash screen}
 
 Le système d'exploitation disposait déjà d'un écran de démarrage aux couleurs de l'école survenant lors de la phase d'initialisation du système.
 
-Un second a été ajouté lors de la phase précédente, le démarrage du kernel, c'est à dire de Linux. Cela n'a pas vraiment d'intérêt pour le télescope si ce n'est un peu d'esthétique lorsqu'il démarre avec un écran branché. Cependant cela met en œuvre un processus qui sera utile pour d'autres choses, la configuration du kernel.
+Un second a été ajouté lors de la phase précédente, le démarrage du kernel, c'est-à-dire de Linux. Cela n'a pas vraiment d'intérêt pour le télescope si ce n'est un peu d'esthétique lorsqu'il démarre avec un écran branché. Cependant cela met en œuvre un processus qui sera utile pour d'autres choses, la configuration du kernel.
 
 \vspace{1cm}
 
@@ -484,7 +517,7 @@ Le serveur est alors accessible depuis un navigateur web via l'URL \codeinline{t
 
 \section{Driver helloworld}
 
-Ce driver minimaliste a pour but de préparer le terrain pour les drivers des moteurs, du GPS et de l'IMU.
+Ce driver minimaliste a pour but de préparer le terrain pour les drivers des moteurs et de l'IMU.
 
 \codeinline{text}{hello.c}~:
 \code{C}
@@ -685,7 +718,7 @@ Pour faire d'un programme un daemon, c'est-à-dire un programme se lançant au d
 
 \vspace{1cm}
 
-On écrit d'abord un script d'initialisation qui sera installé dans le dossier \codeinline{text}{/etc/init.d/} doté un bandeau d'entête où figurent notamment les runlevels dans lesquels le daemon doit être invoqué et ceux dans lesquels il doit être tué. Généralement un daemon peut être invoqué dans les runlevels $2$, $3$, $4$, $5$ et peut être tué dans les runlevels $0$, $1$, $6$. Généralement le runlevel $5$ est celui de fonctionnement normal de la machine, $0$ celui de l'arrêt et $6$ celui du redémarrage.
+On écrit d'abord un script d'initialisation qui sera installé dans le dossier \codeinline{text}{/etc/init.d/} doté d'un bandeau d'entête où figurent notamment les runlevels dans lesquels le daemon doit être invoqué et ceux dans lesquels il doit être tué. Généralement un daemon peut être invoqué dans les runlevels $2$, $3$, $4$, $5$ et peut être tué dans les runlevels $0$, $1$, $6$. Généralement le runlevel $5$ est celui de fonctionnement normal de la machine, $0$ celui de l'arrêt et $6$ celui du redémarrage.
 
 \codeinline{text}{meta-autoscope/recipes-test/helloworld/files/helloworld.sh}~:
 \code{bash}
@@ -709,13 +742,13 @@ case "$1" in
         echo -n "Starting ${DESC}: ${NAME}... "
 #       start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3 #-C don't work with busybox
         ${DAEMON} > /dev/tty3 &
-		echo $! > ${PIDFILE}
+        echo $! > ${PIDFILE}
         echo "done"
         ;;
     stop)
         echo -n "Stopping ${DESC}: ${NAME}... "
         start-stop-daemon -K -q -x ${DAEMON}
-		rm -f ${PIDFILE}
+        rm -f ${PIDFILE}
         echo "done"
         ;;
     restart)
@@ -723,21 +756,13 @@ case "$1" in
         $0 start
         ;;
     status)
-        start-stop-daemon -T -q -x ${DAEMON}
-        case "$?" in
-            0)
-                echo "Program ${NAME} is running (`pidof ${NAME}`)."
-                ;;
-            1)
-                echo "Programm ${NAME} is not running and the pid file exists."
-                ;;
-            3)
-                echo "Programm ${NAME} is not running."
-                ;;
-            4)
-                echo "Unable to determine ${NAME} status."
-                ;;
-            esac
+        if [ "`pidof ${DAEMON}`" ]
+        then
+            echo "Program ${NAME} is running (`pidof ${DAEMON}`)."
+        else
+            echo -n "Program ${NAME} is not running"
+            ls ${PIDFILE} &> /dev/null && echo -n " and the pidfile exists" ; echo "."
+            fi
         ;;
     *)
         echo "Usage: $0 {start|stop|restart|status}"
@@ -788,7 +813,7 @@ INITSCRIPT_NAME = "helloworld"
 INITSCRIPT_PARAMS = "start 99 5 . stop 00 0 1 6 ."
 \end{minted}
 
-\codeinline{text}{meta-autiscope/recipes-autoscope/images/autoscope-console-image.bb}~:
+\codeinline{text}{meta-autoscope/recipes-autoscope/images/autoscope-console-image.bb}~:
 \code{bash}
 HELLOWORLD = " \
     hello-mod \
@@ -862,7 +887,7 @@ Remarque~: Ce genre de variables de configurations propre aux Raspberry-Pi est g
 \vspace{1cm}
 
 %On observe que désormais le fichier \codeinline{text}{/dev/ttyS0} existe, avant cela seul \codeinline{text}{/dev/ttyAMA0} existait, autre ligne UART utilisée par le module Bluetooth de la Raspberry-pi.
-De plus sur la Raspberry-Pi 3, il existe une UART classique attribuée par défaut au module Bluetooth de la carte et une "miniUART" qui peut poser problème à l'utilisation puisqu'elle n'a pas d'horloge interne et dépend de l'horloge du processeur qui varie selon sa charge. Quelques essais ont confirmés que cette UART posait problème.
+De plus sur la Raspberry-Pi 3, il existe une UART classique attribuée par défaut au module Bluetooth de la carte et une "miniUART" qui peut poser problème à l'utilisation puisqu'elle n'a pas d'horloge interne et dépend de l'horloge du processeur qui varie selon sa charge. Quelques essais ont confirmé que cette UART posait problème.
 
 Il existe une overlay du device tree permettant d'intervertir les deux UARTs\\\codeinline{text}{pi3-disable-bt-overlay.dts} et de relier l'UART classique aux pins \codeinline{text}{8} et \codeinline{text}{10} du connecteur. L'on active l'overlay ainsi~:
 

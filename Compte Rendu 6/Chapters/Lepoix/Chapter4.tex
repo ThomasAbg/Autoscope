@@ -1,147 +1,108 @@
-\chapter{Stellarium}
+\chapter{Daemon d'interface avec le GPS}
 
-Ce chapitre n'a pas vocation à expliquer comment fonctionne le plugin de Stellarium développé par Thibaud LE DOLEDEC mais la procédure à suivre pour pouvoir utiliser ce plugin.
+Sur Linux, il ne convient généralement pas de gérer les périphériques utilisant l'UART avec des drivers. En effet à la différence des bus de communications comme I2C ou SPI, l'UART dispose déjà d'un driver permettant d'envoyer et de recevoir des trames depuis l'espace utilisateur. Les drivers résidant eux dans l'espace du système d'exploitation.
 
-\vspace{1cm}
-
-Ajouter un plugin à ce logiciel nécessite de modifier son code source et donc de recompiler l'intégralité du logiciel.
-
-\section{Installation depuis les sources}
-
-Installation des dépendances (sur une distribution de type Debian/Ubuntu)~:
-
-\code{text}
-~ $
-    sudo apt-get install build-essential cmake zlib1g-dev libgl1-mesa-dev gcc g++
-    sudo apt-get install graphviz doxygen gettext git
-\end{minted}
+De plus l'UART est d'un niveau d'abstraction supérieur par rapport à ces bus puisqu'il ne s'agit pas d'envoyer des commandes de lecture ou d'écriture sur les registres du périphérique mais d'envoyer des trames de commande que le périphérique va interpréter.
 
 \vspace{1cm}
 
-Installation des dépendances Qt~:
+On utilise donc généralement des daemons pour faire l'interface avec ce type de périphériques. Les daemons étant des programmes tournant en tâche de fond de l'espace utilisateur du système.
 
-\code{text}
-~ $
-    mkdir DEV/
-    cd DEV/
-    wget http://download.qt.io/archive/qt/5.5/5.5.0/qt-opensource-linux-x64-5.5.0-2.run
-    chmod +x qt-opensource-linux-x64-5.5.0-2.run
-    ./qt-opensource-linux-x64-5.5.0-2.run
-    #enter a shitty email address (e.g. qt.qt@yopmail.com)
-    #install in /opt/Qt5.5.0/
+%fonctionnement gps, trames NMEA
+%configuration gps
+\section{Fonctionnement du GPS}
 
-    git clone https://github.com/qt/qtftp
-    cd qtftp/
-    /opt/Qt5.5.0/5.5/gcc_64/bin/syncqt.pl -version 5.5.0
-    /opt/Qt5.5.0/5.5/gcc_64/bin/qmake
-    make
-    sudo make install
-\end{minted}
+Le GPS utilise des trames NMEA, qui est une norme de communication américaine pour les équipements marins. Elle est largement utilisée par les GPS.
 
 \vspace{1cm}
 
-Téléchargement des sources de Stellarium et du plugin Autoscope~:
+Il existe de nombreuses trames NMEA, toutes sont préfixées de \codeinline{text}{$} et suffixées de \mintinline[fontsize=\footnotesize]{text}{\r\n}. Les deux premiers caractères après \codeinline{text}{$} désignent le type d'équipement qui émet la trame, une trame émise par un GPS commence par \codeinline{text}{GP}. Elles comportent également un CRC, calculé par XOR des codes ASCII des précédents caractères.
 
-\code{text}
-~/DEV $
-    wget https://github.com/Stellarium/stellarium/releases/download/v0.19.0/ stellarium-0.19.0.tar.gz
-    tar -xzf stellarium-0.19.0.tar.gz
-    cd stellarium-0.19.0/plugins/
-    git clone https://github.com/thibaudledo/Autoscope-Stellarium-plugin.git plugins/Autoscope
-\end{minted}
+Ce GPS dispose également d'un jeu de trames propre au constructeur, composé de commandes et de réponses, commençant par \codeinline{text}{PMTK}.
 
 \vspace{1cm}
 
-Activation du plugin. Cela peut être fait en modifiant manuellement les sources de Stellarium ou en appliquant un patch de la modification fourni avec les sources du plugin~:
+Le GPS envoie périodiquement certaines trames NMEA et répond aux instructions que l'on peut lui envoyer.
 
-\code{text}
-~/DEV/Stellarium-0.19.0 $
-    git init
-    git add CMakeLists.txt src/core/StelApp.cpp
-    git apply plugins/Autoscope/0001-enable-autoscope-plugin.patch
-
-    ### OR APPEND MANUALLY ###
-    line 369 : CMakeLists.txt
-        ADD_PLUGIN(Autoscope 1)
-    line 94 : src/core/StelApp.cpp
-        #ifdef USE_STATIC_PLUGIN_AUTOSCOPE
-        Q_IMPORT_PLUGIN(AutoscopeStelPluginInterface)
-        #endif
-\end{minted}
-
-\vspace{1cm}
-
-Export de l'emplacement de Qt~:
-
-\code{text}
-    export QTDIR=/opt/Qt5.5.0/5.5/gcc_64
-    export PATH=/opt/Qt5.5.0/5.5/gcc_64/bin:${PATH}
-    export LD_LIBRARY_PATH=${QTPATH}/lib:${LD_LIBRARY_PATH}
-\end{minted}
-
-\vspace{1cm}
-
-Compilation de Stellarium~:
-
-\code{text}
-~/DEV/Stellarium-0.19.0 $
-    mkdir -p builds/unix/
-    cd builds/unix/
-    cmake -DCMAKE_BUILD_MODE=Release -DCMAKE_INSTALL_PREFIX=/opt/stellarium ../../
-    make -j4
-\end{minted}
-
-\vspace{1cm}
-
-Installation de Stellarium~:
-
-\code{text}
-~/DEV/Stellarium-0.19.0/builds/unix $
-    sudo make install
-\end{minted}
-
-\section{Création d'un paquet binaire}
-
-Après la compilation il est possible d'installer le logiciel mais il est aussi possible de créer des paquets permettant de le distribuer. L'on peut créer~:
+Parmi les trames intéressantes qu'envoie le GPS, on trouve~:
 \begin{itemize}[label=$\bullet$]
-	\item Un paquet contenant le code source de Stellarium et du plugin, prêt à être compilé.
-	\item Un paquet contenant le logiciel compilé, à installer manuellement.
-	\item Un paquet \codeinline{text}{.deb} contenant le logiciel compilé et destiné au logiciel de gestion de paquets des distributions GNU/Linux de la famille Debian.
-	\item Un paquet \codeinline{text}{.rmp} contenant le logiciel compilé et destiné au logiciel de gestion de paquets des distributions GNU/Linux de la famille Red Hat.
+	\item \codeinline{text}{GPGLL}~: Contient notamment la latitude et la longitude.
+	\item \codeinline{text}{GPRMC}~: Contient notamment la latitude et la longitude.
+	\item \codeinline{text}{GPGGA}~: Contient notamment la latitude, la longitude et l'altitude.
+	\item \codeinline{text}{PMTK705}~: Contient le nom et la version du firmware du GPS. Réponse à la trame de requête \codeinline{text}{PMTK605}.
 	\end{itemize}
 
-\code{text}
-~/DEV/Stellarium-0.19.0/builds/unix $
-    make package_source
-    make package
-    cpack -G DEB
-    cpack -G RPM
-\end{minted}
+\vspace{1cm}
 
-\section{Installation manuelle d'un paquet binaire}
+La trame \codeinline{text}{GPGGA} est celle qui contient le plus d'informations intéressantes. À titre d'exemple, voici sa décomposition~:
 
-L'on choisit d'installer le logiciel dans le dossier \codeinline{text}{/opt} plutôt que \codeinline{text}{/usr/local} dans le but de l'isoler un peu et de permettre un développement moins risqué ainsi que la cohabitation d'une version Autoscope de Stellarium installée manuellement et d'une version classique installée depuis le gestionnaire de paquets.
+\mintinline[fontsize=\footnotesize]{text}{$GPGGA,204444.000,4042.6250,N,07400.5054,W,1,6,1.45,278.7,M,-34.2,M,,*6C\r\n}
 
-Dans le dossier \codeinline{text}{/opt}, chaque logiciel installé dispose d'un dossier lui étant propre, tandis que dans \codeinline{text}{/usr} et \codeinline{text}{/usr/local}, l'arborescence est partagée à tous les logiciels (les binaires avec les binaires, les sources avec les sources, les icônes avec les icônes, etc.). Le dossier \codeinline{text}{/opt} n'est généralement pas utilisé par les gestionnaires de paquets.
+\begin{itemize}[label=$\bullet$]
+		\item \codeinline{text}{204444.000}~: Heure de calcul de la position $20h44m44s$
+		\item \codeinline{text}{4042.6250,N}~: Latitude $40$°$42'62,50"$ Nord
+		\item \codeinline{text}{07400.5054,W}~: Longitude $074$°$00'50,54"$ Est
+		\item \codeinline{text}{1}~: Indicateur de qualité 1 = GPS
+		\item \codeinline{text}{6}~: Nombre de satellites utilisés
+		\item \codeinline{text}{1.45}~: Dilution de la position horizontale (HDOP)
+		\item \codeinline{text}{278.7,M}~: Altitude par rapport au niveau moyen de la mer $278,7m$
+		\item \codeinline{text}{-34.2,M}~: Hauteur du géoïde $-34,2m$
+		\item \codeinline{text}{vide}~: Age des données GPS différentiel
+		\item \codeinline{text}{vide}~: Identifient de la station GPS différentiel
+		\item \codeinline{text}{6C}~: CRC de \codeinline{text}{GPGGA,204444.000,4042.6250,N,07400.5054,W,1,6,1.45,278.7,M,-34.2,M,,*}
+		\end{itemize}
 
 \vspace{1cm}
 
-Un paquet binaire est disponible sur le dépôt du projet, à l'adresse suivante~:
+La trame \codeinline{text}{GPGGA} contenant toutes les informations utiles, il semble inutile de laisser le GPS envoyer périodiquement d'autres trames que celle-ci.
 
-\url{https://github.com/thibaudledo/Autoscope/releases/tag/alpha}
+La trame de commande \codeinline{text}{314 PMTK_API_SET_NMEA_OUTPUT} permet de configurer les trames qu'envoie périodiquement le GPS~:
 
-\code{text}
-/opt #
-    wget https://github.com/thibaudledo/Autoscope/releases/download/alpha/ Stellarium-0.19.0-Linux.tar.gz
-    tar -xzf Stellarium-0.19.0-Linux.tar.gz
-\end{minted}
+\mintinline[fontsize=\footnotesize]{text}{$PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*29\r\n}
 
-\section{Lancement de Stellarium}
+\begin{itemize}[label=$\bullet$]
+	\item \codeinline{text}{GPGLL}~: Trame jamais envoyée.
+	\item \codeinline{text}{GPRMC}~: Trame jamais envoyée.
+	\item \codeinline{text}{GPVTG}~: Trame jamais envoyée.
+	\item \codeinline{text}{GPGGA}~: Trame envoyée une fois tous les \codeinline{text}{1} calcul de position. Peut aller jusqu'à une trame tous les \codeinline{text}{5} calculs de position.
+	\item \codeinline{text}{GPGSA}~: Trame jamais envoyée.
+	\item \codeinline{text}{GPGSV}~: Trame jamais envoyée.
+	\item Les autres champs doivent rester à \codeinline{text}{0}.
+	\item \codeinline{text}{29}~: CRC de \codeinline{text}{PMTK314,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0*}
+	\end{itemize}
 
-La commande suivante peut être utilisée pour créer un raccourcis dans un dock, un tableau de bord ou un menu~:
+\vspace{1cm}
 
-\code{text}
-~ $
-    /opt/Stellarium-0.19.0-Linux/bin/stellarium
-\end{minted}
+Le GPS doit alors répondre une trame \codeinline{text}{001 PMTK_ACK}~: \mintinline[fontsize=\footnotesize]{text}{$PMTK001,314,3*36\r\n} signifiant que la commande a été prise en compte.
+
+\section{Fonctionnement du daemon}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{sch_mtk3339d.pdf}
+    \decoRule
+    \caption[
+    Architecture logicielle du daemon d'interface avec le GPS]{
+    Architecture logicielle du daemon d'interface avec le GPS}
+    \label{fig:Architecture logicielle du daemon d'interface avec le GPS}
+	\end{figure}
+
+\vspace{1cm}
+
+Le daemon \codeinline{text}{/usr/bin/mtk3339d} est invoqué et tué par son script d'initialisation\\\codeinline{text}{/etc/init.d/mtk3339d}.
+
+\vspace{1cm}
+
+Lors de son fonctionnement, il réceptionne les trames envoyées par le GPS sur la liaison série et en extrait les données intéressantes qu'il stocke dans sa mémoire. Ces données sont la latitude, la longitude, l'altitude, ainsi que le nom et la version du firmware, utilisés principalement comme débug.
+
+La communication de ces données au logiciel principal du télescope se fait à la demande de ce dernier et par le biais d'un pipe FIFO pour chaque donnée.
+
+\vspace{1cm}
+
+Pour adresser sa requête des données au daemon (matérialisée par l'envoi d'un signal \codeinline{text}{SIGUSR1}), le logiciel principal a besoin de connaître le \codeinline{text}{PID} du daemon. Celui-ci est stocké dans le fichier \codeinline{text}{/var/run/mtk3339d.pid} créé par le script d'initialisation lors de l'invocation du daemon.
+
+\vspace{1cm}
+
+La fonction \codeinline{text}{init_gps} envoie la trame de configuration \codeinline{text}{PMTK314} décrite précédemment ainsi qu'une trame de requête des informations firmware \codeinline{text}{PMTK605}.
+
 

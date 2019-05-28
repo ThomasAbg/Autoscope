@@ -1,0 +1,67 @@
+\chapter{Travail restant à faire}
+
+Ce chapitre existe dans le but de récapituler le travail restant à faire sur le projet de façon un minimum exhaustive.
+
+\section{Structure du télescope}
+
+La plupart des pièces du télescope vierge de toute modification a été imprimée, quelques parties assemblées. Le travail restant à faire est conséquent et consiste en la modification du design du télescope en vue d'y intégrer~:
+\begin{itemize}[label=$\bullet$]
+	\item La carte électronique et la Raspberry-pi, face vers le sol, sous le miroir primaire.
+	\item Les modules GPS et IMU, placés le long de la structure du télescope. L'interprétation des données émises par l'IMU dépendra de son positionnement.
+	\item Les moteurs d'azimut et d'élévation ainsi que leurs courroies et tringles. Les roues crantées à fixer sur l'axe des moteurs n'ont pas été choisies. Leur diamètre reste à déterminer.
+	\item Les boutons poussoirs, capteurs de fin de course des mouvements engendrés par les moteur. Leur position devra être déterminée avec précision.
+	\item Tout le dispositif maintenant l'oculaire, le moteur permettant de l'actionner, les capteurs de fin de course associés (le mouvement de l'oculaire s'étend sur environ un quart de tour), ainsi que le module caméra. Ce dispositif devra être conçu avec le plus grand soin et la plus grande attention afin de permettre un réglage fin du télescope et d'obtenir une image nette. Il est conseillé de se renseigner la procédure de $collimation$ des télescopes avant de se lancer dans la conception.
+	\end{itemize}
+
+\section{Hardware}
+
+Il reste uniquement à faire la connectique des éléments déportés de la carte électronique.
+
+Un ventilateur de refroidissement du miroir peut aussi être choisi, nous ne nous sommes pas renseignés sur l'utilité avérée ou non de cet élément.
+
+\section{Système d'exploitation}
+
+\begin{itemize}[label=$\bullet$]
+	\item Sécurisation du système par la mise en place d'un pare feu avec \codeinline{text}{iptables} (et donc l'étude des ports utilisés, ainsi que le choix d'un port ne posant aucun conflit pour le transfert vidéo et la communication avec le plugin Stellarium), une gestion plus fine des droits de chaque utilisateur Linux, etc. L'abandon de FTP au profit de SFTP comme protocole de transfert d'images serait souhaitable (\codeinline{text}{openSSH} déjà utilisé comme serveur SSH permet cela).
+	\item La mise en place d'un système de mise à jour de l'OS. \codeinline{text}{SWUpdate} semble être une solution plus intéressante que \codeinline{text}{Mender} puisque nettement plus souple et configurable, tant dans la façon de mettre à jour le système que dans la façon de déclencher la mise à jour. Dans tous les cas, ces systèmes de mise à jour nécessitent d'utiliser un bootloader en plus du firmware du GPU de la Raspberry-Pi, or l'overlay du device tree \codeinline{text}{pi3-disable-bt} (nécessaire pour la communication avec le GPS) semble être incompatible avec U-Boot. Une tentative de transformer l'overlay en patch n'a pas résolu le problème, les investigations n'ont pas été poussées davantage.
+	\item L'optimisation de l'OS. Plusieurs choses peuvent être optimisées, la mémoire occupée, le temps de boot (qui peut être optimisé à plusieurs niveau, les plus faciles à travailler étant le niveau applicatif et le niveau de processus d'initialisation, ensuite viennent Linux et bootloader). Sur Yocto, le fichier \codeinline{text}{meta-autoscope/conf/distro/autoscope.conf} permet de se délester du support d'éléments inutilisés. Le lien suivant est une documentation intéressante~:\\\url{https://embexus.com/2017/05/16/embedded-linux-fast-boot-techniques/}
+	\end{itemize}
+
+\section{Support de la caméra}
+
+Il faut évaluer les possibilités de paramétrage de la capture photo que permettent les logiciels \codeinline{text}{raspistill}, \codeinline{text}{raspiyuv}, etc. Peut être cela est suffisant, peut être existe il une librairie de plus bas niveau utilisable dans un programme C/C++, peut être sera il nécessaire d'en développer une. Il semble peu probable qu'il faille modifier le driver de la caméra.
+
+\section{Transfert du flux vidéo sur le réseau}
+
+La communauté Raspberry-Pi fournit une librairie Python de contrôle de la caméra, il semble qu'elle permette un transfert sur le réseau du flux vidéo sans latence excessive. La recette Yocto pour intégrer ladite librairie a été écrite mais pas celle permettant l'ajout de toutes celles qu'elle même utilise.
+
+Il serait préférable de trouver une librairie équivalente en C/C++, ou à défaut de l'écrire.
+
+\vspace{1cm}
+
+Il n'a pas été déterminé s'il est plus pertinent d'intégrer le logiciel de transmission du flux vidéo au logiciel principal du télescope ou s'il est plus pertinent d'en faire un autre logiciel.
+
+Le serveur vidéo devra probablement s'interrompre le temps que le télescope utilise la caméra pour prendre une photo ponctuelle. Dans le cas où il serait un logiciel distinct du logiciel principal, les signaux seraient sûrement pour ce dernier un moyen de contrôle suffisant. Par exemple \codeinline{text}{SIGSTOP} et \codeinline{text}{SIGCONT} s'il suffit de mettre le serveur en pause, \codeinline{text}{SIGUSR1} et \codeinline{text}{SIGUSR2} si le serveur doit effectuer des actions de connexion/déconnexion au client ainsi qu'à la caméra.
+
+\section{Daemon du GPS}
+
+Le daemon du GPS n'a pas été testé dans un environnement où la connexion est suffisamment bonne pour que le GPS parvienne à calculer sa position géographique. Il suffit probablement de l'emmener à l'extérieur. Ce test permettrait de valider définitivement le fonctionnement du daemon ainsi que du GPS.
+
+%TODO
+\section{Driver des contrôleurs moteur}
+%TODO
+\section{Driver de la centrale inertielle (IMU)}
+\section{Plugin de Stellarium}
+
+\begin{itemize}[label=$\bullet$]
+	\item La librairie FTP utilisée \codeinline{text}{qftp} pose problème et est dépréciée, il faudrait se passer de son utilisation. Il serait judicieux d'en profiter pour migrer vers SFTP, plus sécurisé.
+	\item Une partie du code sera probablement à retravailler conjointement au développement du logiciel principal du télescope, ainsi que du serveur vidéo.
+	\end{itemize}
+
+\section{Logiciel principal du télescope (Autoscope-core)}
+
+\begin{itemize}[label=$\bullet$]
+	\item Intégration dans un programme unique des fragments d'interface avec les différents organes logiciels du télescope (drivers moteurs et IMU, daemon GPS, plugin Stellarium, etc). Ces fragments se trouvent sur la branche {\href{https://github.com/thibaudledo/Autoscope/tree/master}{\codeinline{text}{master} du dépôt git principal}} et sont voués à disparaître une fois cette tâche effectuée.
+	\item Développement de l'algorithme de déplacement du télescope. Celui-ci va dépendre des données qu'il est possible d'obtenir de la centrale inertielle, des possibilités du driver des contrôleurs moteur, ainsi que de la structure du télescope et la façon dont sera intégrée le hardware.
+	\end{itemize}
+
