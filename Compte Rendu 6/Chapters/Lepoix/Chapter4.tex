@@ -105,4 +105,18 @@ Pour adresser sa requête des données au daemon (matérialisée par l'envoi d'u
 
 La fonction \codeinline{text}{init_gps} envoie la trame de configuration \codeinline{text}{PMTK314} décrite précédemment ainsi qu'une trame de requête des informations firmware \codeinline{text}{PMTK605}.
 
+%\vspace{1cm}
+\newpage
+
+À l'usage, le daemon se lance automatiquement à l'allumage du système. On peut alors utiliser un programme de test \codeinline{text}{mtk3339d-test} contenant le fragment décrit ci-dessus du programme principal du télescope. Le test n'a pas eu l'occasion d'être fait dans un environnement où le GPS parvient à se connecter aux satellites, d'où les données nulles~:
+
+\code{text}
+root@autoscope ~ #
+    mtk3339d-test
+        GPS daemon PID : 335
+        Recieved latitude : 0
+        Recieved longitude : 0
+        Recieved altitude : 0
+        Recieved firmware : AXN_2.31_3339_13101700
+\end{minted}
 
