@@ -47,10 +47,22 @@ Le serveur vidéo devra probablement s'interrompre le temps que le télescope ut
 
 Le daemon du GPS n'a pas été testé dans un environnement où la connexion est suffisamment bonne pour que le GPS parvienne à calculer sa position géographique. Il suffit probablement de l'emmener à l'extérieur. Ce test permettrait de valider définitivement le fonctionnement du daemon ainsi que du GPS.
 
-%TODO
+Une meilleure gestion des cas d'erreurs dans le code du daemon serait la bienvenue.
+
 \section{Driver des contrôleurs moteur}
-%TODO
+
+Le cœur du driver des contrôleurs moteur fonctionne. L'organe de communication avec le logiciel principal du télescope est le dernier à être en cours de développement bien que proche d'un état satisfaisant.
+
+Quelques éléments légers resteront a modifier. Une phase de refactoring du code sera également nécessaire.
+
 \section{Driver de la centrale inertielle (IMU)}
+
+\begin{itemize}[label=$\bullet$]
+	\item Le plus important du travail a été réalisé puisque le driver existe et supporte le gyroscope et l'accéléromètre de la centrale inertielle. Il reste à programmer le support du magnétomètre.
+	\item Davantage de documentation sur le fonctionnement du driver serait également bienvenue.
+	\item Enfin, une série de tests reste à concevoir et à mettre en œuvre pour valider le fonctionnement du driver.
+	\end{itemize}
+
 \section{Plugin de Stellarium}
 
 \begin{itemize}[label=$\bullet$]
