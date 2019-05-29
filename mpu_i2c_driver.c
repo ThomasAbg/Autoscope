@@ -111,7 +111,7 @@ static int mpu_device_init(struct regmap *map){
 		return -1;
 	}
 
-	ret = check_device_identity(map, MPU_9255_DEVICE_ID);
+	ret = check_device_identity(map, MPU_9250_DEVICE_ID);
 
 	if (ret < 0) {
 		pr_err("Invalid device identity\n");
