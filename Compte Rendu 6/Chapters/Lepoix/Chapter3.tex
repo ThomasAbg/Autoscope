@@ -335,9 +335,9 @@ IMAGE_INSTALL += " \
 \vspace{1cm}
 
 Si l'on effectue les commandes suivantes, la Raspberry-Pi devient visible sur le réseau~:
+%    sysctl -w net.ipv4.ip_forward=1
 \code{text}
 root@autoscope ~ #
-    sysctl -w net.ipv4.ip_forward=1
     connmanctl enable wifi
     connmanctl tether wifi on Autoscope 123456789
 \end{minted}
@@ -415,16 +415,16 @@ Les lignes ajoutées à \codeinline{text}{do_install()} permettent de déplacer 
 
 \vspace{1cm}
 
-Quant à la commande \codeinline{text}{sysctl -w net.ipv4.ip_forward=1} qui n'est pas à effectuer à chaque démarrage, on peut l'automatiser ainsi~:
-
-\codeinline{text}{meta-autoscope/recipes-autoscope/images/autoscope-console-image.bb}~:
-\code{bash}
-hotspot() {
-    echo 'net.ipv4.ip_forward = 1' >> ${IMAGE_ROOTFS}/etc/sysctl.conf
-}
-
-ROOTFS_POSTPROCESS_COMMAND += " hotspot; "
-\end{minted}
+%Quant à la commande \codeinline{text}{sysctl -w net.ipv4.ip_forward=1} qui n'est pas à effectuer à chaque démarrage, on peut l'automatiser ainsi~:
+%
+%\codeinline{text}{meta-autoscope/recipes-autoscope/images/autoscope-console-image.bb}~:
+%\code{bash}
+%hotspot() {
+%    echo 'net.ipv4.ip_forward = 1' >> ${IMAGE_ROOTFS}/etc/sysctl.conf
+%}
+%
+%ROOTFS_POSTPROCESS_COMMAND += " hotspot; "
+%\end{minted}
 
 \vspace{1cm}
 

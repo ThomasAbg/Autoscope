@@ -8,10 +8,20 @@ Un patch du device tree permettant le support du driver est également fourni.
 
 \vspace{1cm}
 
-%TODO
-Le driver fonctionne correctement sur l'environnement de Clément (un OS Yocto basique) mais une erreur de chargement de celui-ci a été rencontrée lors d'une tentative d'intégration au système d'exploitation du télescope. Les investigations n'ont pas été poussées davantage.
+Le driver a été intégré au système d'exploitation du télescope. \codeinline{text}{iio} permet d'accéder aux données issues de l'IMU via le dossier suivant~:
 
-\section{Interface utilisateur}
+\code{text}
+root@autoscope ~ #
+    ls /sys/bus/iio/devices/iio:device0/
+        dev               in_accel_y_raw    in_anglvel_x_raw  in_temp_input  power
+        in_accel_scale    in_accel_z_raw    in_anglvel_y_raw  name           subsystem
+        in_accel_x_raw    in_anglvel_scale  in_anglvel_z_raw  of_node        uevent
+
+    cat /sys/bus/iio/devices/iio:device0/name
+        mpu9250-i2c
+\end{minted}
+
+\section{Interface utilisateur (Plugin de Stellarium)}
 
 Le logiciel Stellarium offre la possibilité de développer des plugins aux fonctionnalités diverses. Nous avons décidé d'utiliser un plugin pour faire de Stellarium l'élément principal de l'interface utilisateur du télescope.
 
