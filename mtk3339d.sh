@@ -11,13 +11,14 @@
 NAME="mtk3339d"
 DESC="GPS mtk3339 daemon"
 DAEMON="/usr/bin/${NAME}"
+DAEMON_ARGS="-p"
 PIDFILE="/var/run/${NAME}.pid"
 
 case "$1" in
 	start)
 		echo -n "Starting ${DESC}: ${NAME}... "
 #		start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3 #-C dont work with busybox
-		${DAEMON} > /dev/tty3 &
+		${DAEMON} ${DAEMON_ARGS} > /dev/tty3 &
 		echo $! > ${PIDFILE}
 		echo "done"
 		;;

@@ -6,7 +6,7 @@ data_t data={"0", "0", "0", "0"};
 
 unsigned char flag_writing=0;
 unsigned char flag_request=0;
-
+unsigned char persistent=0;
 
 static unsigned char check(unsigned char* str) {
 	unsigned char sum=0;
@@ -15,7 +15,6 @@ static unsigned char check(unsigned char* str) {
 		}
 	return(sum);
 	}
-
 
 /* to work on regex you can use these websites */
 /* https://regex101.com/ */
@@ -31,7 +30,7 @@ void init_parser(void) {
 		exit(EXIT_FAILURE); /* g1 status g2 latitude g3 longitude g4 mode */
 	if(regcomp(&r[GPGLL], "^GPGLL,([^,]*,[NS]?),([^,]*,[EW]?),[^,]*,([AV]{1}),([ADENS]{1})$", REG_EXTENDED))
 		exit(EXIT_FAILURE); /* g1 latitude g2 longitude g3 status g4 mode */
-	if(regcomp(&r[GPGGA], "^GPGGA,[^,]*,([^,]*,[NS]?),([^,]*,[EW]?),[0-8]?,[^,]*,[^,]*,([^,]*,M?),[^,]*,M?,[^,]*,[^,]*$", REG_EXTENDED))
+	if(regcomp(&r[GPGGA], "^GPGGA,[^,]*,([^,]*,[NS]?),([^,]*,[EW]?),([0-8]?),[^,]*,[^,]*,([^,]*,M?),[^,]*,M?,[^,]*,[^,]*$", REG_EXTENDED))
 		exit(EXIT_FAILURE); /* g1 latitude g2 longitude g3 fix g4 altitude */
 	}
 
@@ -84,10 +83,11 @@ static uint16_t parse_msg(char found[MAX_RX]) {
 				/* datas validity */
 				status=found[match[1].rm_so];
 				mode=found[match[4].rm_so];
-				if(status == 'V'
+				if((status == 'V'
 				|| mode == 'E'
 				|| mode == 'N'
-				|| mode == 'S') {
+				|| mode == 'S')
+				&& !persistent) {
 					data.latitude[0]='0';
 					data.latitude[1]='\0';
 					data.longitude[0]='0';
@@ -119,10 +119,11 @@ static uint16_t parse_msg(char found[MAX_RX]) {
 				/* datas validity */
 				status=found[match[3].rm_so];
 				mode=found[match[4].rm_so];
-				if(status == 'V'
+				if((status == 'V'
 				|| mode == 'E'
 				|| mode == 'N'
-				|| mode == 'S') {
+				|| mode == 'S')
+				&& !persistent) {
 					data.latitude[0]='0';
 					data.latitude[1]='\0';
 					data.longitude[0]='0';
@@ -153,10 +154,11 @@ static uint16_t parse_msg(char found[MAX_RX]) {
 				flag_writing=1;
 				/* datas validity */
 				fix=found[match[3].rm_so];
-				if(fix == '0'
+				if((fix == '0'
 				|| fix == '6'
 				|| fix == '7'
-				|| fix == '8') {
+				|| fix == '8')
+				&& !persistent) {
 					data.latitude[0]='0';
 					data.latitude[1]='\0';
 					data.longitude[0]='0';

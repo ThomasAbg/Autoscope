@@ -35,6 +35,7 @@ extern data_t data;
 
 extern unsigned char flag_writing;
 extern unsigned char flag_request;
+extern unsigned char persistent;
 
 void init_parser(void);
 uint16_t parse(char rx_buffer[MAX_RX]);

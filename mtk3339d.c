@@ -82,7 +82,20 @@ void init_ipc(void) {
 	mkfifo(GPS_FIRMWARE_FILE, 0666);
 	}
 
-void main(void) {
+int main(int argc, char* argv[]) {
+	for(int i=0;i<argc;i++) {
+		if(!strcmp(argv[i], "-h") || !strcmp(argv[i], "--help")) {
+			printf("Usage : %s <options>\n", argv[0]);
+			printf("  -h, --help\t\tdisplay this help and exit\n");
+			printf("  -p, --persistent\tdo not clear GPS datas if GPS cannot fix\n");
+			exit(EXIT_SUCCESS);
+			}
+		if(!strcmp(argv[i], "-p") || !strcmp(argv[i], "--persistent")) {
+			printf("PERSISTENT MODE\n");
+			persistent=1;
+			}
+		}
+
 	init_ipc();
 	init_parser();
 	init_uart();
