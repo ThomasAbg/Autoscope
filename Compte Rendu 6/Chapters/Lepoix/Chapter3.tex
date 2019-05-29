@@ -10,7 +10,7 @@ Yocto est un outil qui permet de créer ses propres distributions. Son utilisati
 
 Yocto est un outils complexe dont il est difficile d'avoir une vue d'ensemble. Ce chapitre n'en expliquera pas le fonctionnement, en revanche pour permettre de comprendre et de se réapproprier le travail effectué, tous les éléments de code permettant de mettre en place des fonctionnalités seront détaillés.
 
-Pour plus d'informations, le fonctionnement global de Yocto est décrit dans un précédent rapport de projet~: \url{https://github.com/thomaslepoix/ESTEI/blob/master/M1_Projet_Telecommande_Raspberry-Pi/Hardware_Middleware.pdf}
+Pour plus d'informations, le fonctionnement global de Yocto est décrit dans un précédent rapport de projet~: {\href{https://github.com/thomaslepoix/ESTEI/blob/master/M1_Projet_Telecommande_Raspberry-Pi/Hardware_Middleware.pdf}{\codeinline{text}{https://github.com/thomaslepoix/ESTEI/blob/master/M1_Projet_Teleco}\\\codeinline{text}{mmande_Raspberry-Pi/Hardware_Middleware.pdf}}}
 
 \vspace{1cm}
 
@@ -22,12 +22,22 @@ Le travail sur le système d'exploitation de la Raspberry-Pi du télescope s'art
 	\item L'évaluation pré-développement de certaines solutions, comme par exemple des possibilités qu'offrent les logiciels Raspberry-Pi de gestion vidéo et photo (\codeinline{text}{raspistill}, \codeinline{text}{raspivid}, etc.).
 	\end{itemize}
 
-%TODO
-%interfaces ssh, ftp
+\vspace{1cm}
+
+Concernant les interfaces du système d'exploitation~:
+\begin{itemize}[label=$\bullet$]
+	\item Il existe une interface FTP destinée uniquement à récupérer les clichés du ciel stockés sur le télescope. L'utilisateur \codeinline{text}{autoscope} est le seul à pouvoir se connecter au serveur FTP et il ne sert qu'à ça.
+	\item Il existe une interface SSH destinée uniquement à l'administration système du télescope. L'utilisateur \codeinline{text}{admin} est le seul à pouvoir se connecter au serveur SSH.
+	\item L'utilisateur \codeinline{text}{root} n'est accessible que localement ou à distance via l'utilisateur \codeinline{text}{admin}.
+	\item La console locale \codeinline{text}{tty1} est la console d'accueil du système. Elle est la seule à disposer d'un terminal.
+	\item La console locale \codeinline{text}{tty2} affiche les messages générés par le système d'exploitation et notamment les messages du système d'initialisation.
+	\item La console locale \codeinline{text}{tty3} affiche les messages générés par le daemon d'interface avec le GPS \codeinline{text}{mtk3339d}.
+	\item La console locale \codeinline{text}{tty4} affiche les messages générés par le daemon \codeinline{text}{helloworld} s'il est présent.
+	\end{itemize}
 
 \section{Support de la caméra}
 
-Pour gérer les différentes configurations matérielles de façon plus "userfriendly", la Raspberry-Pi dispose d'un fichier de configuration \codeinline{text}{config.txt} que le $bootloader$ interprétera pour sélectionner les $overlays$ correspondants et composer le $devicetree$ qui convient à l'architecture matérielle utilisée. Celui-ci étant ensuite passé au $kernel$ lors du démarrage.
+Pour gérer les différentes configurations matérielles de façon plus "userfriendly", la\\Raspberry-Pi dispose d'un fichier de configuration \codeinline{text}{config.txt} que le $bootloader$ interprétera pour sélectionner les $overlays$ correspondants et composer le $devicetree$ qui convient à l'architecture matérielle utilisée. Celui-ci étant ensuite passé au $kernel$ lors du démarrage.
 
 %\vspace{1cm}
 
@@ -93,13 +103,13 @@ La procédure fonctionne, le lecteur \codeinline{text}{mplayer} s'ouvre et lit l
 
 Confronté à une problématique similaire sur un projet différent, un autre étudiant a réussi à transférer le flux vidéo à un périphérique quelconque sans latence en utilisant la librairie Python \codeinline{text}{picamera} et le programme disponible ici~:
 
-\url{http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming}
+{\href{http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming}{\codeinline{text}{http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming}}}
 
 \vspace{1cm}
 
 Celui-ci semble être similaire mais dénué de l'interface web. Il est une piste intéressante à explorer et probablement la solution la plus simple pour mettre en œuvre le système. L'existence d'une librairie similaire ou d'une solution alternative en C/C++ serait tout de même préférable car elle affranchirait du besoin d'inclure dans le système d'exploitation toutes les librairies Python nécessaires à ce programme.
 
-\url{https://picamera.readthedocs.io/en/latest/recipes2.html#rapid-capture-and-streaming}
+{\href{https://picamera.readthedocs.io/en/latest/recipes2.html#rapid-capture-and-streaming}{\codeinline{text}{https://picamera.readthedocs.io/en/latest/recipes2.html#rapid-capture-and-stre}\\\codeinline{text}{aming}}}
 
 \section{Splash screen}
 
@@ -741,7 +751,7 @@ case "$1" in
     start)
         echo -n "Starting ${DESC}: ${NAME}... "
 #       start-stop-daemon -S -b -C -q -x ${DAEMON} > /dev/tty3 #-C don't work with busybox
-        ${DAEMON} > /dev/tty3 &
+        ${DAEMON} > /dev/tty4 &
         echo $! > ${PIDFILE}
         echo "done"
         ;;
@@ -772,7 +782,7 @@ case "$1" in
 exit 0
 \end{minted}
 
-Les messages produits par le daemon sont redirigés vers la console \codeinline{text}{/dev/tty3} accessible par la combinaison de touches \codeinline{text}{[CTRL]}, \codeinline{text}{[ALT]}, \codeinline{text}{[F3]}.
+Les messages produits par le daemon sont redirigés vers la console \codeinline{text}{/dev/tty4} accessible par la combinaison de touches \codeinline{text}{[CTRL]}, \codeinline{text}{[ALT]}, \codeinline{text}{[F4]}.
 
 \vspace{1cm}
 
