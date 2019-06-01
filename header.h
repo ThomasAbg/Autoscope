@@ -19,6 +19,10 @@
 
 #define PINNUMBER(port, pinNumber)	(((port) - 1) * 32 + (pinNumber))
 
+#define QUERY_GET_VARIABLES _IOR('q', 1, query_arg_t *)
+#define QUERY_CLR_VARIABLES _IO('q', 2)
+#define QUERY_SET_VARIABLES _IOW('q', 3, query_arg_t *)
+
 typedef struct{
 	unsigned int pin_step;		// pin number for step
 	unsigned int pin_dir;		// pin number for direction
@@ -31,22 +35,11 @@ typedef enum {
 	anticlockwise=1
 }e_direction;
 
-unsigned int initEngine(void);
-
-void posInitial(void);
-
-
-
-
 typedef struct
 {
     int status, dignity, ego;
 } query_arg_t;
  
-#define QUERY_GET_VARIABLES _IOR('q', 1, query_arg_t *)
-#define QUERY_CLR_VARIABLES _IO('q', 2)
-#define QUERY_SET_VARIABLES _IOW('q', 3, query_arg_t *)
-
 
 //**************************************************************************
 
@@ -91,3 +84,4 @@ void stopall(void);	// Cette fonction permet d'arreter immediatement tous les mo
 void __exit my_exit (void);
 
 #endif /* ENGINECONTROL_H_ */
+
