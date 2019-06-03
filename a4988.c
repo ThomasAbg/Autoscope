@@ -112,11 +112,11 @@ MODULE_VERSION("Version 1.00");
 
 #define WR_VALUE 		_IOW('a','a',int32_t*)		
 #define RD_VALUE_STATUS	_IOR('a','b',struct Etat*)		
-#define ROTATION 		_IOW('a','a', struct Data*)		
-#define INCLINAISON 	_IOW('a','a', struct Data*)
-#define ZOOM 			_IOW('a','a', struct Data*)
-#define STOPONE 		_IOW('a','a', struct Data*)
-#define STOPALL 		_IOW('a','a', int32_t*)	
+#define ROTATION 		_IOW('a','c', struct Data*)		
+#define INCLINAISON 	_IOW('a','d', struct Data*)
+#define ZOOM 			_IOW('a','e', struct Data*)
+#define STOPONE 		_IOW('a','f', struct Data*)
+#define STOPALL 		_IOW('a','g', int32_t*)	
 
 int32_t value;
 int32_t STATUS = 0; 
@@ -464,7 +464,7 @@ void stopall()	// Cette fonction permet d'arreter immediatement tous les moteurs
 }
 //------------------------------------------------------------------------------------------------------------//
 
-//**************************************************************************************************************//
+//**************************************************************************************************************//WR_VALUE
 //**************************************************************************************************************//
 static struct file_operations fops =
 {
