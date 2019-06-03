@@ -110,13 +110,13 @@ MODULE_VERSION("Version 1.00");
 //***********************************************************************************************//
 //***********************************************************************************************//
 
-#define WR_VALUE 	_IOW('a','a',int32_t*)		
-#define RD_VALUE	_IOR('a','b',struct Etat*)		
-#define ROTATION 	_IOW('a','a', struct Data*)		
-#define INCLINAISON _IOW('a','a', struct Data*)
-#define ZOOM 		_IOW('a','a', struct Data*)
-#define STOPONE 	_IOW('a','a', struct Data*)
-#define STOPALL 	_IOW('a','a', int32_t*)	
+#define WR_VALUE 		_IOW('a','a',int32_t*)		
+#define RD_VALUE_STATUS	_IOR('a','b',struct Etat*)		
+#define ROTATION 		_IOW('a','a', struct Data*)		
+#define INCLINAISON 	_IOW('a','a', struct Data*)
+#define ZOOM 			_IOW('a','a', struct Data*)
+#define STOPONE 		_IOW('a','a', struct Data*)
+#define STOPALL 		_IOW('a','a', int32_t*)	
 
 int32_t value;
 int32_t STATUS = 0; 
@@ -515,7 +515,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 				case ROTATION:
 						printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
-						copy_from_user(&Data , sizeof(Data *) * size);
+						copy_from_user(&Data , sizeof(Data *));
 
 						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
