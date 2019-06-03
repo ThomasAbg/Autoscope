@@ -111,12 +111,12 @@ MODULE_VERSION("Version 1.00");
 //***********************************************************************************************//
 
 #define WR_VALUE 	_IOW('a','a',int32_t*)		
-#define RD_VALUE	_IOR('a','b',int32_t*)		// changer int32_t pour Etat 
-#define ROTATION 	_IOW('a','a', ??? )		/* JE MET QUOI A LA PLACE DES ??? */  // Data
-#define INCLINAISON _IOW('a','a', ??? )
-#define ZOOM 		_IOW('a','a', ??? )
-#define STOPONE 	_IOW('a','a', ??? )
-#define STOPALL 	_IOW('a','a', ???? )		// ici aucune variable n'est a transmettre au driver)
+#define RD_VALUE	_IOR('a','b',struct Etat*)		
+#define ROTATION 	_IOW('a','a', struct Data*)		
+#define INCLINAISON _IOW('a','a', struct Data*)
+#define ZOOM 		_IOW('a','a', struct Data*)
+#define STOPONE 	_IOW('a','a', struct Data*)
+#define STOPALL 	_IOW('a','a', int32_t*)	
 
 int32_t STATUS = 0; 
 dev_t dev = 0;
