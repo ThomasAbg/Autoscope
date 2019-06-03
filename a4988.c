@@ -656,7 +656,7 @@ int __init my_init (void)	// initilaisation des timers
             printk(KERN_INFO "Cannot allocate major number\n");
             return -1;
     }
-    printk(KERN_INFO "DRIVERMOTOR: "Major = %d Minor = %d \n",MAJOR(dev), MINOR(dev));
+    printk(KERN_INFO "DRIVERMOTOR: Major = %d Minor = %d \n",MAJOR(dev), MINOR(dev));
 
 	Etat.Moteur.Rotation = 0;
 	Etat.Moteur.Tilt = 0;
