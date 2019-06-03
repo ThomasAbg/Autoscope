@@ -118,6 +118,7 @@ MODULE_VERSION("Version 1.00");
 #define STOPONE 	_IOW('a','a', struct Data*)
 #define STOPALL 	_IOW('a','a', int32_t*)	
 
+int32_t value;
 int32_t STATUS = 0; 
 dev_t dev = 0;
 static struct class *dev_class;
