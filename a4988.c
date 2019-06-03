@@ -530,7 +530,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 				case INCLINAISON:
 						printk(KERN_INFO "DRIVERMOTOR: receve order inclinaison\n");						
-						copy_from_user((struct Data*) arg, &Data , sizeof(Data *));
+						copy_from_user((struct Data*) arg, &Data , sizeof(struct Data *));
 
 						printk(KERN_INFO "DRIVERMOTOR: order to do tild %d step in", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
@@ -546,7 +546,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 				case ZOOM:
 						printk(KERN_INFO "DRIVERMOTOR: receve order Zoom\n");						
-						copy_from_user(&Data , sizeof(Data *) * size);
+						copy_from_user((struct Data*) arg, &Data , sizeof(struct Data *));
 
 						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation zoom ", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
@@ -562,7 +562,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 				case STOPONE:
 						printk(KERN_INFO "DRIVERMOTOR: receve order StopOne\n");						
-						copy_from_user(&Data , sizeof(Data *) * size);
+						copy_from_user((struct Data*) arg, &Data , sizeof(struct Data *));
 						if(Data.choixMoteur == 1)	// controle si choix moteur rotation
 							stopOne(MoteurRotation);
 						else if(Data.choixMoteur == 2)	// controle si choix moteur inclinaison
@@ -573,7 +573,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 				case STOPALL:
 						printk(KERN_INFO "DRIVERMOTOR: receve order StopAll\n");
-						copy_from_user(&Data , sizeof(Data *) * size);
+						copy_from_user((struct Data*) arg, &Data , sizeof(struct Data *));
 						stopall();
         }
         return 0;
