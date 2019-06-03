@@ -509,7 +509,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
                 case RD_VALUE_STATUS:
 						printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
-                        copy_to_user((int32_t*) arg, &Etat, sizeof(Etat));
+                        copy_to_user((struct Etat*) arg, &Etat, sizeof(struct(Etat *));
                         printk(KERN_INFO "DRIVERMOTOR: Status value send = %c\n", Etat.CharEtat);
                         break;
 
@@ -639,14 +639,14 @@ int __init my_init (void)	// initilaisation des timers
             return erreurInterruption3;
     }
     // création de l'interruption pour le capteur fin de course zoom1
-    if (erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED 
+    if ((erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED
     	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) 
             gpio_free(zoom1);
             printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption4 = %d\n",erreurInterruption4);
             return erreurInterruption4;
     }
     // création de l'interruption pour le capteur fin de course zoom2
-    if ((erreurInterruption5 = request_irq(gpio_to_irq(zoom2), limit_switch_Zoom2, IRQF_SHARED 
+    if ((erreurInterruption5 = request_irq(gpio_to_irq(zoom2), limit_switch_Zoom2, IRQF_SHARED
     	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
             gpio_free(zoom2);
             printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption5 = %d\n",erreurInterruption5);
