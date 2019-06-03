@@ -510,7 +510,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
                 case RD_VALUE_STATUS:
 						printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
                         copy_to_user((int32_t*) arg, &Etat, sizeof(Etat));
-                        printk(KERN_INFO "DRIVERMOTOR: Status value send = %d\n", Etat);
+                        printk(KERN_INFO "DRIVERMOTOR: Status value send = %c\n", Etat.CharEtat);
                         break;
 
 				case ROTATION:
