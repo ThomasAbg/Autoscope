@@ -456,7 +456,7 @@ void stopOne(t_engine Motor)	// permet d'arrter un moteur au choix
 
 void stopall()	// Cette fonction permet d'arreter immediatement tous les moteurs
 {
-	printf(KERN_INFO "DRIVERMOTOR: Stop all\n");
+	//printf(KERN_INFO "DRIVERMOTOR: Stop all\n");
 	stopOne(MoteurRotation);	// arret du moteur rotation
 	stopOne(MoteurTilt);		// arret du moteur inclinaison
 	stopOne(MoteurZoom);		// arret du moteur zoom
