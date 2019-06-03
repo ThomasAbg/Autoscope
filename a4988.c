@@ -515,7 +515,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 				case ROTATION:
 						printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
-						copy_from_user((struct Data*) arg, &Data , sizeof(struct Data *));
+						copy_from_user((struct Data*) arg, &Data , sizeof(Data *));
 
 						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
@@ -523,14 +523,14 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 							printk("anticlockwise\n");
 							rotate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
 						else if(Data.Sens == 1)
-							rotation(Data.nbPas, anticlockwise);// application la rotation en sens non horaire
+							rotate(Data.nbPas, anticlockwise);// application la rotation en sens non horaire
 						else
 							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
 						break;
 
 				case INCLINAISON:
 						printk(KERN_INFO "DRIVERMOTOR: receve order inclinaison\n");						
-						copy_from_user(&Data , sizeof(Data *) * size);
+						copy_from_user((struct Data*) arg, &Data , sizeof(Data *));
 
 						printk(KERN_INFO "DRIVERMOTOR: order to do tild %d step in", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
