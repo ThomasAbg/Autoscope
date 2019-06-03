@@ -456,7 +456,7 @@ void stopOne(t_engine Motor)	// permet d'arrter un moteur au choix
 
 void stopall()	// Cette fonction permet d'arreter immediatement tous les moteurs
 {
-	printf(KERN_INFO "DRIVERMOTOR: Stop all\n");
+	printk(KERN_INFO "DRIVERMOTOR: Stop all\n");
 	stopOne(MoteurRotation);	// arret du moteur rotation
 	stopOne(MoteurTilt);		// arret du moteur inclinaison
 	stopOne(MoteurZoom);		// arret du moteur zoom
@@ -475,13 +475,13 @@ static struct file_operations fops =
  
 static int etx_open(struct inode *inode, struct file *file)
 {
-        printf(KERN_INFO "DRIVERMOTOR: Device File Opened...!!!\n");
+        printk(KERN_INFO "DRIVERMOTOR: Device File Opened...!!!\n");
         return 0;
 }
  
 static int etx_release(struct inode *inode, struct file *file)
 {
-        printf(KERN_INFO "DRIVERMOTOR: Device File Closed...!!!\n");
+        printk(KERN_INFO "DRIVERMOTOR: Device File Closed...!!!\n");
         return 0;
 }
 
@@ -501,25 +501,25 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
          switch(cmd) {
                 case WR_VALUE:
-						printf(KERN_INFO "DRIVERMOTOR: receve order write value\n");						
+						printk(KERN_INFO "DRIVERMOTOR: receve order write value\n");						
                         copy_from_user(&value ,(int32_t*) arg, sizeof(value));
-                        printf(KERN_INFO "DRIVERMOTOR: Value = %d\n", value);
+                        printk(KERN_INFO "DRIVERMOTOR: Value = %d\n", value);
                         break;
 
                 case RD_VALUE_STATUS:
-						printf(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
+						printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
                         copy_to_user((int32_t*) arg, &Etat, sizeof(Etat));
-                        printf(KERN_INFO "DRIVERMOTOR: Status value send = %d\n", Etat);
+                        printk(KERN_INFO "DRIVERMOTOR: Status value send = %d\n", Etat);
                         break;
 
 				case ROTATION:
-						printf(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
+						printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
 						copy_from_user(&Data , sizeof(Data *) * size);
 
-						printf(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
+						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
 						if(Data.Sens == 0){
-							printf("anticlockwise\n");
+							printk("anticlockwise\n");
 							rotate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
 						else if(Data.Sens == 1)
 							rotation(Data.nbPas, anticlockwise);// application la rotation en sens non horaire
@@ -528,39 +528,39 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 						break;
 
 				case INCLINAISON:
-						printf(KERN_INFO "DRIVERMOTOR: receve order inclinaison\n");						
+						printk(KERN_INFO "DRIVERMOTOR: receve order inclinaison\n");						
 						copy_from_user(&Data , sizeof(Data *) * size);
 
-						printf(KERN_INFO "DRIVERMOTOR: order to do tild %d step in", Data.nbPas);
+						printk(KERN_INFO "DRIVERMOTOR: order to do tild %d step in", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
 						if(Data.Sens == 0){
-							printf("clockwise\n");
+							printk("clockwise\n");
 							inclinate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
 						else if(Data.Sens == 1){
-							printf("anticlockwise\n");
+							printk("anticlockwise\n");
 							inclinate(Data.nbPas, anticlockwise);}// application la rotation en sens non horaire
 						else
 							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
 						break;
 
 				case ZOOM:
-						printf(KERN_INFO "DRIVERMOTOR: receve order Zoom\n");						
+						printk(KERN_INFO "DRIVERMOTOR: receve order Zoom\n");						
 						copy_from_user(&Data , sizeof(Data *) * size);
 
-						printf(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation zoom ", Data.nbPas);
+						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation zoom ", Data.nbPas);
 						// appel de la fonction pour faire tourner le moteur de rotation
 						if(Data.Sens == 0){
-							printf("clockwise\n");
+							printk("clockwise\n");
 							zoom(Data.nbPas, clockwise);}	// application la rotation en sens horaire
 						else if(Data.Sens == 1){
-							printf("anticlockwise\n");
+							printk("anticlockwise\n");
 							zoom(Data.nbPas, anticlockwise);}// application la rotation en sens non horaire
 						else
 							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");												
 						break;
 
 				case STOPONE:
-						printf(KERN_INFO "DRIVERMOTOR: receve order StopOne\n");						
+						printk(KERN_INFO "DRIVERMOTOR: receve order StopOne\n");						
 						copy_from_user(&Data , sizeof(Data *) * size);
 						if(Data.choixMoteur == 1)	// controle si choix moteur rotation
 							stopOne(MoteurRotation);
@@ -571,7 +571,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 						break;
 
 				case STOPALL:
-						printf(KERN_INFO "DRIVERMOTOR: receve order StopAll\n");
+						printk(KERN_INFO "DRIVERMOTOR: receve order StopAll\n");
 						copy_from_user(&Data , sizeof(Data *) * size);
 						stopall();
         }
@@ -656,7 +656,7 @@ int __init my_init (void)	// initilaisation des timers
             printk(KERN_INFO "Cannot allocate major number\n");
             return -1;
     }
-    printf(KERN_INFO "DRIVERMOTOR: "Major = %d Minor = %d \n",MAJOR(dev), MINOR(dev));
+    printk(KERN_INFO "DRIVERMOTOR: "Major = %d Minor = %d \n",MAJOR(dev), MINOR(dev));
 
 	Etat.Moteur.Rotation = 0;
 	Etat.Moteur.Tilt = 0;
@@ -667,13 +667,13 @@ int __init my_init (void)	// initilaisation des timers
 
     /*Adding character device to the system*/
     if((cdev_add(&etx_cdev,dev,1)) < 0){
-        printf(KERN_WARNING "DRIVERMOTOR: Cannot add the device to the system\n");
+        printk(KERN_WARNING "DRIVERMOTOR: Cannot add the device to the system\n");
         goto r_class;
     }
 
     /*Creating struct class*/
     if((dev_class = class_create(THIS_MODULE,"etx_class")) == NULL){
-        printf(KERN_WARNING "DRIVERMOTOR: Cannot create the struct class\n");
+        printk(KERN_WARNING "DRIVERMOTOR: Cannot create the struct class\n");
         goto r_class;
     }
 
