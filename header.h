@@ -19,9 +19,9 @@
 
 #define PINNUMBER(port, pinNumber)	(((port) - 1) * 32 + (pinNumber))
 
-#define QUERY_GET_VARIABLES _IOR('q', 1, query_arg_t *)
-#define QUERY_CLR_VARIABLES _IO('q', 2)
-#define QUERY_SET_VARIABLES _IOW('q', 3, query_arg_t *)
+//#define QUERY_GET_VARIABLES _IOR('q', 1, query_arg_t *)
+//#define QUERY_CLR_VARIABLES _IO('q', 2)
+//#define QUERY_SET_VARIABLES _IOW('q', 3, query_arg_t *)
 
 typedef struct{
 	unsigned int pin_step;		// pin number for step
