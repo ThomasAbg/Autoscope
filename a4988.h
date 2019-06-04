@@ -19,9 +19,13 @@
 
 #define PINNUMBER(port, pinNumber)	(((port) - 1) * 32 + (pinNumber))
 
-//#define QUERY_GET_VARIABLES _IOR('q', 1, query_arg_t *)
-//#define QUERY_CLR_VARIABLES _IO('q', 2)
-//#define QUERY_SET_VARIABLES _IOW('q', 3, query_arg_t *)
+#define WR_VALUE 		_IOW('a','1',int32_t*)		
+#define RD_VALUE_STATUS	_IOR('a','2',struct Etat*)		
+#define ROTATION 		_IOW('a','3', struct Data*)		
+#define INCLINAISON 	_IOW('a','4', struct Data*)
+#define ZOOM 			_IOW('a','5', struct Data*)
+#define STOPONE 		_IOW('a','6', struct Data*)
+#define STOPALL 		_IOW('a','7', int32_t*)	
 
 typedef struct{
 	unsigned int pin_step;		// pin number for step
