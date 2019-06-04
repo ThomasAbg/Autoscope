@@ -508,14 +508,14 @@ int __init my_init (void)	// initilaisation des timers
 	// parcours toutes les PINs en Sortie pour liberer les pins pour quelles soient utilisables
 	for(i=0; i < (sizeof(TableauPinOutput)/sizeof(int)); i++){	
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
+		gpio_free(TableauPinOutput[i]);  // libère la PIN si il y a une erreur dans gpio_request
 		if ((erreurGPIOOut = gpio_request(TableauPinOutput[i],THIS_MODULE->name)) != 0) {	
-			gpio_free(TableauPinOutput[i]);  // libère la PIN si il y a une erreur dans gpio_request
 			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut liberation pinTableau n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		}
+		gpio_free(TableauPinOutput[i]);  // libère la PIN si si il y a une erreur dans gpio_direction_output
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_direction_output(TableauPinOutput[i],1)) != 0) { 
-			gpio_free(TableauPinOutput[i]);  // libère la PIN si si il y a une erreur dans gpio_direction_output
 			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOOut direction pinTableau n°%d = %d\n",i ,erreurGPIOOut); 
 			return erreurGPIOOut;
 		} 
@@ -523,14 +523,14 @@ int __init my_init (void)	// initilaisation des timers
 	// parcours toutes les PINs en Entrée pour liberer les pins pour quelles soient utilisables
 	for(i=0; i < (sizeof(TableauPinInput)/sizeof(int)); i++){	
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
+		gpio_free(TableauPinInput[i]);  // libère la PIN
 		if ((erreurGPIOIn = gpio_request(TableauPinInput[i],THIS_MODULE->name)) != 0) {	
-			gpio_free(TableauPinInput[i]);  // libère la PIN
 			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn liberation pinTableau n°%d = %d\n",i ,erreurGPIOIn);
 			return erreurGPIOIn;
 		}
+		gpio_free(TableauPinInput[i]);
 		// met la pin en sortie et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_direction_input(TableauPinInput[i])) != 0) {
-			gpio_free(TableauPinInput[i]);
 			printk(KERN_WARNING "DRIVERMOTOR: erreurGPIOIn direction pinTableau n°%d = %d\n",i ,erreurGPIOIn); 
 			return erreurGPIOIn;
 		}
@@ -621,10 +621,10 @@ void __exit my_exit (void)	// destructeur
 	del_timer(& timerMotRot);	// destruction du timer moteur rotation
 	del_timer(& timerMotTilt);	// destruction du timer moteur inclinaison
 	del_timer(& timerMotZoom);  // destruction du timer moteur zoom
-	for(i=0;i<5;i++){
+	for(i=0;i<18;i++){
 		gpio_free(TableauPinOutput[i]);
 	}
-	for(i=0;i<1;i++){
+	for(i=0;i<5;i++){
 		gpio_free(TableauPinInput[i]);
 	}
 	free_irq(gpio_to_irq(azimuth), THIS_MODULE->name);	// désactive interruption azimute
