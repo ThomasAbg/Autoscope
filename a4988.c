@@ -558,7 +558,7 @@ int __init my_init (void)	// initilaisation des timers
     }
     // création de l'interruption pour le capteur fin de course zoom1
     if ((erreurInterruption4 = request_irq(gpio_to_irq(zoom1), limit_switch_Zoom1, IRQF_SHARED 
-    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) 
+    	| IRQF_TRIGGER_RISING, THIS_MODULE->name, THIS_MODULE->name)) != 0) {
             gpio_free(zoom1);
             printk(KERN_WARNING "DRIVERMOTOR: erreurInterruption4 = %d\n",erreurInterruption4);
             return erreurInterruption4;
