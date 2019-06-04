@@ -506,7 +506,7 @@ int __init my_init (void)	// initilaisation des timers
 	printk(KERN_INFO "DRIVERMOTOR: Initialisation du driver moteur\n"); 
 	int i, erreurGPIOIn, erreurGPIOOut, erreurInterruption1, erreurInterruption2, erreurInterruption3, erreurInterruption4, erreurInterruption5;
 	// parcours toutes les PINs en Sortie pour liberer les pins pour quelles soient utilisables
-	for(i=0; i < sizeof(TableauPinOutput); i++){	
+	for(i=0; i < (sizeof(TableauPinOutput)/sizeof(int)); i++){	
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOOut = gpio_request(TableauPinOutput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinOutput[i]);  // libère la PIN si il y a une erreur dans gpio_request
@@ -521,7 +521,7 @@ int __init my_init (void)	// initilaisation des timers
 		} 
 	} 
 	// parcours toutes les PINs en Entrée pour liberer les pins pour quelles soient utilisables
-	for(i=0; i < sizeof(TableauPinInput); i++){	
+	for(i=0; i < (sizeof(TableauPinInput)/sizeof(int)); i++){	
 		// associe la pin au module et contrôle qu'il n'y est pas erreur lors de cette action
 		if ((erreurGPIOIn = gpio_request(TableauPinInput[i],THIS_MODULE->name)) != 0) {	
 			gpio_free(TableauPinInput[i]);  // libère la PIN
