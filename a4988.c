@@ -522,9 +522,10 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 						if(Data.Sens == 0){
 							printk("clockwise\n");
 							rotate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
-						else if(Data.Sens == 1)
+						else if(Data.Sens == 1){
 							printk("anclockwise\n");
 							rotate(Data.nbPas, anticlockwise);// application la rotation en sens non horaire
+						}
 						else
 							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
 						break;
