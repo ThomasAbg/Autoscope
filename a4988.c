@@ -110,8 +110,8 @@ MODULE_VERSION("Version 1.00");
 //***********************************************************************************************//
 //***********************************************************************************************//
 
-//#define WR_VALUE _IOW('a','a',int32_t*)
-//#define RD_VALUE _IOR('a','b',int32_t*)
+#define WR_VALUE _IOW('a','1',int32_t*)
+#define RD_VALUE _IOR('a','2',int32_t*)
 
 int32_t value = 0; 
 dev_t dev = 0;
@@ -485,7 +485,7 @@ static ssize_t etx_write(struct file *filp, const char __user *buf, size_t len, 
  
 static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
-         /*switch(cmd) {
+         switch(cmd) {
                 case WR_VALUE:
                         copy_from_user(&value ,(int32_t*) arg, sizeof(value));
                         printk(KERN_INFO "Value = %d\n", value);
@@ -494,7 +494,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
                         copy_to_user((int32_t*) arg, &value, sizeof(value));
                         break;
         }
-        return 0;*/
+        return 0;
 }
 //****************************************************************************************************************//
 //****************************************************************************************************************//
