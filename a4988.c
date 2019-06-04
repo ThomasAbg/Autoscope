@@ -117,6 +117,7 @@ MODULE_VERSION("Version 1.00");
 #define ZOOM 			_IOW('a','5', struct Data*)
 #define STOPONE 		_IOW('a','6', struct Data*)
 #define STOPALL 		_IOW('a','7', int32_t*)	
+//
 
 int32_t value;
 int32_t STATUS = 0; 
