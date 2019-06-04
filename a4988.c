@@ -501,84 +501,84 @@ static ssize_t etx_write(struct file *filp, const char __user *buf, size_t len, 
  
 static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
-         switch(cmd) {
-                case WR_VALUE:
-						printk(KERN_INFO "DRIVERMOTOR: receve order write value\n");						
-                        copy_from_user(&value ,(int32_t*) arg, sizeof(value));
-                        printk(KERN_INFO "DRIVERMOTOR: Value = %d\n", value);
-                        break;
+	switch(cmd) {
+		case WR_VALUE:
+				printk(KERN_INFO "DRIVERMOTOR: receve order write value\n");						
+		        copy_from_user(&value ,(int32_t*) arg, sizeof(value));
+		        printk(KERN_INFO "DRIVERMOTOR: Value = %d\n", value);
+		        break;
 
-                case RD_VALUE_STATUS:
-						printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
-                        copy_to_user((struct Etat*) arg, &Etat, sizeof(Etat));
-                        printk(KERN_INFO "DRIVERMOTOR: Status value send = %c\n", Etat.CharEtat);
-                        break;
+		case RD_VALUE_STATUS:
+				printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
+		        copy_to_user((struct Etat*) arg, &Etat, sizeof(Etat));
+		        printk(KERN_INFO "DRIVERMOTOR: Status value send = %c\n", Etat.CharEtat);
+		        break;
 
-				case ROTATION:
-						printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
-						copy_from_user(&Data, (((int32_t*) arg)*3), sizeof(struct Data);
-						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
-						// appel de la fonction pour faire tourner le moteur de rotation
-						if(Data.Sens == 0){
-							printk("clockwise\n");
-							rotate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
-						else if(Data.Sens == 1){
-							printk("anclockwise\n");
-							rotate(Data.nbPas, anticlockwise);// application la rotation en sens non horaire
-						}
-						else
-							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
-						break;
+		case ROTATION:
+				printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
+				copy_from_user(&Data, arg, sizeof(*Data);
+				printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
+				// appel de la fonction pour faire tourner le moteur de rotation
+				if(Data.Sens == 0){
+					printk("clockwise\n");
+					rotate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
+				else if(Data.Sens == 1){
+					printk("anclockwise\n");
+					rotate(Data.nbPas, anticlockwise);// application la rotation en sens non horaire
+				}
+				else
+					printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
+				break;
 
-				case INCLINAISON:
-						printk(KERN_INFO "DRIVERMOTOR: receve order inclinaison\n");						
-						copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
+		case INCLINAISON:
+				printk(KERN_INFO "DRIVERMOTOR: receve order inclinaison\n");						
+				copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
 
-						printk(KERN_INFO "DRIVERMOTOR: order to do tild %d step in", Data.nbPas);
-						// appel de la fonction pour faire tourner le moteur de rotation
-						if(Data.Sens == 0){
-							printk("clockwise\n");
-							inclinate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
-						else if(Data.Sens == 1){
-							printk("anticlockwise\n");
-							inclinate(Data.nbPas, anticlockwise);}// application la rotation en sens non horaire
-						else
-							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
-						break;
+				printk(KERN_INFO "DRIVERMOTOR: order to do tild %d step in", Data.nbPas);
+				// appel de la fonction pour faire tourner le moteur de rotation
+				if(Data.Sens == 0){
+					printk("clockwise\n");
+					inclinate(Data.nbPas, clockwise);}	// application la rotation en sens horaire
+				else if(Data.Sens == 1){
+					printk("anticlockwise\n");
+					inclinate(Data.nbPas, anticlockwise);}// application la rotation en sens non horaire
+				else
+					printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");						
+				break;
 
-				case ZOOM:
-						printk(KERN_INFO "DRIVERMOTOR: receve order Zoom\n");						
-						copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
+		case ZOOM:
+				printk(KERN_INFO "DRIVERMOTOR: receve order Zoom\n");						
+				copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
 
-						printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation zoom ", Data.nbPas);
-						// appel de la fonction pour faire tourner le moteur de rotation
-						if(Data.Sens == 0){
-							printk("clockwise\n");
-							zoom(Data.nbPas, clockwise);}	// application la rotation en sens horaire
-						else if(Data.Sens == 1){
-							printk("anticlockwise\n");
-							zoom(Data.nbPas, anticlockwise);}// application la rotation en sens non horaire
-						else
-							printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");												
-						break;
+				printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation zoom ", Data.nbPas);
+				// appel de la fonction pour faire tourner le moteur de rotation
+				if(Data.Sens == 0){
+					printk("clockwise\n");
+					zoom(Data.nbPas, clockwise);}	// application la rotation en sens horaire
+				else if(Data.Sens == 1){
+					printk("anticlockwise\n");
+					zoom(Data.nbPas, anticlockwise);}// application la rotation en sens non horaire
+				else
+					printk(KERN_WARNING "DRIVERMOTOR: the chose of sens is not between 0-1\n");												
+				break;
 
-				case STOPONE:
-						printk(KERN_INFO "DRIVERMOTOR: receve order StopOne\n");						
-						copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
-						if(Data.choixMoteur == 1)	// controle si choix moteur rotation
-							stopOne(MoteurRotation);
-						else if(Data.choixMoteur == 2)	// controle si choix moteur inclinaison
-							stopOne(MoteurTilt);
-						else if(Data.choixMoteur == 3)	// controle si choix moteur zoom
-							stopOne(MoteurZoom);	
-						break;
+		case STOPONE:
+				printk(KERN_INFO "DRIVERMOTOR: receve order StopOne\n");						
+				copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
+				if(Data.choixMoteur == 1)	// controle si choix moteur rotation
+					stopOne(MoteurRotation);
+				else if(Data.choixMoteur == 2)	// controle si choix moteur inclinaison
+					stopOne(MoteurTilt);
+				else if(Data.choixMoteur == 3)	// controle si choix moteur zoom
+					stopOne(MoteurZoom);	
+				break;
 
-				case STOPALL:
-						printk(KERN_INFO "DRIVERMOTOR: receve order StopAll\n");
-						copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
-						stopall();
-        }
-        return 0;
+		case STOPALL:
+				printk(KERN_INFO "DRIVERMOTOR: receve order StopAll\n");
+				copy_from_user((struct Data*) arg, &Data , 3*sizeof(int32_t));
+				stopall();
+	}
+	return 0;
 }
 //**************************************************************************************************************//
 //************************************************************************************************************//
