@@ -509,14 +509,16 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		        break;
 
 		case RD_VALUE_STATUS:
-				printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");						
+				printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");
+				Etat.Moteur.Rotation = 1;						
 		        copy_to_user((struct Etat*) arg, &Etat, sizeof(Etat));
+				Etat.Moteur.Rotation = 0;						
 		        printk(KERN_INFO "DRIVERMOTOR: Status value send = %c\n", Etat.CharEtat);
 		        break;
 
 		case ROTATION:
 				printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
-				copy_from_user(&Data, arg, 12;
+				copy_from_user(Data, (void __user *) arg, sizeof(Data);
 				printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
 				// appel de la fonction pour faire tourner le moteur de rotation
 				if(Data.Sens == 0){
