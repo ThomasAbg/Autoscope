@@ -498,8 +498,11 @@ static ssize_t etx_write(struct file *filp, const char __user *buf, size_t len, 
         printk(KERN_INFO "Write function\n");
         return 0;
 }
- 
+#if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,35))
+static int etx_ioctl(struct inode *i, struct file *file, unsigned int cmd, unsigned long arg)
+#else
 static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+#endif
 {
 	switch(cmd) {
 		case WR_VALUE:
@@ -511,12 +514,13 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 		case RD_VALUE_STATUS:
 				printk(KERN_INFO "DRIVERMOTOR: receve order read value Status\n");
 		        copy_to_user((struct Etat*) arg, &Etat, sizeof(Etat));
-		        printk(KERN_INFO "DRIVERMOTOR: Status value send = %c\n", Etat.CharEtat);
+		        printk(KERN_INFO "DRIVERMOTOR: Status value send = %d\n", Etat.CharEtat);
 		        break;
 
 		case ROTATION:
 				printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
-				copy_from_user((struct Data*) arg, &Data, sizeof(Data));
+				copy_from_user(&Data, );
+				copy_to_user((Data *)arg, &Data, sizeof(Data))
 				printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
 				// appel de la fonction pour faire tourner le moteur de rotation
 				if(Data.Sens == 0){
