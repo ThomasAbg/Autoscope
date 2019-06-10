@@ -128,7 +128,7 @@ static int etx_open(struct inode *inode, struct file *file);
 static int etx_release(struct inode *inode, struct file *file);
 static ssize_t etx_read(struct file *filp, char __user *buf, size_t len,loff_t * off);
 static ssize_t etx_write(struct file *filp, const char *buf, size_t len, loff_t * off);
-static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg);
+static long etx_ioctl(struct file *file, unsigned int cmd, struct Datat arg);
 //***********************************************************************************************//
 //***********************************************************************************************//
 
@@ -499,7 +499,7 @@ static ssize_t etx_write(struct file *filp, const char __user *buf, size_t len, 
         return 0;
 }
 
-static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+static long etx_ioctl(struct file *file, unsigned int cmd, struct Data arg)
 {
 	switch(cmd) {
 		case WR_VALUE:
@@ -516,7 +516,7 @@ static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 		case ROTATION:
 				printk(KERN_INFO "DRIVERMOTOR: receve order Rotation\n");						
-				copy_to_user((Data *)arg, &Data, sizeof(Data))
+				copy_to_user(&Data, &Data, sizeof(Data))
 				printk(KERN_INFO "DRIVERMOTOR: order to do %d step in sens of rotation ", Data.nbPas);
 				// appel de la fonction pour faire tourner le moteur de rotation
 				if(Data.Sens == 0){
