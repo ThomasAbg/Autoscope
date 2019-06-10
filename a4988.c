@@ -498,11 +498,8 @@ static ssize_t etx_write(struct file *filp, const char __user *buf, size_t len, 
         printk(KERN_INFO "Write function\n");
         return 0;
 }
-#if (LINUX_VERSION_CODE < KERNEL_VERSION(2,6,35))
-static int etx_ioctl(struct inode *i, struct file *file, unsigned int cmd, unsigned long arg)
-#else
+
 static long etx_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
-#endif
 {
 	switch(cmd) {
 		case WR_VALUE:
