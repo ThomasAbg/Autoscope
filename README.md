@@ -49,7 +49,7 @@ git clone https://github.com/thibaudledo/Autoscope -b mtk3339d mtk3339d
 ## Authors
 
 - [Thibaud Le Doledec](https://github.com/thibaudledo) `<thibaudledo@gmail.com>`
-- [Thomas Lepoix](https://github.com/thomaslepoix) `<thomas.lepoix@gmail.com>`
+- [Thomas Lepoix](https://github.com/thomaslepoix) `<thomas.lepoix@protonmail.ch>`
 - [Thomas Abgrall](https://github.com/ThomasAbg) `<01thomas.abgrall@gmail.com>`
 - [Clément Ailloud](https://github.com/clement-ailloud) `<clem.ailloud@gmail.com>`
 
